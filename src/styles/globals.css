@@ -1,0 +1,84 @@
+@import "./theme.css";
+
+*,*::before,*::after{
+  margin:0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/path/to/your/font/Jost-Regular.woff2') format('woff2'),
+    url('/path/to/your/font/Jost-Regular.woff') format('woff');
+}
+
+body{
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--color-text-default);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family-default);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family-second);
+  font-weight: 700;
+}
+
+h5,
+h6 {
+  font-size: var(--font-family-second);
+}
+
+h1 {
+  font-size: 8.2rem;
+}
+
+h2 {
+  font-size: 4.8rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+body {
+  color: var(--color-text-default);
+  font-size: var(--font-size-default);
+  font-family: var(--font-family-default);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
