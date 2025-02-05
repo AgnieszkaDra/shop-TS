@@ -37,3 +37,6 @@ Możesz użyć [Vite](https://vite.dev/) do przygotowania środowiska z opcją `
 > ⭐ ***README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!***
 > 
 > 🎁 *Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**.* 
+
+Problemy:
+1. usunęłąm dist z .gitignore aby zdeployować aplikację na netlify
