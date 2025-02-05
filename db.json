@@ -1,0 +1,82 @@
+{
+    "products": {
+      "Root": {
+        "id": 1,
+        "category": "blouses",
+        "subcategory": "child",
+        "productName": "Bluza Ball",
+        "name": "(ProductsRoot)",
+        "children": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+        "collectionType": ""
+      },
+      "Child": {
+        "id": 0,
+        "name": "(ProductsChildRoot)",
+        "children": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],
+        "collectionType": ""
+      },
+      "Woman": {
+        "id": 0,
+        "name": "(ProductsWomanRoot)",
+        "children": [22,23],
+        "collectionType": ""
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Bluza Ball",
+          "imageBackground": "ball1a",
+          "imagesCarousel": ["ball1a", "ball1b"],
+          "price": 100,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy",
+          "features": ["bluza wykonana z bawełny", "luźny krój", "ciepła"]
+        },
+        {
+          "id": 2,
+          "name": "Bluza Rabbit",
+          "imageBackground": "rabbit1a",
+          "imagesCarousel": ["rabbit1a", "rabbit1b", "rabbit1c", "rabbit1d", "rabbit1e", "rabbit1f", "rabbit2a", "rabbit2b", "rabbit2c"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 3,
+          "name": "Bluza Skateboard",
+          "imageBackground": "skateboards1a",
+          "imagesCarousel": ["skateboards1a", "skateboards1b", "skateboards1c", "skateboards1d", "skateboards1e"],
+          "price": 150,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 4,
+          "name": "Bluza Violet",
+          "imageBackground": "violet1a",
+          "imagesCarousel": ["violet1a", "violet1b", "violet1c"],
+          "price": 65,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 22,
+          "name": "Opaski Color",
+          "imageBackground": "band1",
+          "imagesCarousel": ["band1", "band2"],
+          "price": 60,
+          "collectionMain": "Kobieta",
+          "collectionType": "Akcesoria"
+        },
+        {
+          "id": 23,
+          "name": "Komplet Winter",
+          "imageBackground": "completBand1",
+          "imagesCarousel": ["completBand1", "completBand2"],
+          "price": 90,
+          "collectionType": "Komplety"
+        }
+      ]
+    }
+  }
+  
