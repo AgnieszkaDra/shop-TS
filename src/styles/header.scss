@@ -1,7 +1,8 @@
-
+@use './colors.scss' as *;
 
 .header {
     height: 10vh;
     position: relative;
-    color: $color-darkgrey
+    color: $color-lightgrey;
+
 }
