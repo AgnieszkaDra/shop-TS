@@ -1,10 +1,9 @@
 import '../styles/header.scss'
-import MainPage from '../ui/Navigation';
+//import BurgerClose from './BurgerClose';
 
 export const BurgerMenu = (): HTMLElement => {
-   
     const button = document.createElement("button");
-    button.id = "burger-menu"; 
+    button.id = "burger-menu";
     button.classList.add("burger-menu");
     button.setAttribute("aria-label", "Toggle navigation");
 
@@ -12,6 +11,10 @@ export const BurgerMenu = (): HTMLElement => {
         const span = document.createElement("span");
         button.appendChild(span);
     }
+
+    // button.addEventListener("click", () => {
+    //     BurgerClose()
+    // });
 
     return button;
 };
