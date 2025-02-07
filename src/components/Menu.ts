@@ -1,6 +1,4 @@
 import '../styles/header.scss';
-import BurgerMenu from '../ui/BurgerMenu';
-import Navigation from '../ui/Navigation';
 import MenuItems from '../constants/categories';
 
 export const Menu = (): HTMLElement => {
