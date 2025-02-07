@@ -21,7 +21,7 @@
         "children": [22,23],
         "collectionType": ""
       },
-      "items": [
+      "All": [
         {
           "id": 1,
           "name": "Bluza Ball",
@@ -60,6 +60,159 @@
           "collectionType": "Bluzy"
         },
         {
+          "id": 5,
+          "name": "Bluza Wolf",
+          "imageBackground": "wolf1a",
+          "imagesCarousel": ["wolf1a", "wolf1b", "wolf1c", "wolf1d"],
+          "price": 78,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 6,
+          "name": "Komplet Violet",
+          "imageBackground": "violetComplet1a",
+          "imagesCarousel": ["violetComplet1a", "violetComplet1b", "violetComplet1c"],
+          "price": 100,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 7,
+          "name": "Komplet Whale",
+          "imageBackground": "whale1a",
+          "imagesCarousel": ["whale1a", "whale1b", "whale1c", "whale1d"],
+          "price": 100,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 8,
+          "name": "Spódnica Cherry",
+          "imageBackground": "cherry1b",
+          "imagesCarousel": ["cherry1a", "cherry1b", "cherry1c"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spódnice i sukienki"
+        },
+        {
+          "id": 9, 
+          "name": "Spódnica Fairy",
+          "imageBackground": "fairy1a",
+          "imagesCarousel": ["fairy1a", "fairy1b"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spódnice i sukienki"
+        },
+        {
+          "id": 10,
+          "name": "Spódnica Hearts",
+          "imageBackground": "hearts1a",
+          "imagesCarousel": ["hearts1a", "hearts1b", "hearts1c"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spódnice i sukienki"
+        },
+        {
+          "id": 11,
+          "name": "Spodnie Violet",
+          "imageBackground": "trousersViolet1a",
+          "imagesCarousel": ["trousersViolet1a", "trousersViolet1b"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 12,
+          "name": "Spodnie Rabbit",
+          "imageBackground": "trousersWithRabbit1a",
+          "imagesCarousel": ["trousersWithRabbit1a", "trousersWithRabbit1b", "trousersWithRabbit1c"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 13,
+          "name": "Spodnie Bear",
+          "imageBackground": "trousers1a",
+          "imagesCarousel": ["trousers1a"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Bluzy"
+        },
+        {
+          "id": 14,
+          "name": "Spodnie Flowers",
+          "imageBackground": "trousers1b",
+          "imagesCarousel": ["trousers1b"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 15,
+          "name": "Spodnie Strips",
+          "imageBackground": "trousers1c",
+          "imagesCarousel": ["trousers1c"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 16,
+          "name": "Spodnie Strips 2",
+          "imageBackground": "trousers1d",
+          "imagesCarousel": ["trousers1d"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 17,
+          "name": "Spodnie Strips 3",
+          "imageBackground": "trousers1e",
+          "imagesCarousel": ["trousers1e"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 18,
+          "name": "Spodnie Skateboards",
+          "imageBackground": "trousers1f",
+          "imagesCarousel": ["trousers1f"],
+          "price": 90,
+          "collectionMain": "Dziecko",
+          "collectionType": "Spodnie"
+        },
+        {
+          "id": 19,
+          "name": "Komplet Bear",
+          "imageBackground": "cap1a",
+          "imagesCarousel": ["cap1a", "cap1b"],
+          "price": 100,
+          "collectionMain": "Dziecko",
+          "collectionType": "Komplety"
+        },
+        {
+          "id": 20,
+          "name": "Czapka Bear",
+          "imageBackground": "cap2a",
+          "imagesCarousel": ["cap2a", "cap2b", "cap2c"],
+          "price": 120,
+          "collectionMain": "Dziecko",
+          "collectionType": "Akcesoria"
+        },
+        {
+          "id": 21,
+          "name": "Worek Szkolny Forest",
+          "imageBackground": "forestBag1a",
+          "imagesCarousel": ["forestBag1a", "forestBag1b", "forestBag1c"],
+          "price": 50,
+          "collectionMain": "Dziecko",
+          "collectionType": "Akcesoria"
+        },
+        {
           "id": 22,
           "name": "Opaski Color",
           "imageBackground": "band1",
@@ -76,6 +229,7 @@
           "price": 90,
           "collectionType": "Komplety"
         }
+        
       ]
     }
   }
