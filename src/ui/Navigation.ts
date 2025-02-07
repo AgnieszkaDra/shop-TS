@@ -1,5 +1,6 @@
 import '../styles/header.scss'
 import BurgerClose from './BurgerClose';
+import Menu from '../components/Menu';
 
 export const Navigation = (): HTMLElement => {
    
@@ -17,7 +18,10 @@ export const Navigation = (): HTMLElement => {
         
         nav.classList.toggle("none"); 
     });
+
+    const menu = Menu()
     nav.appendChild(buttonClose)
+    nav.appendChild(menu)
 
     return nav;
 };
