@@ -14,16 +14,14 @@ async function renderApp() {
   app.append(header, main);
 }
 
-
 function initApp() {
   const initialPath = window.location.pathname;
-  navigate(initialPath); 
-  renderApp(); 
+  console.log(initialPath)
+  navigate(initialPath);
+  renderApp();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
-
- 
 
 
   

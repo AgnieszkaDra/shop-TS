@@ -1,12 +1,11 @@
-export function HomePage() {
-    return `<h1>Home Page</h1><p>Welcome to the Home Page!</p>`;
+export function HomePage(): string {
+    return `<h1>Welcome to Home Page</h1>`;
   }
   
-  export function AboutPage() {
-  
-    return   `<h1>404 Page Not Found</h1><p>Sorry, we couldn't find that page!</p>`;
+  export function AdminPage(): string {
+    return `<h1>Admin Dashboard</h1>`;
   }
   
-  export function NotFoundPage() {
-    return `<h1>404 Page Not Found</h1><p>Sorry, we couldn't find that page!</p>`;
+  export function NotFoundPage(): string {
+    return `<h1>404 - Page Not Found</h1>`;
   }

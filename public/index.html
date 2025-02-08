@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
     <div id="root">
         <div id="content"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
+    <!-- <nav>
+        <a href="/" onclick="handleClick(event, '/')">Home</a>
+        <a href="/about" onclick="handleClick(event, '/about')">About</a>
+        <a href="/admin" onclick="handleClick(event, '/admin')">Admin</a>
+      </nav>
     
-</head>
-<body>
+      <div id="content"></div>
+    
+      <script>
+        function handleClick(event, path) {
+          event.preventDefault();
+          import('./src/router/router.js').then(module => {
+            module.navigate(path);
+          });
+        }
+      </script> -->
 </body>
 </html>

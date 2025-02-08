@@ -1,40 +1,34 @@
-import { HomePage, AboutPage, NotFoundPage } from "../pages/pages";
-
+import { HomePage, AdminPage, NotFoundPage } from "../pages/pages";
 
 type Route = {
   path: string;
-  component: () => string; 
+  component: () => string;
 };
 
 const routes: Route[] = [
-  { path: '/', component: HomePage },
-  { path: '/about', component: AboutPage },
+  { path: "/", component: HomePage },
+  { path: "/admin", component: AdminPage },
+  { path: "/:category", component: () => `<h1>Category Page</h1>` }, 
 ];
 
-
 function getRoute(path: string): Route | undefined {
-  return routes.find(route => route.path === path);
+  return routes.find((route) => {
+   
+    const regex = new RegExp(`^${route.path.replace(':category', '(\\w+)')}$`);
+    return regex.test(path);
+  });
 }
 
 export function navigate(path: string) {
   const route = getRoute(path);
+  const content = document.getElementById("root");
 
-  if (route) {
-    document.getElementById('content')!.innerHTML = route.component(); 
-    window.history.pushState({}, '', path); 
-  } else {
-    document.getElementById('content')!.innerHTML = NotFoundPage(); 
-    window.history.pushState({}, '', '/404'); 
+  if (content) {
+    content.innerHTML = route ? route.component() : NotFoundPage();
+    window.history.pushState({}, "", path);
   }
 }
 
-
-window.addEventListener('popstate', () => {
-  const path = window.location.pathname;
-  const route = getRoute(path);
-  if (route) {
-    document.getElementById('content')!.innerHTML = route.component();
-  } else {
-    document.getElementById('content')!.innerHTML = NotFoundPage();
-  }
+window.addEventListener("popstate", () => {
+  navigate(window.location.pathname);
 });

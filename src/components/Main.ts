@@ -2,6 +2,7 @@ import '../styles/main.scss';
 
 import { Product, Collection } from '../types/ProductsData';
 import { UniqueProductCollection } from '../api/categoriesList';
+import { navigate } from '../router/router';
 
 
 
@@ -29,8 +30,8 @@ export const Main = async (): Promise<HTMLElement> => {
   const productsContainer = document.createElement("section");
   productsContainer.classList.add("section", "products");
   productsContainer.id = "products-container";
-  const categoriesContainer = document.createElement("ul")
-  categoriesContainer.classList.add("categories")
+  const categoriesContainer = document.createElement("ul");
+  categoriesContainer.classList.add("categories");
 
   const categories: { [key in Collection]: Product } = await UniqueProductCollection();
 
@@ -39,28 +40,35 @@ export const Main = async (): Promise<HTMLElement> => {
     listItem.classList.add("categories__item");
     listItem.style.backgroundImage = `url('../../public/assets/${product.imageBackground}.jpg')`;
 
-    const title = document.createElement("h2")
-    title.classList.add("categories__title")
-    title.textContent = collectionType
-   
+    const title = document.createElement("h2");
+    title.classList.add("categories__title");
+    title.textContent = collectionType;
+
     const link = document.createElement("a");
     link.href = `/${collectionType.toLowerCase()}`;
-    const linkSpan = document.createElement("span")
-    
-    linkSpan.textContent = 'Zobacz produkty'
-    
+    const linkSpan = document.createElement("span");
+    linkSpan.textContent = 'Zobacz produkty';
     link.classList.add("categories__link");
-    link.appendChild(linkSpan)
+    link.appendChild(linkSpan);
     const arrowIcon = document.createElement("i");
     arrowIcon.classList.add("fas", "fa-arrow-right");
     const arrowContainer = document.createElement("div");
-    arrowContainer.classList.add("categories__arrow")
-    arrowContainer.appendChild(arrowIcon); 
-    link.appendChild(arrowContainer)
-    
+    arrowContainer.classList.add("categories__arrow");
+    arrowContainer.appendChild(arrowIcon);
+    link.appendChild(arrowContainer);
+
+    link.addEventListener("click", (event: Event) => {
+      event.preventDefault();
+      const path = link.getAttribute("href");
+      console.log(path);
+      if (path) {
+        navigate(path); // Ensure dynamic path works
+      }
+    });
+
     listItem.appendChild(title);
     listItem.appendChild(link);
-    
+
     categoriesContainer.appendChild(listItem);
   });
 
@@ -71,4 +79,3 @@ export const Main = async (): Promise<HTMLElement> => {
 };
 
 export default Main;
-
