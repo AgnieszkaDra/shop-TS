@@ -190,8 +190,8 @@
         {
           "id": 21,
           "name": "Worek Szkolny Forest",
-          "imageBackground": "forestBag1a",
-          "imagesCarousel": ["forestBag1a", "forestBag1b", "forestBag1c"],
+          "imageBackground": "forest-bag1a",
+          "imagesCarousel": ["forest-bag1a", "forest-bag1b", "forest-bag1c"],
           "price": 50,
           "collectionMain": "Dziecko",
           "collectionType": "Akcesoria"
