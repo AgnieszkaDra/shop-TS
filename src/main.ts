@@ -15,6 +15,22 @@ async function renderApp() {
   function initApp() {
     renderApp();
   }
+
+import { navigate } from "./router/router";
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const initialPath = window.location.pathname;
+  navigate(initialPath); 
+});
  
   document.addEventListener('DOMContentLoaded', initApp);
+
+ 
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const initialPath = window.location.pathname;
+    navigate(initialPath); 
+  });
 

@@ -1,5 +1,4 @@
-import { BACK_END_URL } from "./api";
-import { Product, Category } from "../types/ProductsData";
+
 
 export const MenuItems = [
     {
