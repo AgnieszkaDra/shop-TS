@@ -1,36 +1,30 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
-
-async function renderApp() {
-    const app = document.querySelector('#root');
-    if (!app) return;
-  
-    const header = Header();
-    const main = await Main();
-    app.appendChild(header); 
-    app.appendChild(main);
-  }
-  
-
-  function initApp() {
-    renderApp();
-  }
-
 import { navigate } from "./router/router";
 
+async function renderApp() {
+  const app = document.querySelector("#root");
+  if (!app) return;
 
-document.addEventListener('DOMContentLoaded', () => {
+  app.innerHTML = ""; 
+
+  const header = Header();
+  const main = await Main();
+
+  app.append(header, main);
+}
+
+
+function initApp() {
   const initialPath = window.location.pathname;
   navigate(initialPath); 
-});
- 
-  document.addEventListener('DOMContentLoaded', initApp);
+  renderApp(); 
+}
+
+document.addEventListener("DOMContentLoaded", initApp);
 
  
 
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const initialPath = window.location.pathname;
-    navigate(initialPath); 
-  });
+  
 
