@@ -9,3 +9,11 @@ export function HomePage(): string {
   export function NotFoundPage(): string {
     return `<h1>404 - Page Not Found</h1>`;
   }
+
+  export function Category(): string {
+    return `<h1>404 - Page Not Found</h1>`;
+  }
+
+
+
+ 
