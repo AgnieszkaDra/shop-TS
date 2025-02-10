@@ -25,3 +25,5 @@ export type Product = {
   };
 
   export type Collection = 'Bluzy' | 'Spódnice i sukienki' |  'Spodnie' | 'Komplety' |  'Akcesoria'
+
+  export type MainCollection = 'Dziecko' | 'Kobieta' 

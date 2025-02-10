@@ -11,7 +11,7 @@ export const MenuItems = [
     },
     {
       categoryName: "Strefa kobiet",
-      path: "category/Kobieta",
+      path: "/category/Kobieta",
     },
   ];
 

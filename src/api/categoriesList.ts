@@ -1,5 +1,5 @@
 import productsList from "./productsList";
-import { Collection, Product } from "../types/ProductsData";
+import { Collection, MainCollection, Product } from "../types/ProductsData";
 
 export async function fetchCollectionTypes(): Promise<string[]> {
 
@@ -45,6 +45,23 @@ export async function ProductsOfCollection(): Promise<{ [key in Collection]: Pro
       (product: Product) => product.collectionType === collectionType
     );
   });
+
+  return selectedProducts;
+}
+
+export async function ProductsOfMainCollection(): Promise<{ [key in MainCollection]: Product[] }> {
+  const products = await productsList();
+  const collectionTypes = await fetchCollectionTypes(); 
+
+  const selectedProducts: { [key in MainCollection]: Product[] } = {} as { [key in MainCollection]: Product[] };
+
+ 
+  collectionTypes.forEach((collectionMain) => {
+    selectedProducts[collectionMain as MainCollection] = products.filter(
+      (product: Product) => product.collectionMain === collectionMain
+    );
+  });
+  
 
   return selectedProducts;
 }

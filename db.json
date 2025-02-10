@@ -68,14 +68,6 @@
       "price": 100,
       "imageBackground": "ball1a",
       "quantity": 1
-    },
-    {
-      "id": "7b66",
-      "productId": 1,
-      "name": "Bluza Ball",
-      "price": 100,
-      "imageBackground": "ball1a",
-      "quantity": 1
     }
   ],
   "products": {

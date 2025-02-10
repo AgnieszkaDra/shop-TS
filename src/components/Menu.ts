@@ -1,5 +1,6 @@
 import '../styles/header.scss';
 import MenuItems from '../constants/categories';
+import { navigateComponent } from '../router/router';
 
 export const Menu = (): HTMLElement => {
     const wrapper = document.createElement("div");
@@ -17,6 +18,15 @@ export const Menu = (): HTMLElement => {
         link.textContent = item.categoryName;
         link.classList.add("menu__link");
 
+         link.addEventListener("click", (event: Event) => {
+              event.preventDefault();
+              const path = link.getAttribute("href");
+             
+              if (path) {
+                navigateComponent(path);
+              }
+            });
+
         listItem.appendChild(link);
         list.appendChild(listItem);
     });
@@ -27,3 +37,5 @@ export const Menu = (): HTMLElement => {
 };
 
 export default Menu;
+
+

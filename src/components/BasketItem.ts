@@ -1,5 +1,4 @@
 import '../styles/header.scss';
-
 import { navigateComponent } from '../router/router';
 
 export const BasketItem = (): HTMLElement => {
