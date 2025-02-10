@@ -151,4 +151,16 @@
         transform: scale(1.02);
     }
   }
+
+  &__addButton {
+    background: none;
+  width: 100%;
+  padding: 1rem 0;
+  color: $color-darkgrey;
+  text-transform: uppercase;
+  background-color: $color-chocoLighten;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  }
 }

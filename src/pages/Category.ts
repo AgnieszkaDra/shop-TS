@@ -1,5 +1,6 @@
 import { ProductsOfCollection } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
+import { BACK_END_URL } from "../constants/api";
 
 export const Category = async (category: string): Promise<HTMLElement> => {
     const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
@@ -42,7 +43,41 @@ export const Category = async (category: string): Promise<HTMLElement> => {
                 caption.appendChild(title);
                 caption.appendChild(price)
 
+                const button = document.createElement('button')
+                button.classList.add('products__addButton')
+                button.textContent = 'Dodaj do koszyka'
+
+                button.addEventListener("click", async () => {
+                    try {
+                        const cartItem = {
+                            productId: product.id, 
+                            name: product.name,
+                            price: product.price,
+                            imageBackground: product.imageBackground,
+                            quantity: 1 
+                        };
+
+                        const response = await fetch(`${BACK_END_URL}/basket`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(cartItem),
+                        });
+
+                        if (response.ok) {
+                            alert(`${product.name} został dodany do koszyka!`); 
+                        } else {
+                            throw new Error('Wystąpił błąd podczas dodawania do koszyka');
+                        }
+                    } catch (error) {
+                        console.error("Error adding product to cart:", error);
+                        alert("Wystąpił problem podczas dodawania do koszyka.");
+                    }
+                });
+
                 listItem.appendChild(caption);
+                listItem.appendChild(button)
                 productsContainer.appendChild(listItem);
             });
         }
