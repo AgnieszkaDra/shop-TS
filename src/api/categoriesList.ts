@@ -49,4 +49,19 @@ export async function ProductsOfCollection(): Promise<{ [key in Collection]: Pro
   return selectedProducts;
 }
 
+export async function ProductsOfBasket(): Promise<{ [key in Collection]: Product[] }> {
+  const products = await productsList();
+  const collectionTypes = await fetchCollectionTypes(); 
+
+  const selectedProducts: { [key in Collection]: Product[] } = {} as { [key in Collection]: Product[] };
+
+  collectionTypes.forEach((collectionType) => {
+    selectedProducts[collectionType as Collection] = products.filter(
+      (product: Product) => product.collectionType === collectionType
+    );
+  });
+
+  return selectedProducts;
+}
+
 

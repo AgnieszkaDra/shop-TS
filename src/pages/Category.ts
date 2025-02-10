@@ -57,7 +57,7 @@ export const Category = async (category: string): Promise<HTMLElement> => {
                             quantity: 1 
                         };
 
-                        const response = await fetch(`${BACK_END_URL}/basket`, {
+                        const response = await fetch(`${BACK_END_URL}/cart`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
