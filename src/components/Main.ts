@@ -5,6 +5,7 @@ import { UniqueProductCollection } from '../api/categoriesList';
 import { navigate } from '../router/router';
 import LoginItem from './LoginItem';
 
+
 export const Main = async (): Promise<HTMLElement> => {
   const main = document.createElement("main");
   main.classList.add("main");
@@ -14,8 +15,8 @@ export const Main = async (): Promise<HTMLElement> => {
   productsContainer.id = "products-container";
   const categoriesContainer = document.createElement("ul");
   categoriesContainer.classList.add("categories");
-  
-  const login  = LoginItem()
+
+
   const categories: { [key in Collection]: Product } = await UniqueProductCollection();
 
   Object.entries(categories).forEach(([collectionType, product]: [string, Product]) => {
@@ -23,7 +24,7 @@ export const Main = async (): Promise<HTMLElement> => {
     const listItem = document.createElement("li");
     listItem.classList.add("categories__item");
     listItem.style.backgroundImage = `url('../../public/assets/${product.imageBackground}.jpg')`;
-
+    // wiem, że powyższy lik można zapisać z użyciem localhost ??
     const title = document.createElement("h2");
     title.classList.add("categories__title");
     title.textContent = collectionType;
@@ -57,8 +58,10 @@ export const Main = async (): Promise<HTMLElement> => {
   });
 
   productsContainer.appendChild(categoriesContainer);
+const login = LoginItem()
   main.appendChild(login)
   main.appendChild(productsContainer);
+
  
   return main;
 };

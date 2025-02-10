@@ -5,7 +5,6 @@ import { Collection } from "../types/ProductsData";
 import { LoginForm } from "../pages/LoginForm";
 import { InputField } from "../types/InputField";
 import formFields from "../fields/formFields";
-import RegisterForm from "../pages/RegisterForm";
 
 type Route = {
   path: string;
@@ -13,7 +12,6 @@ type Route = {
   component?: (category: Collection) => Promise<HTMLElement>;
   component2?: () => Promise<HTMLElement>; 
   component3?: (inputs: InputField[]) => HTMLElement;
-  component4?: (inputs: InputField[]) => HTMLElement;
   param?: string;
 };
 
@@ -22,9 +20,8 @@ const routes: Route[] = [
   { path: "/admin", page: AdminPage },
   { path: "/:category", component: Category },
   { path: "/cart", component2: Cart }, 
-  { path: "/login", component3: LoginForm},
-  { path: "/register", component4: RegisterForm},
-];
+  { path: "/moje konto", component3: LoginForm},
+  ];
 
 function getRoute(path: string): Route | undefined {
   for (const route of routes) {
@@ -117,42 +114,10 @@ export async function navigateToLogin(path: string) {
     if (route) {
       if (route.component3) { 
         try {
-          content.innerHTML = ""; // Clear previous content
-
-         
-            const component3 = route.component3(formFields);
-            content.appendChild(component3);
-   
-
-        } catch (error) {
-          console.error("Error loading component:", error);
-          content.innerHTML = NotFoundPage();
-        }
-      } else {
-        content.innerHTML = "<h1>404 - Page Not Found</h1>"; // If neither component2 nor component3 is found
-      }
-    } else {
-      content.innerHTML = "<h1>404 - Page Not Found</h1>"; // If no route matches
-    }
-
-    // Update the browser history
-    window.history.pushState({}, "", path);
-  }
-}
-
-export async function navigateToRegister(path: string) {
-
-  const route = getMainRoute2(path);
-  const content = document.getElementById("root");
-
-  if (content) {
-    if (route) {
-      if (route.component4) { 
-        try {
           content.innerHTML = ""; 
 
          
-            const component3 = route.component4(formFields);
+            const component3 = route.component3(formFields);
             content.appendChild(component3);
    
 
@@ -171,6 +136,8 @@ export async function navigateToRegister(path: string) {
     window.history.pushState({}, "", path);
   }
 }
+
+
 
 window.addEventListener("popstate", () => {
   navigate(window.location.pathname);

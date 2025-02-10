@@ -1,4 +1,5 @@
 import { InputField } from "../types/InputField";
+import { BACK_END_URL } from "../constants/api";
 import validateForm from "./validateForm";
 
 async function hashPassword(password: string): Promise<string> {
@@ -23,6 +24,11 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
     });
 
     const errors = await validateForm(inputs, formData, form);
+     // if(errors.length <= 0 && type === 'login') {
+     // const findLinkToLogin = document.querySelector('#login');
+     // console.log(findLinkToLogin)
+      // chciałabym dopisać na głównej stronie zalogowano jako użytkownik: 
+   // }
     if (errors.length > 0) {
       console.error("Form validation failed.");
       return;
@@ -40,19 +46,19 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
       return await resp.json();
     }
 
-    const url = "http://localhost:5000/users";
+    const url = `${BACK_END_URL}/users`;
 
     if (type === "register") {
       try {
         const body = formData;
-        const data = await request<User>(url, {
+        const data = await request<User>(url, { // ta data nie jest używana dlaczego?
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(body),
         });
-        console.log("User registered:", data);
+      
       } catch (err) {
         console.error("Registration Error:", err);
       }
@@ -63,10 +69,12 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
         const users = await request<User[]>(url);
         const user = users.find(
           (u) => u.email === formData.email && u.password === formData.password
+         
         );
 
         if (user) {
           console.log("User logged in:", user);
+         
         } else {
           console.error("Invalid email or password.");
         }

@@ -28,10 +28,24 @@ export const RegisterForm = (inputs: InputField[]): HTMLElement => {
   submitButton.className = 'button';
   submitButton.type = 'submit';
   submitButton.textContent = 'Send';
+
+  const switchContainer = document.createElement('div');
+  switchContainer.className = 'switch-container';
+
+  const registerButton = document.createElement('button');
+  registerButton.textContent = 'Register';
+  registerButton.className = 'switch-button';
+
+  const loginButton = document.createElement('button');
+  loginButton.textContent = 'Login';
+  loginButton.className = 'switch-button';
+
+  switchContainer.appendChild(registerButton);
+  switchContainer.appendChild(loginButton);
       
   wrapper.appendChild(submitButton);
 
-  submitForm(wrapper, inputs, 'register');
+  submitForm(wrapper, filteredInputs, 'register');
   return wrapper;
 
 }

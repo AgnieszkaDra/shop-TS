@@ -8,18 +8,18 @@ export const LoginItem = (): HTMLElement => {
 
     const basketLink = document.createElement("a");
     basketLink.setAttribute('id', 'login');
-    basketLink.href = `/login`;
+    basketLink.href = `/moje konto`;
     const basket = document.createElement('h3');
     basket.textContent = 'Zaloguj się';
     basketLink.appendChild(basket)
     wrapper.appendChild(basketLink);
 
-    const findLinkToBasket = wrapper.querySelector('#login');
-  if (findLinkToBasket) {
-      findLinkToBasket.addEventListener("click", (event) => {
+    const findLinkToLogin = wrapper.querySelector('#login');
+  if (findLinkToLogin) {
+      findLinkToLogin.addEventListener("click", (event) => {
         event.preventDefault();
        
-        const path = findLinkToBasket.getAttribute("href");
+        const path = findLinkToLogin.getAttribute("href");
   
         if (path) {
           navigateToLogin(path);

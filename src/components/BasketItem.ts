@@ -11,6 +11,7 @@ export const BasketItem = (): HTMLElement => {
     basketLink.href = `/cart`;
     const basket = document.createElement('h3');
     basket.textContent = 'Koszyk';
+    // jak zaimportować ikonę koszyka w czystym JS
     basketLink.appendChild(basket)
     wrapper.appendChild(basketLink);
 

@@ -1,5 +1,65 @@
 {
-  
+  "users": [
+    {
+      "id": 1,
+      "username": "testuser",
+      "password": "password123"
+    },
+    {
+      "id": "ae4b",
+      "name": "Agnieszka Draganczyk",
+      "day": "14",
+      "month": "1",
+      "year": "1800",
+      "email": "agnieszka.127@interia.pl",
+      "password": "f29a448b780745bf2e10667f46c442b102e75e76a46a1fff969641866225ab56"
+    },
+    {
+      "id": "30cc",
+      "name": "Agnieszka Draganczyk",
+      "day": "14",
+      "month": "1",
+      "year": "1800",
+      "email": "agnieszka.127@interia.pl",
+      "password": "5d530613969feac08946e337b5f3b1189b2f0b0ca73a812f4b83a504a0c773b2"
+    },
+    {
+      "id": "39e3",
+      "name": "Ala",
+      "day": "10",
+      "month": "1",
+      "year": "1990",
+      "email": "agnieszka.127@interia.pl",
+      "password": "df0492b9b264441832d8a3fc4a4334ffe01545f5f399b093f545fed15cca2796"
+    },
+    {
+      "id": "b8ad",
+      "name": "Ala",
+      "day": "10",
+      "month": "1",
+      "year": "1990",
+      "email": "agnieszka.127@interia.pl",
+      "password": "d1974e0e3e575b6dadb40f080dae05025f574cb23e5cababcac0f50cf2619549"
+    },
+    {
+      "id": "33c3",
+      "name": "Ala",
+      "day": "10",
+      "month": "1",
+      "year": "1990",
+      "email": "agnieszka.127@interia.pl",
+      "password": "55a9f4f8994b1bbf2058ea38c8efb6c459000814d5f39c087002571639e6230e"
+    },
+    {
+      "id": "1f2b",
+      "name": "Ala",
+      "day": "10",
+      "month": "1",
+      "year": "1990",
+      "email": "agnieszka.127@interia.pl",
+      "password": "5d530613969feac08946e337b5f3b1189b2f0b0ca73a812f4b83a504a0c773b2"
+    }
+  ],
   "cart": [
     {
       "id": "144a",

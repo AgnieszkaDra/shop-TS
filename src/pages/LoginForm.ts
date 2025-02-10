@@ -1,7 +1,8 @@
-import { navigateToRegister } from '../router/router';
+
 import { InputField } from '../types/InputField';
 import createFields from '../utils/createFields';
 import { submitForm } from '../utils/submitForm';
+import RegisterForm from './RegisterForm';
 
 
 export const createWrapperForForm = (inputs: InputField[], className: string): HTMLFormElement => {
@@ -10,8 +11,6 @@ export const createWrapperForForm = (inputs: InputField[], className: string): H
   form.setAttribute("novalidate", "");
 
   form.classList.add(`form--${className}`);
-
-
 
   return form;
 }
@@ -44,14 +43,16 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
 
   registerLink.addEventListener('click', (event) => {
     event.preventDefault();
-    navigateToRegister('/register');
+    wrapper.innerHTML = ''
+    const register = RegisterForm(inputs)
+    wrapper.appendChild(register)
   });
       
   wrapper.appendChild(submitButton);
   wrapper.appendChild(h3)
   wrapper.appendChild(registerLink)
 
-  submitForm(wrapper, inputs, 'login');
+  submitForm(wrapper, filteredInputs, 'login');
   return wrapper;
 
 }
