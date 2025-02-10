@@ -1,7 +1,9 @@
-import { navigateComponent } from '../router/router';
+import { navigateComponent, navigateToRegister } from '../router/router';
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
+import BasketItem from './BasketItem';
+import LoginItem from './LoginItem';
 
 export const Header = (): HTMLElement => {
   const header = document.createElement("header");
@@ -22,31 +24,14 @@ export const Header = (): HTMLElement => {
 
   mobileWrapper.appendChild(burgerMenu);
 
-  const link = document.createElement("a");
-  link.href = `/cart`;
-  const basket = document.createElement('h3')
-  basket.textContent = 'Koszyk'
-  link.appendChild(basket)
+  const basket = BasketItem()
 
-   link.addEventListener("click", (event: Event) => {
-        event.preventDefault();
-        const path = link.getAttribute("href");
-       
-        if (path) {
-          navigateComponent(path);
-        }
-      });
- 
+  mobileWrapper.appendChild(basket);
 
-  mobileWrapper.appendChild(link)
-
-
- 
-  header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
 
   return header;
+
 };
 
 export default Header;
-

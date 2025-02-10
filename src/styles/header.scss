@@ -4,6 +4,7 @@
     height: 10vh;
     position: relative;
     color: $color-smokeWhite;
+    border: 3px solid red;
 }
 
 .burger-menu {
@@ -113,6 +114,16 @@
       } 
   }
 
+}
+
+.login-link {
+  padding-top: 10px;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
 }
 
 

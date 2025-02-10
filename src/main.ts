@@ -10,7 +10,7 @@ async function renderApp() {
 
   const header = Header();
   const main = await Main();
-
+  console.log(document.querySelector("a[href='/cart']"));
   app.append(header, main);
 }
 

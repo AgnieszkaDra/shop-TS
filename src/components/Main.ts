@@ -3,6 +3,7 @@ import '../styles/main.scss';
 import { Product, Collection } from '../types/ProductsData';
 import { UniqueProductCollection } from '../api/categoriesList';
 import { navigate } from '../router/router';
+import LoginItem from './LoginItem';
 
 export const Main = async (): Promise<HTMLElement> => {
   const main = document.createElement("main");
@@ -13,7 +14,8 @@ export const Main = async (): Promise<HTMLElement> => {
   productsContainer.id = "products-container";
   const categoriesContainer = document.createElement("ul");
   categoriesContainer.classList.add("categories");
-
+  
+  const login  = LoginItem()
   const categories: { [key in Collection]: Product } = await UniqueProductCollection();
 
   Object.entries(categories).forEach(([collectionType, product]: [string, Product]) => {
@@ -55,8 +57,9 @@ export const Main = async (): Promise<HTMLElement> => {
   });
 
   productsContainer.appendChild(categoriesContainer);
+  main.appendChild(login)
   main.appendChild(productsContainer);
-
+ 
   return main;
 };
 
