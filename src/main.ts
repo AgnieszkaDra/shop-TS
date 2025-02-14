@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import { navigate } from "./router/router";
+import './styles/globals.scss'
 
 async function renderApp() {
   const app = document.querySelector("#root");

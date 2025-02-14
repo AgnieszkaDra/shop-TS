@@ -23,7 +23,7 @@ export const Main = async (): Promise<HTMLElement> => {
  
     const listItem = document.createElement("li");
     listItem.classList.add("categories__item");
-    listItem.style.backgroundImage = `url('../../public/assets/${product.imageBackground}.jpg')`;
+    listItem.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
     // wiem, że powyższy lik można zapisać z użyciem localhost ??
     const title = document.createElement("h2");
     title.classList.add("categories__title");
@@ -58,8 +58,8 @@ export const Main = async (): Promise<HTMLElement> => {
   });
 
   productsContainer.appendChild(categoriesContainer);
-const login = LoginItem()
-  main.appendChild(login)
+//const login = LoginItem()
+ // main.appendChild(login)
   main.appendChild(productsContainer);
 
  

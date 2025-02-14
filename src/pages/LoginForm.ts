@@ -1,11 +1,11 @@
-
 import { InputField } from '../types/InputField';
 import createFields from '../utils/createFields';
 import { submitForm } from '../utils/submitForm';
 import RegisterForm from './RegisterForm';
+import formFields from '../fields/formFields';
+import '../styles/main.scss';
 
-
-export const createWrapperForForm = (inputs: InputField[], className: string): HTMLFormElement => {
+export const createWrapperForForm = (className: string): HTMLFormElement => {
   const form = document.createElement('form');
   form.className = 'form';
   form.setAttribute("novalidate", "");
@@ -15,45 +15,73 @@ export const createWrapperForForm = (inputs: InputField[], className: string): H
   return form;
 }
 
-
-
 export const LoginForm = (inputs: InputField[]): HTMLElement => {
- 
-  const wrapper = createWrapperForForm(inputs, 'login');
 
+  const container = document.createElement('div')
+  container.className = 'container-login'
+  container.classList.toggle('block')
+
+  const wrapperForm = document.createElement('div')
+  wrapperForm.className = 'form__wrapper'
+ 
+  const form = createWrapperForForm('login')
+  const formTitle = document.createElement('h2')
+  formTitle.className = 'form__title'
+  formTitle.textContent = 'Logowanie'
+  
   const filteredInputs: InputField[] = inputs.filter(input => input.category === 'login');
     filteredInputs.forEach(element => {
     const input = createFields.createFields(element);
-    wrapper.appendChild(input);
+    form.appendChild(input);
   });
 
+  
   const submitButton = document.createElement('button');
   submitButton.className = 'button';
+  submitButton.classList.add('form__button')
   submitButton.type = 'submit';
-  submitButton.textContent = 'Send';
+  submitButton.textContent = 'Zaloguj się';
 
-  const h3 = document.createElement('h3')
-  h3.textContent = 'Nie masz konta?'
+  const wrapperFoot = document.createElement('p')
+  wrapperFoot.classList.add('form__foot')
+  wrapperFoot.textContent = 'Nie masz konta?'
 
   const registerLink = document.createElement('a');
-  registerLink.className = 'button'; 
-  registerLink.href = '/register'; 
+  registerLink.className = 'form__foot__link'; 
   registerLink.textContent = 'Zarejestruj się';
-
 
   registerLink.addEventListener('click', (event) => {
     event.preventDefault();
-    wrapper.innerHTML = ''
-    const register = RegisterForm(inputs)
-    wrapper.appendChild(register)
-  });
-      
-  wrapper.appendChild(submitButton);
-  wrapper.appendChild(h3)
-  wrapper.appendChild(registerLink)
+   
+    const containerLogin = document.querySelector('.container-login')
+    if (containerLogin) {
+      container.classList.toggle('block')
+    }
 
-  submitForm(wrapper, filteredInputs, 'login');
-  return wrapper;
+    const registerLogin = document.querySelector('.container-register')
+    if (registerLogin) {
+      container.classList.toggle('block')
+    }
+
+    const register = RegisterForm(formFields)
+    const containerForms = document.querySelector('.container-forms')
+    if (containerForms) {
+      containerForms.innerHTML =''
+      containerForms.appendChild(register)
+    }
+  });
+
+  wrapperFoot.appendChild(registerLink)
+
+  wrapperForm.appendChild(form)
+  wrapperForm.appendChild(wrapperFoot)
+  form.appendChild(submitButton);
+
+  container.appendChild(formTitle)
+  container.appendChild(wrapperForm)
+
+  submitForm(form, filteredInputs, 'login');
+  return container;
 
 }
 

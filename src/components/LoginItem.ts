@@ -1,6 +1,7 @@
 import '../styles/header.scss';
 
 import { navigateToLogin } from '../router/router';
+import LoginWrapper from './LoginWrapper';
 
 export const LoginItem = (): HTMLElement => {
     const wrapper = document.createElement("div");
@@ -23,6 +24,11 @@ export const LoginItem = (): HTMLElement => {
   
         if (path) {
           navigateToLogin(path);
+       
+          // const loginForm = document.querySelector('.container-login') as HTMLElement;
+          // if (loginForm) {
+          //   loginForm.classList.toggle('block')
+          // }
         }
       });
     }
@@ -30,3 +36,4 @@ export const LoginItem = (): HTMLElement => {
 };
 
 export default LoginItem;
+
