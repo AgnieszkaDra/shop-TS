@@ -2,8 +2,8 @@
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
-import BasketItem from './BasketItem';
-import LoginItem from './LoginItem';
+import BasketIcon from './BasketIcon';
+import LoginIcon from './LoginIcon';
 
 export const Header = (): HTMLElement => {
   const header = document.createElement("header");
@@ -22,18 +22,20 @@ export const Header = (): HTMLElement => {
     navMenu.classList.toggle("none");
   });
 
-
   mobileWrapper.appendChild(burgerMenu);
   header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
-  const basket = BasketItem()
-  const login = LoginItem()
 
-  mobileWrapper.appendChild(basket);
- mobileWrapper.appendChild(login);
+  const actionsWrapper = document.createElement("div");
+  actionsWrapper.className = 'actions'
+  const basket = BasketIcon()
+  const login = LoginIcon()
 
- // loginItem nie działa jako link w Header. - kompletnie nie rozumiem
+  actionsWrapper.appendChild(basket)
+  actionsWrapper.appendChild(login)
 
+  mobileWrapper.appendChild(actionsWrapper);
+  
   header.appendChild(mobileWrapper);
 
   return header;

@@ -1,20 +1,24 @@
-import '../styles/header.scss';
 import { navigateComponent } from '../router/router';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import '../styles/header.scss';
 
-export const BasketItem = (): HTMLElement => {
+export const BasketIcon = (): HTMLElement => {
     const wrapper = document.createElement("div");
+    wrapper.className = 'basket__wrapper'
   
-
     const basketLink = document.createElement("a");
     basketLink.setAttribute('id', 'basket');
     basketLink.href = `/cart`;
-    const basket = document.createElement('h3');
-    basket.textContent = 'Koszyk';
-    // jak zaimportować ikonę koszyka w czystym JS
-    basketLink.appendChild(basket)
+
+    const basketIcon = document.createElement('i');
+    basketIcon.classList.add('fas', 'fa-shopping-basket');
+    basketIcon.style.fontSize = '1.5em';
+    
+    basketLink.appendChild(basketIcon)
     wrapper.appendChild(basketLink);
 
     const findLinkToBasket = wrapper.querySelector('#basket');
+
   if (findLinkToBasket) {
       findLinkToBasket.addEventListener("click", (event) => {
         event.preventDefault();
@@ -29,4 +33,4 @@ export const BasketItem = (): HTMLElement => {
     return wrapper;
 };
 
-export default BasketItem;
+export default BasketIcon;

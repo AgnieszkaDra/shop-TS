@@ -23,7 +23,7 @@ const routes: Route[] = [
   { path: "/admin", page: AdminPage },
   { path: "/:category", component: Category },
   { path: "/cart", component2: Cart }, 
-  { path: "/moje konto", component3: () => LoginWrapper('login') }, // Fix: Function reference
+  { path: "/login", component3: () => LoginWrapper('login') }, // Fix: Function reference
 ];
 
 function getRoute(path: string): Route | undefined {
