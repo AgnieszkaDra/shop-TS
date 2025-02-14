@@ -1,6 +1,7 @@
 import { InputField } from "../types/InputField";
 import { BACK_END_URL } from "../constants/api";
 import validateForm from "./validateForm";
+import loggedUser from "../api/loggedUser";
 
 async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -73,7 +74,7 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
         );
 
         if (user) {
-          console.log("User logged in:", user);
+          await loggedUser(user)
          
         } else {
           console.error("Invalid email or password.");

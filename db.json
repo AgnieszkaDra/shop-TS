@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "testuser",
       "password": "password123"
     },
@@ -58,8 +58,21 @@
       "year": "1990",
       "email": "agnieszka.127@interia.pl",
       "password": "5d530613969feac08946e337b5f3b1189b2f0b0ca73a812f4b83a504a0c773b2"
+    },
+    {
+      "id": "7e92",
+      "name": "Ola",
+      "email": "agnieszka.127@interia.pl",
+      "password": "55a9f4f8994b1bbf2058ea38c8efb6c459000814d5f39c087002571639e6230e"
     }
   ],
+  "loggedUser": {
+    "id": "dde6",
+    "name": "Aga",
+    "email": "agnieszka.127@interia.pl",
+    "password": "0c07ca714351f6303968b55ace7d2b4cd0c2a16e67d4db5df133e988c63f0674",
+    "lastLogin": "2025-02-14T15:10:47.279Z"
+  },
   "cart": [
     {
       "id": "144a",
