@@ -1,9 +1,8 @@
-
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
-import BasketIcon from './BasketIcon';
-import LoginIcon from './LoginIcon';
+import  { BasketIcon } from './BasketIcon';
+import  { LoginIcon } from './LoginIcon';
 
 export const Header = (): HTMLElement => {
   const header = document.createElement("header");

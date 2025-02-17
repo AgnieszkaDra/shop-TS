@@ -1,4 +1,4 @@
-import { navigateComponent, navigateToLogin } from '../router/router';
+import { navigateToLogin } from '../router/router';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/header.scss';
 

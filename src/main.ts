@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { navigate } from "./router/router";
+
 import './styles/globals.scss'
 
 async function renderApp() {
@@ -16,12 +16,11 @@ async function renderApp() {
 }
 
 function initApp() {
-  const initialPath = window.location.pathname;
-  navigate(initialPath);
-  renderApp();
+ renderApp();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
 
 
   

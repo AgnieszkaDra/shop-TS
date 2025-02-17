@@ -10,11 +10,13 @@ export const Menu = (): HTMLElement => {
     list.classList.add("menu__list");
 
     MenuItems.forEach((item) => {
+        console.log(item)
         const listItem = document.createElement("li");
         listItem.classList.add("menu__item");
 
         const link = document.createElement("a");
         link.href = item.path;
+        console.log(item.path)
         link.textContent = item.categoryName;
         link.classList.add("menu__link");
 
@@ -37,5 +39,7 @@ export const Menu = (): HTMLElement => {
 };
 
 export default Menu;
+
+
 
 

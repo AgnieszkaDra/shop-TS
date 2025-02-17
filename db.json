@@ -60,10 +60,16 @@
       "password": "5d530613969feac08946e337b5f3b1189b2f0b0ca73a812f4b83a504a0c773b2"
     },
     {
-      "id": "7e92",
-      "name": "Ola",
+      "id": "4291",
+      "name": "Agnieszka Draganczyk",
       "email": "agnieszka.127@interia.pl",
-      "password": "55a9f4f8994b1bbf2058ea38c8efb6c459000814d5f39c087002571639e6230e"
+      "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d"
+    },
+    {
+      "id": "dde6",
+      "name": "Aga",
+      "email": "agnieszka.127@interia.pl",
+      "password": "0c07ca714351f6303968b55ace7d2b4cd0c2a16e67d4db5df133e988c63f0674"
     }
   ],
   "loggedUser": {
@@ -71,11 +77,29 @@
     "name": "Aga",
     "email": "agnieszka.127@interia.pl",
     "password": "0c07ca714351f6303968b55ace7d2b4cd0c2a16e67d4db5df133e988c63f0674",
-    "lastLogin": "2025-02-14T15:10:47.279Z"
+    "lastLogin": "2025-02-14T15:29:24.338Z"
   },
+  "selectedProduct": [
+    {
+      "id": "366d",
+      "productId": 1,
+      "name": "Bluza Ball",
+      "path": "bluzaball",
+      "price": 100,
+      "imageBackground": "ball.1a"
+    }
+  ],
   "cart": [
     {
       "id": "144a",
+      "productId": 1,
+      "name": "Bluza Ball",
+      "price": 100,
+      "imageBackground": "ball1a",
+      "quantity": 1
+    },
+    {
+      "id": "6662",
       "productId": 1,
       "name": "Bluza Ball",
       "price": 100,
@@ -88,7 +112,8 @@
       {
         "id": 1,
         "name": "Bluza Ball",
-        "imageBackground": "ball1a",
+        "path": "bluzaball",
+        "imageBackground": "ball.1a",
         "imagesCarousel": [
           "ball1a",
           "ball1b"
@@ -105,7 +130,8 @@
       {
         "id": 2,
         "name": "Bluza Rabbit",
-        "imageBackground": "rabbit1a",
+        "path": "bluzarabbit",
+        "imageBackground": "rabbit.1a",
         "imagesCarousel": [
           "rabbit1a",
           "rabbit1b",
@@ -124,7 +150,8 @@
       {
         "id": 3,
         "name": "Bluza Skateboard",
-        "imageBackground": "skateboards1a",
+        "path": "bluzaskateboard",
+        "imageBackground": "skateboards.1a",
         "imagesCarousel": [
           "skateboards1a",
           "skateboards1b",
@@ -139,6 +166,7 @@
       {
         "id": 4,
         "name": "Bluza Violet",
+        "path": "bluzaviolet",
         "imageBackground": "violet1a",
         "imagesCarousel": [
           "violet1a",
@@ -152,6 +180,7 @@
       {
         "id": 5,
         "name": "Bluza Wolf",
+        "path": "bluzawolf",
         "imageBackground": "wolf1a",
         "imagesCarousel": [
           "wolf1a",
@@ -166,7 +195,8 @@
       {
         "id": 6,
         "name": "Komplet Violet",
-        "imageBackground": "violetComplet1a",
+        "path": "kompletviolet",
+        "imageBackground": "violetComplet.1a",
         "imagesCarousel": [
           "violetComplet1a",
           "violetComplet1b",
@@ -179,6 +209,7 @@
       {
         "id": 7,
         "name": "Komplet Whale",
+        "path": "kompletwhale",
         "imageBackground": "whale1a",
         "imagesCarousel": [
           "whale1a",
@@ -193,7 +224,8 @@
       {
         "id": 8,
         "name": "Spódnica Cherry",
-        "imageBackground": "cherry1b",
+        "path": "spodnicacherry",
+        "imageBackground": "cherry.1b",
         "imagesCarousel": [
           "cherry1a",
           "cherry1b",
@@ -206,6 +238,7 @@
       {
         "id": 9,
         "name": "Spódnica Fairy",
+        "path": "spodnicafairy",
         "imageBackground": "fairy1a",
         "imagesCarousel": [
           "fairy1a",
@@ -218,7 +251,8 @@
       {
         "id": 10,
         "name": "Spódnica Hearts",
-        "imageBackground": "hearts1a",
+        "path": "spodnicahearts",
+        "imageBackground": "hearts.1a",
         "imagesCarousel": [
           "hearts1a",
           "hearts1b",
@@ -231,7 +265,8 @@
       {
         "id": 11,
         "name": "Spodnie Violet",
-        "imageBackground": "trousersViolet1a",
+        "path": "spodnieviolet",
+        "imageBackground": "trousersViolet.1a",
         "imagesCarousel": [
           "trousersViolet1a",
           "trousersViolet1b"
@@ -243,7 +278,8 @@
       {
         "id": 12,
         "name": "Spodnie Rabbit",
-        "imageBackground": "trousersWithRabbit1a",
+        "path": "spodnieviolet",
+        "imageBackground": "trousersWithRabbit.1a",
         "imagesCarousel": [
           "trousersWithRabbit1a",
           "trousersWithRabbit1b",
@@ -256,7 +292,8 @@
       {
         "id": 13,
         "name": "Spodnie Bear",
-        "imageBackground": "trousers1a",
+        "path": "spodniebear",
+        "imageBackground": "trousers.1a",
         "imagesCarousel": [
           "trousers1a"
         ],
@@ -267,7 +304,8 @@
       {
         "id": 14,
         "name": "Spodnie Flowers",
-        "imageBackground": "trousers1b",
+        "path": "spodnieflowers",
+        "imageBackground": "trousers.1b",
         "imagesCarousel": [
           "trousers1b"
         ],
@@ -278,7 +316,8 @@
       {
         "id": 15,
         "name": "Spodnie Strips",
-        "imageBackground": "trousers1c",
+        "path": "spodniestrips",
+        "imageBackground": "trousers.1c",
         "imagesCarousel": [
           "trousers1c"
         ],
@@ -289,6 +328,7 @@
       {
         "id": 16,
         "name": "Spodnie Strips 2",
+        "path": "spodniestrips2",
         "imageBackground": "trousers1d",
         "imagesCarousel": [
           "trousers1d"
@@ -300,7 +340,8 @@
       {
         "id": 17,
         "name": "Spodnie Strips 3",
-        "imageBackground": "trousers1e",
+        "path": "spodniestrips3",
+        "imageBackground": "trousers.1e",
         "imagesCarousel": [
           "trousers1e"
         ],
@@ -311,7 +352,8 @@
       {
         "id": 18,
         "name": "Spodnie Skateboards",
-        "imageBackground": "trousers1f",
+        "path": "spodnieskateboards",
+        "imageBackground": "trousers.1f",
         "imagesCarousel": [
           "trousers1f"
         ],
@@ -322,7 +364,8 @@
       {
         "id": 19,
         "name": "Komplet Bear",
-        "imageBackground": "cap1a",
+        "path": "kompletbear",
+        "imageBackground": "cap.1a",
         "imagesCarousel": [
           "cap1a",
           "cap1b"
@@ -334,7 +377,8 @@
       {
         "id": 20,
         "name": "Czapka Bear",
-        "imageBackground": "cap2a",
+        "path": "czapkabear",
+        "imageBackground": "cap.2a",
         "imagesCarousel": [
           "cap2a",
           "cap2b",
@@ -347,7 +391,8 @@
       {
         "id": 21,
         "name": "Worek Szkolny Forest",
-        "imageBackground": "forest-bag1a",
+        "path": "schoolbagforest",
+        "imageBackground": "forest-bag.1a",
         "imagesCarousel": [
           "forest-bag1a",
           "forest-bag1b",
@@ -359,11 +404,12 @@
       },
       {
         "id": 22,
-        "name": "Opaski Color",
-        "imageBackground": "band1",
+        "name": "Opaski",
+        "path": "bands",
+        "imageBackground": "band.1a",
         "imagesCarousel": [
-          "band1",
-          "band2"
+          "band.1b",
+          "band.1b"
         ],
         "price": 60,
         "collectionMain": "Kobieta",
@@ -372,10 +418,11 @@
       {
         "id": 23,
         "name": "Komplet Winter",
-        "imageBackground": "completBand1",
+        "path": "skompletwinter",
+        "imageBackground": "complet.1a",
         "imagesCarousel": [
-          "completBand1",
-          "completBand2"
+          "complet.1b",
+          "complet.1c"
         ],
         "price": 90,
         "collectionType": "Komplety"

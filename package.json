@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "json-server --watch db.json --port 4000"
+    "start": "json-server --watch db.json --port 5050"
   },
   "devDependencies": {
     "@types/node-sass": "^4.11.8",
