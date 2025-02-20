@@ -59,6 +59,8 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
           },
           body: JSON.stringify(body),
         });
+
+        //localStorage.setItem('currentUser', JSON.stringify(data));
       
       } catch (err) {
         console.error("Registration Error:", err);
