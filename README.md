@@ -1,42 +1,69 @@
-> ⭐ ***README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!***
-> 
-> 🎁 *Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**.* 
+﻿# Shop-TS
+This project is an e-commerce web application built using TypeScript, json-server, and Vite. The application features a client-side interface for users to browse products, manage a shopping cart, and place orders. On the admin side, there’s an interface for managing orders and tracking their status. The application focuses on strong data validation and type safety to ensure robustness and clarity.
 
-&nbsp;
+## Features
+
+Client-Side
+
+1. **User Registration**: Allows users to create an account.
+2. **User Login**: Provides a secure login system for registered users.
+3. **Product List**: Displays a list of products available for purchase.
+4. **Shopping Cart**: Stores the selected products for purchase.
+5. **Order Creation**: Enables users to place an order based on their cart.
+6. **Order History**: Displays a history of all orders placed by the user.
+7. **Filtering Options**: Filter products by category, price, and availability.
+8. **Sorting Capabilities**: Sort products by name and price in ascending or descending order.
+9. **Responsive Design**: User-friendly interface compatible with various devices and screen size
+
+Admin-Side 
+
+1. **Order Management**: Admins can view all customer orders.
+2. **Order Status Update**: Admins can change the order status (e.g., "In preparation," "Shipped," "Delivered," "Returned").
+
+## Technical Details
+
+- Backend:  json-server simulates a REST API to store and retrieve product, user, and order data.
+- Frontend: TypeScript is used for strict type safety and validation, ensuring data integrity and minimizing errors.
+- Separation of Client and Admin: The client-side and admin-side interfaces are separated by index.html (for users) and admin.html (for admins), ensuring clear boundaries between the two sections.
+
+## Validation & Types
+
+- Data Validation: All user inputs and API interactions are validated to ensure consistency and security.
+- Types: TypeScript is used throughout the project, with types defined for users, products, and orders to prevent incorrect data from being passed around.
 
 
-# TypeScript: Zaawansowane typowanie
+## Installation
+To run this project locally, follow these steps:
 
-Twoim zadaniem będzie przygotować działający sklep internetowy (bez płatności).
+1. **Clone the Repository**  
 
-Wykorzystując [json-server](https://www.npmjs.com/package/json-server) będziesz przechowywał informacje o produktach, klinetach oraz zamówieniach. 
+   Run the following command to clone the repository and navigate into the project directory:  
 
-Po stronie klienta niezbędne są funkcjonalności:
-- rejestracja użytkownika
-- logowanie użytkownika
-- lista produktów
-- koszyk przechowujący listę wybranych produktów
-- możliwość utworzenia zamówienia
-- dostępna historia zamówień
+   ```bash
+   git clone https://github.com/AgnieszkaDra/shop-TS
+   
 
-Po stronie administratora
-- przeglądanie zamówień
-- oznaczanie zamówienia jako "w przygotowaniu, wysłane, odebrane, zwrot"
+2. **Install Dependencies**  
 
-Resztę pozycji jest modyfikowana z poziomu pliku JSON.
+   Make sure you have [Node.js](https://nodejs.org/) installed, then run the following command:  
 
-Pamiętaj o typach i walidacji dla danych przesyłanych od użytkonika oraz z/do API.
+   ```bash
+   npm install
 
-Rozdzielenie klient/admin wystarczy zrobić przez `index.html` oraz `admin.html`.
-Hasło dla pliku `admin.html` nie jest wymagane.
 
-Możesz użyć [Vite](https://vite.dev/) do przygotowania środowiska z opcją `-- --template vanilla-ts`
+3. **Start the development server**:
 
-&nbsp;
+    Start the application locally by running:
 
-> ⭐ ***README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!***
-> 
-> 🎁 *Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**.* 
+    ```bash
+    npm start and open all endpoints
+    npm run dev
 
-Problemy:
-1. usunęłąm dist z .gitignore aby zdeployować aplikację na netlify
+4. Open your browser and navigate to http://localhost:3000/index.html to view the client-side interface, or http://localhost:3000/admin.html for the admin interface.
+
+## Technologies Used
+
+1. **TypeScript** – Provides static typing for improved code quality.  
+2. **Vite** – Bundles the project files for deployment.  
+3. **json-server** – simulate REST API.  
+
