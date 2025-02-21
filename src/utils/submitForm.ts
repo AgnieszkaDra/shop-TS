@@ -47,7 +47,7 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
     if (type === "register") {
       try {
         const body = formData;
-        await request<User>(url, { // ta data nie jest używana dlaczego?
+        await request<User>(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,25 +60,6 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
       }
     }
 
-    // if (type === "login") {
-    //   try {
-    //     const users = await request<User[]>(url);
-    //     const user = users.find(
-    //       (u) => u.email === formData.email && u.password === formData.password
-    //     );
-
-    //     if (user) {
-    //     const updatedUsers = await loggedUser(user);
-    //     updatedUsers.forEach(updatedUser => {
-    //       console.log(updatedUser.name);
-    //     });
-    //     } else {
-    //       console.error("Login failed: User not found.");
-    //     }
-    //   } catch (err) {
-    //     console.error("Login Error:", err);
-    //   }
-    // }
     if (type === "login") {
       try {
         const users = await request<User[]>(url);

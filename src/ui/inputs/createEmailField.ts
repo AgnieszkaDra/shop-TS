@@ -2,7 +2,7 @@ import { EmailField } from "../../types/InputField";
 import createWrapperForInput from "./createWrapperForInput";
 
 const createEmailField = (field: EmailField): HTMLDivElement => {
-  const wrapper = createWrapperForInput(field);
+  const wrapper = createWrapperForInput();
 
   const input = document.createElement("input");
   input.className = "input";

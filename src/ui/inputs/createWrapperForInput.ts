@@ -1,6 +1,4 @@
-import { InputField } from "../../types/InputField";
-
-const createWrapperForInput = (field: InputField): HTMLDivElement => {
+const createWrapperForInput = (): HTMLDivElement => {
 
   const wrapper = document.createElement('div');
   wrapper.className = 'input__wrapper'
