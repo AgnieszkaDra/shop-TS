@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import HeaderTop from "./components/HeaderTop";
 import Main from "./components/Main";
-
 import './styles/globals.scss'
 
 async function renderApp() {

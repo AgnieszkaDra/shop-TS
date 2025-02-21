@@ -34,8 +34,8 @@
         border-radius: 50%;
         cursor: pointer;
         color: $color-navy;
-        padding: map-get($padding, small);
-        font-size: map-get($font-size, medium);
+        padding: 0.5rem 1rem;
+        font-size: 1.3rem;
         background-color: $color-chocoLighten;
         transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out,
         box-shadow 0.3s ease-in-out;
@@ -70,7 +70,7 @@
 .link {
     &__wrapper {
 
-        @keyframes slideLeft {
+        // @keyframes slideLeft {
             from {
                 transform: translate(-100%, -50%);
             }
@@ -78,7 +78,7 @@
             to {
                 transform: translate(-50%, -50%);
             }
-        }
+        //}
 
         position: absolute;
         top: 50%;
@@ -90,8 +90,7 @@
     &__carousel {
         background-color: $color-smokeWhite;
         color: $color-navy;
-     
-        padding: map-get($padding, large);
+        padding: 1.5rem;
         border-radius: 5px;
         text-decoration: none;
           &:hover {
