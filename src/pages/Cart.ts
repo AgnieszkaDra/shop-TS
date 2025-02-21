@@ -14,7 +14,7 @@ export const Cart = async (): Promise<HTMLElement> => {
     const productsContainer = document.createElement('ul');
     productsContainer.classList.add('products__list');
 
-    Object.entries(productsOrder).forEach(([productId, product]) => {
+    Object.entries(productsOrder).forEach(([, product]) => {
         const listItem = document.createElement("li");
         listItem.classList.add("products__item");
         listItem.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
