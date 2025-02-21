@@ -1,0 +1,91 @@
+@use './colors.scss' as *;
+@use './sizes.scss' as *;
+
+.carousel {
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    &__wrapper {
+      height: 100vh;
+      width: 100%;
+      background-color: transparent;
+    }
+
+    &__button{
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: $color-navy;
+        padding: map-get($padding, small);
+        font-size: map-get($font-size, medium);
+        background-color: $color-chocoLighten;
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $color-chocoDarken;	
+            transform: scale(1.02);
+        }
+
+        &-wrapper {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+
+            &.prevBtn {
+            left: 10px;
+            }
+
+            &.nextBtn {
+            right: 10px;
+            }
+
+    }
+    }
+}
+
+.link {
+    &__wrapper {
+
+        @keyframes slideLeft {
+            from {
+                transform: translate(-100%, -50%);
+            }
+    
+            to {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+      }
+  
+    &__carousel {
+        background-color: $color-smokeWhite;
+        color: $color-navy;
+     
+        padding: map-get($padding, large);
+        border-radius: 5px;
+        text-decoration: none;
+          &:hover {
+            background-color: $color-chocoDarken;	
+            transform: scale(1.02);
+        } 
+    }
+}

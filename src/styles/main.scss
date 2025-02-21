@@ -224,24 +224,26 @@
   }
 }
 
+
+
 .modal {
   display: none; 
-      position: fixed; 
-      z-index: 1; 
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      &__wrapper {
-        background-color: white;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 10px;
-      }
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  &__wrapper {
+    background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  }
 }
 
 .container {
@@ -301,6 +303,18 @@
     }
   }
 
+}
+
+.login {
+  &__wrapper {
+    margin-left: 20px;
+  }
+  &__link {
+    margin-right: 20px;
+    .fas {
+      color: $color-text;
+    }
+  }
 }
 
 .container__forms {

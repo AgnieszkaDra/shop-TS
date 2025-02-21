@@ -12,15 +12,14 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
             throw new Error('Failed to fetch product details');
         }
 
-        const product = await response.json(); 
+        const [product] = await response.json(); 
         console.log(product)
       
         const container = document.createElement('div');
         container.className = 'selectedProduct__container';
 
         const image = document.createElement('div');
-        image.style.backgroundImage = `url('/assets/${product[0].imageBackground}.jpg')`;
-        // jak zapisać dane żeby nie używać product[0]
+        image.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
         image.className = 'selectedProduct__image'
 
         const description = document.createElement('div');
@@ -28,11 +27,11 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
 
         const title = document.createElement('h1')
         title.className = 'selectedProduct__title'
-        title.textContent = `${product[0].name}`
+        title.textContent = `${product.name}`
 
         const price = document.createElement('p')
         price.className = 'selectedProduct__price'
-        price.textContent = `${product[0].price}`
+        price.textContent = `${product.price}`
 
         description.appendChild(title)
         description.appendChild(price)
@@ -73,14 +72,11 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         container.appendChild(description)
         container.appendChild(button)
      
-
-       
         return container;
 
     } catch (error) {
         console.error("Error fetching the product:", error);
-        alert("There was a problem fetching the product details.");
-        throw error; // Rethrow the error to be handled by the caller
+        throw error; 
     }
 };
 

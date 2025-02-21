@@ -2,36 +2,37 @@ import { navigateToLogin } from '../router/router';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/header.scss';
 
-export const LoginIcon = (): HTMLElement => {
+export const LoginIcon = (): HTMLElement  => {
     const wrapper = document.createElement("div");
-    wrapper.className = 'login__wrapper';
+    wrapper.className = 'loginIcon__wrapper';
   
     const loginLink = document.createElement("a");
-    loginLink.setAttribute('id', 'login');
+    loginLink.classList.add('loginIcon__link');
+    loginLink.setAttribute('id', 'loginIcon');
     loginLink.href = `/login`;
 
     const loginIcon = document.createElement('i');
     loginIcon.classList.add('fas', 'fa-user');
-    loginIcon.style.fontSize = '1.5em';
+    loginIcon.style.fontSize = '1em';
+    
 
     loginLink.appendChild(loginIcon);
+    const user = document.createElement('div')
+    user.textContent = 'zalogowany jako'
+
     wrapper.appendChild(loginLink);
-
-    const findLinkToLogin = wrapper.querySelector('#login');
-
-    if (findLinkToLogin) {
-        findLinkToLogin.addEventListener("click", (event) => {
-            event.preventDefault();
+ 
+    loginLink.addEventListener("click", (event) => {
+        event.preventDefault();
            
-            const path = findLinkToLogin.getAttribute("href");
-
+        const path = loginLink.getAttribute("href");
             if (path) {
                 navigateToLogin(path);
             }
         });
-    }
+    
 
-    return wrapper;
+return loginLink;
 };
 
 export default LoginIcon;

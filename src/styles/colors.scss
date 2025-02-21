@@ -11,4 +11,7 @@ $color-chocoLighten: color.adjust(#E3D9C4, $lightness: 5%);
 $color-text: rgb(68, 68, 68);
 $color-textLight: rgb(153, 153, 153);
 $color-textLighten: color.adjust(rgb(68, 68, 68), $lightness: 2%);
+$color-red: rgb(123, 21, 27);
+$color-navy: rgb(42, 43, 71);
+$color-navyLighten: color.adjust(rgb(42,43,71), $lightness: 65%);
 

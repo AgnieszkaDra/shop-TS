@@ -1,15 +1,17 @@
+
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
-import  { BasketIcon } from './BasketIcon';
-import  { LoginIcon } from './LoginIcon';
+import { BasketIcon } from './BasketIcon';
+import { LoginIcon } from './LoginIcon';
+import UserAccount from './userAccount';
 
 export const Header = (): HTMLElement => {
   const header = document.createElement("header");
   header.classList.add("header");
 
   const mobileWrapper = document.createElement("div");
-  mobileWrapper.classList.add("header-mobile");
+  mobileWrapper.classList.add("header__mobile");
 
   const burgerMenu = BurgerMenu();
   const navMenu = Navigation();
@@ -25,17 +27,23 @@ export const Header = (): HTMLElement => {
   header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
 
-  const actionsWrapper = document.createElement("div");
-  actionsWrapper.className = 'actions'
-  const basket = BasketIcon()
+  const wrapperAccount = document.createElement("div");
+  wrapperAccount.className = 'account__wrapper';
+
   const login = LoginIcon()
+  const userAccount = UserAccount()
+  wrapperAccount.appendChild(login)
+  wrapperAccount.appendChild(userAccount)
 
-  actionsWrapper.appendChild(basket)
-  actionsWrapper.appendChild(login)
-
-  mobileWrapper.appendChild(actionsWrapper);
+  const basket = BasketIcon()
   
+  mobileWrapper.appendChild(wrapperAccount);
+ 
+  const basketWrapper = document.createElement('div')
+  basketWrapper.className = 'header__basket'
+  basketWrapper.appendChild(basket)
   header.appendChild(mobileWrapper);
+  header.appendChild(basketWrapper);
 
   return header;
 

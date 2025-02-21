@@ -1,15 +1,20 @@
 @use './colors.scss' as *;
 
 .header {
-  height: 10vh;
+  //height: 10vh;
   position: relative;
   color: $color-smokeWhite;
   width: 100%;
-  &-mobile {
+  &__mobile {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__basket {
+    background-color: $color-red;
+    padding: 2em;
   }
 }
 
@@ -22,8 +27,9 @@
     height: 100%;
     z-index: 3;
   }
-  width: 40px;
-  height: 30px;
+  width: 25px;
+  height: 20px;
+  margin-left: 30px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -43,32 +49,102 @@
     }
 }
 
-.actions {
-  display: flex;
-  & > * {
-    margin-right: 7px;
-    width: 30px;
-    height: 30px;
+.account {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: $color-lightGrey;
   }
-  
 }
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1.5rem; 
+
+.userAccount {
+  &__wrapper {
+    position: relative;
+    margin-right: 30px;
+    display: grid;
+    align-items:flex-end;
+    grid-template-areas: "select";
+    &::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: $color-darkgrey;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    grid-area: select;
+    justify-self: end;
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    }
+    &.open::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  &__select {
+    margin-right: 30px;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1.1;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    color: $color-red;
+    font-size: 16px;
+    &:focus {
+      border-color: $color-chocoLighten;
+      outline: none
+    }
+    &:hover {
+      border-color: $color-lightGrey;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}
+
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-lightGrey;
+  pointer-events: none;
+}
+
+.arrow-up {
+  right: 40px;
+}
+
+.arrow-down {
+  right: 10px;
 }
 
 .basket {
   color: $color-text;
   &__wrapper {
    margin: 10px; 
+   display: flex;
+   
   }
   i {
     font-size: 1.8rem;
     color: $color-text;
     margin-right: 8px
   }
+  &__link {
+    display: flex;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 10px;
+    color: $color-smokeWhite;
+    }
 }
 
 
@@ -177,15 +253,15 @@
 
 }
 
-.login-link {
-  padding-top: 10px;
-}
-
-.login-link a {
-  text-decoration: none;
-  color: #007bff;
+.loginIcon__link {
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   cursor: pointer;
 }
+
+
 
 
   
