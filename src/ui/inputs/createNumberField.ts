@@ -2,7 +2,7 @@ import { NumberField } from "../../types/InputField";
 import createWrapperForInput from "./createWrapperForInput";
 
 const createNumberField = (field: NumberField): HTMLDivElement => {
-  const wrapper = createWrapperForInput(field);
+  const wrapper = createWrapperForInput();
 
   const input = document.createElement('input');
   input.className = 'input';
