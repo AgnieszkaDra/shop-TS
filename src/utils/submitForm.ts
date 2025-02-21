@@ -1,6 +1,7 @@
 import { InputField } from "../types/InputField";
 import { BACK_END_URL } from "../constants/api";
 import validateForm from "./validateForm";
+import { User } from "../types/User";
 import loggedUser from "../api/loggedUser";
 
 async function hashPassword(password: string): Promise<string> {
@@ -25,11 +26,7 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
     });
 
     const errors = await validateForm(inputs, formData, form);
-     // if(errors.length <= 0 && type === 'login') {
-     // const findLinkToLogin = document.querySelector('#login');
-     // console.log(findLinkToLogin)
-      // chciałabym dopisać na głównej stronie zalogowano jako użytkownik: 
-   // }
+   
     if (errors.length > 0) {
       console.error("Form validation failed.");
       return;
@@ -38,8 +35,6 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
     if ("password" in formData) {
       formData.password = await hashPassword(formData.password as string);
     }
-
-    type User = { id: string, name: string, day: string, month: string, year: string, email: string, password: string };
 
     async function request<T>(url: string, options?: RequestInit): Promise<T> {
       const resp = await fetch(url, options);
@@ -52,37 +47,54 @@ export const submitForm = (form: HTMLFormElement, inputs: InputField[], type: 'r
     if (type === "register") {
       try {
         const body = formData;
-        const data = await request<User>(url, { // ta data nie jest używana dlaczego?
+        await request<User>(url, { // ta data nie jest używana dlaczego?
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(body),
         });
-
-        //localStorage.setItem('currentUser', JSON.stringify(data));
       
       } catch (err) {
         console.error("Registration Error:", err);
       }
     }
 
+    // if (type === "login") {
+    //   try {
+    //     const users = await request<User[]>(url);
+    //     const user = users.find(
+    //       (u) => u.email === formData.email && u.password === formData.password
+    //     );
+
+    //     if (user) {
+    //     const updatedUsers = await loggedUser(user);
+    //     updatedUsers.forEach(updatedUser => {
+    //       console.log(updatedUser.name);
+    //     });
+    //     } else {
+    //       console.error("Login failed: User not found.");
+    //     }
+    //   } catch (err) {
+    //     console.error("Login Error:", err);
+    //   }
+    // }
     if (type === "login") {
       try {
         const users = await request<User[]>(url);
         const user = users.find(
           (u) => u.email === formData.email && u.password === formData.password
-         
         );
 
         if (user) {
-          await loggedUser(user)
-         
+          const updatedUser = await loggedUser(user);
+          localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
         } else {
-          console.error("Invalid email or password.");
+          console.error("Login failed: User not found.");
         }
-      } catch (error) {
-        console.error("Error:", error);
+      } catch (err) {
+        console.error("Login Error:", err);
       }
     }
   });

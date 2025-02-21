@@ -2,13 +2,13 @@
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
-import { BasketIcon } from './BasketIcon';
-import { LoginIcon } from './LoginIcon';
-import UserAccount from './userAccount';
 
 export const Header = (): HTMLElement => {
   const header = document.createElement("header");
   header.classList.add("header");
+
+  const headerTop = document.createElement("div");
+  headerTop.classList.add("header__top");
 
   const mobileWrapper = document.createElement("div");
   mobileWrapper.classList.add("header__mobile");
@@ -27,23 +27,12 @@ export const Header = (): HTMLElement => {
   header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
 
-  const wrapperAccount = document.createElement("div");
-  wrapperAccount.className = 'account__wrapper';
-
-  const login = LoginIcon()
-  const userAccount = UserAccount()
-  wrapperAccount.appendChild(login)
-  wrapperAccount.appendChild(userAccount)
-
-  const basket = BasketIcon()
-  
-  mobileWrapper.appendChild(wrapperAccount);
- 
   const basketWrapper = document.createElement('div')
   basketWrapper.className = 'header__basket'
-  basketWrapper.appendChild(basket)
+
+  mobileWrapper.appendChild(basketWrapper)
+  
   header.appendChild(mobileWrapper);
-  header.appendChild(basketWrapper);
 
   return header;
 

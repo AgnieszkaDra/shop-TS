@@ -1,10 +1,15 @@
 @use './colors.scss' as *;
 @use './sizes.scss' as *;
+@use './abstracts/index' as *;
 
 .carousel {
+
+  
     position: relative;
     max-width: 100%;
     height: 100vh;
+    margin-top: calc(-10vh - 60px);
+    //margin-top: -60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +17,16 @@
     background-position: 50% 50%;
     background-size: cover;
 
+   
+
     &__wrapper {
       height: 100vh;
       width: 100%;
       background-color: transparent;
+      display: none;
+      @include respond(tablet) {
+        display: block;
+      }
     }
 
     &__button{

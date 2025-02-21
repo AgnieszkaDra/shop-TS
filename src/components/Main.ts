@@ -9,7 +9,7 @@ export const Main = async (): Promise<HTMLElement> => {
   const carousel = Carousel()
   const categories = Categories()
   
-  main.appendChild( await carousel);
+  main.appendChild(await carousel);
   main.appendChild(await categories);
   
   return main;

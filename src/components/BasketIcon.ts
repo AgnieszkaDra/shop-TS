@@ -8,12 +8,12 @@ export const BasketIcon = (): HTMLElement => {
   
     const basketLink = document.createElement("a");
     basketLink.setAttribute('id', 'basket');
+    basketLink.classList.add('basket__link');
     basketLink.href = `/cart`;
 
     const basketIcon = document.createElement('i');
     basketIcon.classList.add('fas', 'fa-shopping-basket');
-    basketIcon.style.fontSize = '1.5em';
-    
+  
     basketLink.appendChild(basketIcon)
     wrapper.appendChild(basketLink);
 

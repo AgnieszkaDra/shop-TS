@@ -81,12 +81,12 @@
   },
   "selectedProduct": [
     {
-      "id": "366d",
-      "productId": 1,
-      "name": "Bluza Ball",
-      "path": "bluzaball",
-      "price": 100,
-      "imageBackground": "ball.1a"
+      "id": "2549",
+      "productId": 14,
+      "name": "Spodnie Flowers",
+      "path": "spodnieflowers",
+      "price": 90,
+      "imageBackground": "trousers.1b"
     }
   ],
   "cart": [
@@ -428,5 +428,17 @@
         "collectionType": "Komplety"
       }
     ]
-  }
+  },
+  "carousel": [
+    {
+      "imageBackground": "logo-dziecko",
+      "name": "Dziecko",
+      "path": "Dziecko"
+    },
+    {
+      "imageBackground": "logo-mama",
+      "name": "Kobieta",
+      "path": "Kobieta"
+    }
+  ]
 }
