@@ -19,6 +19,9 @@ const routes: Route[] = [
   { path: "/admin", page: AdminPage },
   { path: "/cart", component: Cart }, 
    { path: "/moje konto", component: async () => LoginWrapper('login') },
+   { path: "/moje-konto", component: async () => LoginWrapper('login') }, // Login wrapper route (login)
+   { path: "/moje-konto/orders", component: async () => LoginWrapper('login') }, // Orders page for logged-in users
+   { path: "/moje-konto/details", component: async () => LoginWrapper('login') }, // Account details page for logged-in users
    { path: "/category/:category", component: Products },
    { path: "/product/:product", component: SelectedProduct },
 ];
@@ -76,6 +79,7 @@ export async function navigate(path: string) {
           console.log(component)
           content.innerHTML = component;
         } else {
+          alert('elese')
           content.appendChild(component);
         }
       }
@@ -95,8 +99,3 @@ export async function navigate(path: string) {
 document.addEventListener("DOMContentLoaded", () => {
   navigate(window.location.pathname);
 });
-
-
-
-
-
