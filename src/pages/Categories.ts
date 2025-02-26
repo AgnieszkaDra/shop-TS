@@ -1,6 +1,6 @@
 import { Product, Collection } from '../types/ProductsData';
 import { UniqueProductCollection } from '../api/categoriesList';
-import { navigateCategories } from '../router/router';
+import { navigate } from '../router/router';
 import '../styles/main.scss';
 
 export const Categories = async (): Promise<HTMLElement> => {
@@ -55,7 +55,7 @@ export const Categories = async (): Promise<HTMLElement> => {
      
       if (path) {
         if (path) {
-          navigateCategories(path);
+          navigate(`/category${path}`);
         }
       }
     });

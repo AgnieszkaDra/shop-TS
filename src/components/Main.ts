@@ -1,6 +1,6 @@
 import Categories from '../pages/Categories';
-import '../styles/main.scss';
 import Carousel from './Carousel';
+import '../styles/main.scss';
 
 export const Main = async (): Promise<HTMLElement> => {
   const main = document.createElement("main");

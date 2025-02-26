@@ -1,7 +1,7 @@
 import { ProductsOfCollection } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
-import { navigateProduct } from "../router/router";
+import { navigate } from "../router/router";
 
 export const Products = async (category: string): Promise<HTMLElement> => {
     const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
@@ -99,7 +99,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
                         let path = linkItem.getAttribute("href") || linkItem.href;
                       
                         if (path) {
-                            navigateProduct(path);
+                            navigate(`/product${path}`);
                         } else {
                             console.warn("No href found on linkItem");
                         }

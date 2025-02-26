@@ -1,6 +1,6 @@
 import '../styles/header.scss';
 import MenuItems from '../constants/categories';
-import { navigateComponent } from '../router/router';
+import { navigate } from '../router/router';
 
 export const Menu = (): HTMLElement => {
     const wrapper = document.createElement("div");
@@ -25,7 +25,7 @@ export const Menu = (): HTMLElement => {
               const path = link.getAttribute("href");
              
               if (path) {
-                navigateComponent(path);
+                navigate(path);
               }
             });
 

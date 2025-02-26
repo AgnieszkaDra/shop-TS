@@ -1,4 +1,4 @@
-import { navigateToLogin } from '../router/router';
+import { navigate } from '../router/router';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/header.scss';
 
@@ -9,7 +9,7 @@ export const LoginIcon = (): HTMLElement  => {
     const loginLink = document.createElement("a");
     loginLink.classList.add('loginIcon__link');
     loginLink.setAttribute('id', 'loginIcon');
-    loginLink.href = `/login`;
+    loginLink.href = `/moje konto`;
 
     const loginIcon = document.createElement('i');
     loginIcon.classList.add('fas', 'fa-user');
@@ -27,7 +27,7 @@ export const LoginIcon = (): HTMLElement  => {
            
         const path = loginLink.getAttribute("href");
             if (path) {
-                navigateToLogin(path);
+                navigate(path);
             }
         });
     

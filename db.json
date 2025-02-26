@@ -81,12 +81,12 @@
   },
   "selectedProduct": [
     {
-      "id": "2549",
-      "productId": 14,
-      "name": "Spodnie Flowers",
-      "path": "spodnieflowers",
+      "id": "1ef6",
+      "productId": 2,
+      "name": "Bluza Rabbit",
+      "path": "bluzarabbit",
       "price": 90,
-      "imageBackground": "trousers.1b"
+      "imageBackground": "rabbit.1a"
     }
   ],
   "cart": [
@@ -433,12 +433,14 @@
     {
       "imageBackground": "logo-dziecko",
       "name": "Dziecko",
-      "path": "Dziecko"
+      "path": "Dziecko",
+      "id": "9a1a"
     },
     {
       "imageBackground": "logo-mama",
       "name": "Kobieta",
-      "path": "Kobieta"
+      "path": "Kobieta",
+      "id": "04dc"
     }
   ]
 }
