@@ -3,32 +3,28 @@ import { Cart } from "../pages/Cart";
 import LoginWrapper from "../components/LoginWrapper";
 import SelectedProduct from "../pages/SelectedProduct";
 import { Products } from "../pages/Products";
+import UserAccount from "../components/userAccount";
 
 type Route = {
   path: string;
   page?: () => string;
- 
   component?: (param: string) => string | Promise<HTMLElement>;
- 
   param?: string;
   params?: { [key: string]: string };
 };
 
 const routes: Route[] = [
   { path: "/", page: HomePage },
+  //{ path: "/index.html", component: Products},
   { path: "/admin", page: AdminPage },
   { path: "/cart", component: Cart }, 
-   { path: "/moje konto", component: async () => LoginWrapper('login') },
-   { path: "/moje-konto", component: async () => LoginWrapper('login') }, // Login wrapper route (login)
-   { path: "/moje-konto/orders", component: async () => LoginWrapper('login') }, // Orders page for logged-in users
-   { path: "/moje-konto/details", component: async () => LoginWrapper('login') }, // Account details page for logged-in users
-   { path: "/category/:category", component: Products },
-   { path: "/product/:product", component: SelectedProduct },
+  { path: "/moje konto", component: async () => LoginWrapper('login') },
+  { path: "/moje konto/:path", component: async () => UserAccount() }, 
+  { path: "/category/:category", component: Products },
+  { path: "/product/:product", component: SelectedProduct },
 ];
 
 function matchRoute(path: string): { route: Route, param?: string } | undefined {
-  console.log(path);
-
   let foundMatch = false;
 
   for (const route of routes) {
@@ -45,19 +41,8 @@ function matchRoute(path: string): { route: Route, param?: string } | undefined 
       }
     }
   }
-
   return undefined;
 }
-
-
-
-
-
-
-
-
-
-
 
 export async function navigate(path: string) {
   const content = document.getElementById("root");
@@ -67,24 +52,23 @@ export async function navigate(path: string) {
 
   if (matched) {
     const { route, param } = matched;
-    console.log(route, param)
-
+   
     try {
       content.innerHTML = "";
 
       if (typeof route.component === 'function') {
         const component = await route.component(param || '');
-        console.log(component)
+        
         if (typeof component === 'string') {
-          console.log(component)
           content.innerHTML = component;
         } else {
-          alert('elese')
+
           content.appendChild(component);
         }
       }
-
       window.history.pushState({}, "", path);
+      window.dispatchEvent(new Event("locationChange"));
+
     } catch (error) {
       console.error("Error loading component:", error);
       content.innerHTML = NotFoundPage();
@@ -94,8 +78,9 @@ export async function navigate(path: string) {
   }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   navigate(window.location.pathname);
 });
+
+
+

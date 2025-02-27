@@ -409,7 +409,10 @@
 
 .account {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 20% 70%;
+  max-width: 1200px; 
+  margin: 2rem auto; 
+  width: calc(100% - 4rem); 
   &__list {
     list-style: none;
     padding: 0;
@@ -418,6 +421,19 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
-    padding: 10px;
+    margin-bottom: 10px;
+    //padding: 10px;
+  }
+  &__user {
+   margin-bottom: 40px;
+    &-icon {
+      font-size: 30px;
+       text-align: start;
+       color: $color-chocoDarken;
+    }
+    &-info {
+      font-size: 16px;
+      text-align: start;
+    }
   }
 }

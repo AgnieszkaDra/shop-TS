@@ -1,6 +1,7 @@
 import Header from "./components/Header";
-import HeaderTop from "./components/HeaderTop";
+
 import Main from "./components/Main";
+
 import './styles/globals.scss'
 
 async function renderApp() {
@@ -9,11 +10,11 @@ async function renderApp() {
 
   app.innerHTML = ""; 
 
-  const headerTop = HeaderTop();
-  const header = Header();
+  //const headerTop = HeaderTop();
+  const header = await Header();
   const main = await Main();
 
-  app.append(headerTop, header, main);
+  app.append(header, main);
 }
 
 function initApp() {
@@ -21,6 +22,7 @@ function initApp() {
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
 
 
 

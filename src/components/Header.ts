@@ -1,8 +1,12 @@
+
 import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
+import BasketIcon from './BasketIcon';
+import LoginIcon from './LoginIcon';
 
-export const Header = (): HTMLElement => {
+
+export const Header = async (): Promise<HTMLElement> => {
   const header = document.createElement("header");
   header.classList.add("header");
 
@@ -26,15 +30,19 @@ export const Header = (): HTMLElement => {
   header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
 
-  const basketWrapper = document.createElement('div')
-  basketWrapper.className = 'header__basket'
+  const wrapperAccount = document.createElement("div");
+  wrapperAccount.className = "account__wrapper";
 
-  mobileWrapper.appendChild(basketWrapper)
-  
+  const login = await LoginIcon(); 
+  const basket = BasketIcon();
+
+  wrapperAccount.appendChild(login);
+  wrapperAccount.appendChild(basket);
+  mobileWrapper.appendChild(wrapperAccount);
+
   header.appendChild(mobileWrapper);
 
   return header;
-
 };
 
 export default Header;

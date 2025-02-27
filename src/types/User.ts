@@ -5,3 +5,8 @@ export type User = {
     password: string,
     loggedUser?: string
 };
+
+export type userListItem = {
+    name: string;
+    href: string;
+  }
