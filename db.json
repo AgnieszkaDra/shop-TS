@@ -70,40 +70,54 @@
       "name": "Aga",
       "email": "agnieszka.127@interia.pl",
       "password": "0c07ca714351f6303968b55ace7d2b4cd0c2a16e67d4db5df133e988c63f0674"
+    },
+    {
+      "id": "5e61",
+      "name": "Agnieszka Draganczyk",
+      "email": "agnieszka.127@interia.pl",
+      "password": "afe277aa8dd6c4ac75383b6f380502aa9bb5029c5b7b2cf1078cd975d11d7b6b"
     }
   ],
   "loggedUser": {
-    "id": "dde6",
-    "name": "Aga",
+    "id": "4291",
+    "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
-    "password": "0c07ca714351f6303968b55ace7d2b4cd0c2a16e67d4db5df133e988c63f0674",
-    "lastLogin": "2025-02-14T15:29:24.338Z"
+    "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d",
+    "lastLogin": "2025-03-01T12:49:25.787Z"
   },
   "selectedProduct": [
     {
-      "id": "1ef6",
-      "productId": 2,
-      "name": "Bluza Rabbit",
-      "path": "bluzarabbit",
+      "id": "c9a1",
+      "productId": 12,
+      "name": "Spodnie Rabbit",
+      "path": "spodnieviolet",
       "price": 90,
-      "imageBackground": "rabbit.1a"
+      "imageBackground": "trousersWithRabbit.1a"
     }
   ],
   "cart": [
     {
-      "id": "144a",
-      "productId": 1,
-      "name": "Bluza Ball",
-      "price": 100,
-      "imageBackground": "ball1a",
+      "id": "1acd",
+      "productId": "4e51",
+      "name": "Bluza Rabbit",
+      "price": 90,
+      "imageBackground": "rabbit.1a",
       "quantity": 1
     },
     {
-      "id": "6662",
-      "productId": 1,
-      "name": "Bluza Ball",
-      "price": 100,
-      "imageBackground": "ball1a",
+      "id": "c9ed",
+      "productId": "dd50",
+      "name": "Bluza Rabbit",
+      "price": 90,
+      "imageBackground": "rabbit.1a",
+      "quantity": 1
+    },
+    {
+      "id": "bf60",
+      "productId": "7ceb",
+      "name": "Bluza Rabbit",
+      "price": 90,
+      "imageBackground": "rabbit.1a",
       "quantity": 1
     }
   ],
@@ -115,8 +129,8 @@
         "path": "bluzaball",
         "imageBackground": "ball.1a",
         "imagesCarousel": [
-          "ball1a",
-          "ball1b"
+          "ball.1a",
+          "ball.1b"
         ],
         "price": 100,
         "collectionMain": "Dziecko",
@@ -133,15 +147,15 @@
         "path": "bluzarabbit",
         "imageBackground": "rabbit.1a",
         "imagesCarousel": [
-          "rabbit1a",
-          "rabbit1b",
-          "rabbit1c",
-          "rabbit1d",
-          "rabbit1e",
-          "rabbit1f",
-          "rabbit2a",
-          "rabbit2b",
-          "rabbit2c"
+          "rabbit.1a",
+          "rabbit.1b",
+          "rabbit.1c",
+          "rabbit.1d",
+          "rabbit.1e",
+          "rabbit.1f",
+          "rabbit.2a",
+          "rabbit.2b",
+          "rabbit.2c"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -153,11 +167,11 @@
         "path": "bluzaskateboard",
         "imageBackground": "skateboards.1a",
         "imagesCarousel": [
-          "skateboards1a",
-          "skateboards1b",
-          "skateboards1c",
-          "skateboards1d",
-          "skateboards1e"
+          "skateboards.1a",
+          "skateboards.1b",
+          "skateboards.1c",
+          "skateboards.1d",
+          "skateboards.1e"
         ],
         "price": 150,
         "collectionMain": "Dziecko",
@@ -167,11 +181,11 @@
         "id": 4,
         "name": "Bluza Violet",
         "path": "bluzaviolet",
-        "imageBackground": "violet1a",
+        "imageBackground": "Violet.1a",
         "imagesCarousel": [
-          "violet1a",
-          "violet1b",
-          "violet1c"
+          "Violet.1a",
+          "Violet.1b",
+          "Violet.1c"
         ],
         "price": 65,
         "collectionMain": "Dziecko",
@@ -181,12 +195,12 @@
         "id": 5,
         "name": "Bluza Wolf",
         "path": "bluzawolf",
-        "imageBackground": "wolf1a",
+        "imageBackground": "Wolf.1a",
         "imagesCarousel": [
-          "wolf1a",
-          "wolf1b",
-          "wolf1c",
-          "wolf1d"
+          "Wolf.1a",
+          "Wolf.1b",
+          "Wolf.1c",
+          "Wolf.1d"
         ],
         "price": 78,
         "collectionMain": "Dziecko",
@@ -196,30 +210,30 @@
         "id": 6,
         "name": "Komplet Violet",
         "path": "kompletviolet",
-        "imageBackground": "violetComplet.1a",
+        "imageBackground": "VioletComplet.1a",
         "imagesCarousel": [
-          "violetComplet1a",
-          "violetComplet1b",
-          "violetComplet1c"
+          "VioletComplet.1a",
+          "VioletComplet.1b",
+          "VioletComplet.1c"
         ],
         "price": 100,
         "collectionMain": "Dziecko",
-        "collectionType": "Bluzy"
+        "collectionType": "Komplety"
       },
       {
         "id": 7,
         "name": "Komplet Whale",
         "path": "kompletwhale",
-        "imageBackground": "whale1a",
+        "imageBackground": "whale.1a",
         "imagesCarousel": [
-          "whale1a",
-          "whale1b",
-          "whale1c",
-          "whale1d"
+          "whale.1a",
+          "whale.1b",
+          "whale.1c",
+          "whale.1d"
         ],
         "price": 100,
         "collectionMain": "Dziecko",
-        "collectionType": "Bluzy"
+        "collectionType": "Komplety"
       },
       {
         "id": 8,
@@ -227,9 +241,9 @@
         "path": "spodnicacherry",
         "imageBackground": "cherry.1b",
         "imagesCarousel": [
-          "cherry1a",
-          "cherry1b",
-          "cherry1c"
+          "cherry.1a",
+          "cherry.1b",
+          "cherry.1c"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -239,10 +253,10 @@
         "id": 9,
         "name": "Spódnica Fairy",
         "path": "spodnicafairy",
-        "imageBackground": "fairy1a",
+        "imageBackground": "fairy.1a",
         "imagesCarousel": [
-          "fairy1a",
-          "fairy1b"
+          "fairy.1a",
+          "fairy.1b"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -254,9 +268,9 @@
         "path": "spodnicahearts",
         "imageBackground": "hearts.1a",
         "imagesCarousel": [
-          "hearts1a",
-          "hearts1b",
-          "hearts1c"
+          "hearts.1a",
+          "hearts.1b",
+          "hearts.1c"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -268,8 +282,8 @@
         "path": "spodnieviolet",
         "imageBackground": "trousersViolet.1a",
         "imagesCarousel": [
-          "trousersViolet1a",
-          "trousersViolet1b"
+          "trousersViolet.1a",
+          "trousersViolet.1b"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -281,9 +295,9 @@
         "path": "spodnieviolet",
         "imageBackground": "trousersWithRabbit.1a",
         "imagesCarousel": [
-          "trousersWithRabbit1a",
-          "trousersWithRabbit1b",
-          "trousersWithRabbit1c"
+          "trousersWithRabbit.1a",
+          "trousersWithRabbit.1b",
+          "trousersWithRabbit.1c"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -295,11 +309,11 @@
         "path": "spodniebear",
         "imageBackground": "trousers.1a",
         "imagesCarousel": [
-          "trousers1a"
+          "trousers.1a"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
-        "collectionType": "Bluzy"
+        "collectionType": "Spodnie"
       },
       {
         "id": 14,
@@ -307,7 +321,7 @@
         "path": "spodnieflowers",
         "imageBackground": "trousers.1b",
         "imagesCarousel": [
-          "trousers1b"
+          "trousers.1b"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -319,7 +333,7 @@
         "path": "spodniestrips",
         "imageBackground": "trousers.1c",
         "imagesCarousel": [
-          "trousers1c"
+          "trousers.1c"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -331,7 +345,7 @@
         "path": "spodniestrips2",
         "imageBackground": "trousers1d",
         "imagesCarousel": [
-          "trousers1d"
+          "trousers.1d"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -343,7 +357,7 @@
         "path": "spodniestrips3",
         "imageBackground": "trousers.1e",
         "imagesCarousel": [
-          "trousers1e"
+          "trousers.1e"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -355,7 +369,7 @@
         "path": "spodnieskateboards",
         "imageBackground": "trousers.1f",
         "imagesCarousel": [
-          "trousers1f"
+          "trousers.1f"
         ],
         "price": 90,
         "collectionMain": "Dziecko",
@@ -367,8 +381,8 @@
         "path": "kompletbear",
         "imageBackground": "cap.1a",
         "imagesCarousel": [
-          "cap1a",
-          "cap1b"
+          "cap.1a",
+          "cap.1b"
         ],
         "price": 100,
         "collectionMain": "Dziecko",
@@ -380,9 +394,9 @@
         "path": "czapkabear",
         "imageBackground": "cap.2a",
         "imagesCarousel": [
-          "cap2a",
-          "cap2b",
-          "cap2c"
+          "cap.2a",
+          "cap.2b",
+          "cap.2c"
         ],
         "price": 120,
         "collectionMain": "Dziecko",
@@ -394,9 +408,9 @@
         "path": "schoolbagforest",
         "imageBackground": "forest-bag.1a",
         "imagesCarousel": [
-          "forest-bag1a",
-          "forest-bag1b",
-          "forest-bag1c"
+          "forest-bag.1a",
+          "forest-bag.1b",
+          "forest-bag.1c"
         ],
         "price": 50,
         "collectionMain": "Dziecko",
@@ -434,13 +448,13 @@
       "imageBackground": "logo-dziecko",
       "name": "Dziecko",
       "path": "Dziecko",
-      "id": "9a1a"
+      "id": "5c47"
     },
     {
       "imageBackground": "logo-mama",
       "name": "Kobieta",
       "path": "Kobieta",
-      "id": "04dc"
+      "id": "0b51"
     }
   ]
 }
