@@ -3,18 +3,19 @@ import { Collection, Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
 import { navigate } from "../router/router";
 
-export const Products = async (category: string): Promise<HTMLElement> => {
+const Products = async (category: string): Promise<HTMLElement> => {
     const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
 
     const container = document.createElement("section");
     container.classList.add("section", "products");
     const h1 = document.createElement("h1")
+    h1.className = "products__title"
     h1.textContent = category
-    h1.style.textAlign = "center"
-
+    
     const link = document.createElement("a");
     link.href = `/index.html`;
     const h5 = document.createElement('h5')
+    h5.className = "products__link"
     h5.textContent = `Strona główna / ${category}`
     link.appendChild(h5)
 
@@ -121,3 +122,5 @@ export const Products = async (category: string): Promise<HTMLElement> => {
 
     return container;
 };
+
+export default Products

@@ -10,36 +10,33 @@ export const Menu = (): HTMLElement => {
     list.classList.add("menu__list");
 
     MenuItems.forEach((item) => {
-        console.log(item)
-        const listItem = document.createElement("li");
-        listItem.classList.add("menu__item");
+      const listItem = document.createElement("li");
+      listItem.classList.add("menu__item");
 
-        const link = document.createElement("a");
-        link.href = item.path;
-        console.log(item.path)
-        link.textContent = item.categoryName;
-        link.classList.add("menu__link");
+      const link = document.createElement("a");
+      link.href = item.path;
+    
+      link.textContent = item.categoryName;
+      link.classList.add("menu__link");
 
-         link.addEventListener("click", (event: Event) => {
-              event.preventDefault();
-              const path = link.getAttribute("href");
-             
-              if (path) {
-                navigate(path);
-              }
-            });
+      link.addEventListener("click", (event: Event) => {
+          event.preventDefault();
+          const path = link.getAttribute("href");
+          
+          if (path) {
+            navigate(path);
+          }
+        });
 
-        listItem.appendChild(link);
-        list.appendChild(listItem);
-    });
+    listItem.appendChild(link);
+    list.appendChild(listItem);
+  });
 
-    wrapper.appendChild(list);
-  
-    return wrapper;
+  wrapper.appendChild(list);
+
+  return wrapper;
 };
 
 export default Menu;
-
-
 
 

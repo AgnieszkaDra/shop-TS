@@ -4,7 +4,6 @@ import createFields  from '../utils/createFields';
 import { submitForm } from '../utils/submitForm';
 import LoginForm from './LoginForm';
 
-
 export const createWrapperForForm = (className: string): HTMLFormElement => {
   const form = document.createElement('form');
   form.className = 'form';
@@ -20,12 +19,12 @@ export const RegisterForm = (inputs: InputField[]): HTMLElement => {
   const container = document.createElement('div')
   container.className = 'container-register'
 
-  const registerForm = document.querySelector('.container-register') as HTMLElement;
+  const registerForm = document.querySelector('.container__register') as HTMLElement;
     if (registerForm) {
       registerForm.classList.toggle('block')
     }
     
-  const containerLogin = document.querySelector('.container-login')
+  const containerLogin = document.querySelector('.container__login')
     if (containerLogin) {
       container.classList.toggle('block')
     }
@@ -64,19 +63,19 @@ export const RegisterForm = (inputs: InputField[]): HTMLElement => {
   loginLink.addEventListener('click', (event) => {
     event.preventDefault();
     
-    const containerLogin = document.querySelector('.container-register')
+    const containerLogin = document.querySelector('.container__register')
       if (containerLogin) {
         container.classList.toggle('block')
       }
 
-    const loginLogin = document.querySelector('.container-login')
+    const loginLogin = document.querySelector('.container__login')
       if (loginLogin) {
         container.classList.toggle('block')
       }
 
     const login = LoginForm(formFields)
 
-    const containerForms = document.querySelector('.container-forms')
+    const containerForms = document.querySelector('.container__forms')
       if (containerForms) {
         containerForms.innerHTML =''
         containerForms.appendChild(login)

@@ -1,17 +1,12 @@
-
-import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
 import BasketIcon from './BasketIcon';
 import LoginIcon from './LoginIcon';
+import '../styles/header.scss';
 
-
-export const Header = async (): Promise<HTMLElement> => {
+export const Header = async (): Promise<HTMLElement> => { 
   const header = document.createElement("header");
   header.classList.add("header");
-
-  const headerTop = document.createElement("div");
-  headerTop.classList.add("header__top");
 
   const mobileWrapper = document.createElement("div");
   mobileWrapper.classList.add("header__mobile");
@@ -21,17 +16,17 @@ export const Header = async (): Promise<HTMLElement> => {
 
   navMenu.classList.add("none");
 
-  burgerMenu.addEventListener("click", () => {
-    burgerMenu.classList.toggle("none");
-    navMenu.classList.toggle("none");
-  });
-
   mobileWrapper.appendChild(burgerMenu);
   header.appendChild(navMenu);
   header.appendChild(mobileWrapper);
 
   const wrapperAccount = document.createElement("div");
   wrapperAccount.className = "account__wrapper";
+
+  burgerMenu.addEventListener("click", () => {
+    mobileWrapper.classList.toggle("none");
+    navMenu.classList.toggle("none");
+  });
 
   const login = await LoginIcon(); 
   const basket = BasketIcon();

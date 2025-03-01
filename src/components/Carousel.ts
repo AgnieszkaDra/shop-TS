@@ -1,13 +1,10 @@
-import CarouselImages from '../api/carouselImages';
+import CarouselImages from '../api/carouselImages'
 import { CarouselImage } from '../types/Carouselmage';
 import '../styles/carousel.scss';
 
 export const Carousel = async (): Promise<HTMLElement> => {
     const images: CarouselImage[] = await CarouselImages();
-    console.log(images)
-    const wrapper = document.createElement("div");
-    wrapper.className = 'carousel__wrapper'
-  
+    
     const carousel = document.createElement("div");
     carousel.classList.add('carousel')
     carousel.setAttribute('id', 'carousel');
@@ -40,10 +37,11 @@ export const Carousel = async (): Promise<HTMLElement> => {
     carousel.appendChild(nextBtnWrapper);
 
     let currentSlide = 0;
-    let interval = 3000;
+    let interval = 5000;
 
     const updateSlide = () => {
         carousel.style.backgroundImage = `url('/assets/logo/${images[currentSlide].imageBackground}.jpg')`;
+        carousel.style.backgroundSize = 'cover';
         linkCarousel.href = images[currentSlide].path; 
         linkCarousel.textContent = images[currentSlide].name;
     };
@@ -77,9 +75,7 @@ export const Carousel = async (): Promise<HTMLElement> => {
 
     updateSlide();
 
-   
-    wrapper.appendChild(carousel)
-    return wrapper;
+    return carousel;
 };
 
 export default Carousel;

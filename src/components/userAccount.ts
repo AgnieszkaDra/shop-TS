@@ -10,7 +10,7 @@ export const UserAccount = async (): Promise<HTMLElement> => {
   container.className = 'container';
 
   const render = async () => {
-    container.innerHTML = ""; 
+   container.innerHTML = ""; 
 
     const userLog = localStorage.getItem("currentUser");
     console.log(userLog)

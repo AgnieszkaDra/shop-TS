@@ -34,8 +34,6 @@ const formFields: InputField[] = [
     label: "Password",  
     placeholder: "Enter your password",  
   }
-
-  
 ];
 
 export default formFields;

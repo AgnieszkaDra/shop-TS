@@ -18,7 +18,7 @@ export const createWrapperForForm = (className: string): HTMLFormElement => {
 export const LoginForm = (inputs: InputField[]): HTMLElement => {
 
   const container = document.createElement('div')
-  container.className = 'container-login'
+  container.className = 'container__login'
   container.classList.toggle('block')
 
   const wrapperForm = document.createElement('div')
@@ -35,7 +35,6 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
     form.appendChild(input);
   });
 
-  
   const submitButton = document.createElement('button');
   submitButton.className = 'button';
   submitButton.classList.add('form__button')
@@ -53,18 +52,18 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
   registerLink.addEventListener('click', (event) => {
     event.preventDefault();
    
-    const containerLogin = document.querySelector('.container-login')
+    const containerLogin = document.querySelector('.container__login')
     if (containerLogin) {
       container.classList.toggle('block')
     }
 
-    const registerLogin = document.querySelector('.container-register')
+    const registerLogin = document.querySelector('.container__register')
     if (registerLogin) {
       container.classList.toggle('block')
     }
 
     const register = RegisterForm(formFields)
-    const containerForms = document.querySelector('.container-forms')
+    const containerForms = document.querySelector('.container__forms')
     if (containerForms) {
       containerForms.innerHTML =''
       containerForms.appendChild(register)

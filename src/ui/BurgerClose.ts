@@ -2,8 +2,8 @@ import '../styles/header.scss'
 
 export const BurgerClose = (): HTMLElement => {
     const button = document.createElement("button");
-    button.id = "close-icon";
-    button.classList.add("close-icon");
+    button.id = "burger-close";
+    button.classList.add("burger-close");
     button.setAttribute("aria-label", "Close");
     
     for (let i = 0; i < 2; i++) {

@@ -1,4 +1,5 @@
 import '../styles/header.scss'
+//import BurgerClose from './BurgerClose';
 
 export const BurgerMenu = (): HTMLElement => {
     const button = document.createElement("button");
@@ -11,9 +12,12 @@ export const BurgerMenu = (): HTMLElement => {
         button.appendChild(span);
     }
 
+    // button.addEventListener("click", () => {
+    //     BurgerClose()
+    // });
+
     return button;
 };
 
 export default BurgerMenu;
-  
   

@@ -7,24 +7,26 @@ export const Navigation = (): HTMLElement => {
     const nav = document.createElement("nav");
     nav.id = "menu-mobile"; 
     nav.classList.add("menu-mobile");
-    const buttonClose =  BurgerClose()
+    const buttonCloseWrapper = document.createElement("div");
+    buttonCloseWrapper.className = 'burger-close__wrapper'
+    const buttonClose = BurgerClose()
+    buttonCloseWrapper.appendChild(buttonClose)
 
     buttonClose.addEventListener("click", () => {
-        const burgerMenu = document.querySelector("#burger-menu") as HTMLElement;
+        const headerMobile = document.querySelector(".header__mobile") as HTMLElement;
     
-        if (burgerMenu) {
-            burgerMenu.classList.toggle("none");  
+        if (headerMobile) {
+            headerMobile.classList.toggle("none");  
         }
         
         nav.classList.toggle("none"); 
     });
 
     const menu = Menu()
-    nav.appendChild(buttonClose)
+    nav.appendChild(buttonCloseWrapper)
     nav.appendChild(menu)
 
     return nav;
 };
 
 export default Navigation;
-

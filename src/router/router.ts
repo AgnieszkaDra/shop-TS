@@ -1,9 +1,6 @@
-import { HomePage, AdminPage, NotFoundPage } from "../pages/pages";
-import { Cart } from "../pages/Cart"; 
+import { AdminPage, NotFoundPage } from "../pages/pages";
+import { Cart, SelectedProduct, Products, UserAccount } from "../components";
 import LoginWrapper from "../components/LoginWrapper";
-import SelectedProduct from "../pages/SelectedProduct";
-import { Products } from "../pages/Products";
-import UserAccount from "../components/userAccount";
 
 type Route = {
   path: string;
@@ -14,10 +11,11 @@ type Route = {
 };
 
 const routes: Route[] = [
-  { path: "/", page: HomePage },
-  //{ path: "/index.html", component: Products},
+  //{ path: "/", component: HomePage }, // to nie działa
+  //{ path: "/index.html", component: HomePage},
   { path: "/admin", page: AdminPage },
   { path: "/cart", component: Cart }, 
+  //{ path: "/category/Dziecko", component: async () => UserAccount() }, 
   { path: "/moje konto", component: async () => LoginWrapper('login') },
   { path: "/moje konto/:path", component: async () => UserAccount() }, 
   { path: "/category/:category", component: Products },
@@ -25,11 +23,11 @@ const routes: Route[] = [
 ];
 
 function matchRoute(path: string): { route: Route, param?: string } | undefined {
-  let foundMatch = false;
+  //let foundMatch = false;
 
   for (const route of routes) {
     if (!route.path.includes(":")) {
-      foundMatch = true; 
+      //foundMatch = true; 
       if (route.path === path) return { route };
     } else {
       const pattern = route.path.replace(/:(\w+)/g, "([^/]+)");
@@ -81,6 +79,8 @@ export async function navigate(path: string) {
 document.addEventListener("DOMContentLoaded", () => {
   navigate(window.location.pathname);
 });
+
+
 
 
 

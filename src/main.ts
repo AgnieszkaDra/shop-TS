@@ -1,6 +1,4 @@
-import Header from "./components/Header";
-
-import Main from "./components/Main";
+import HomePage from './pages/HomePage'
 
 import './styles/globals.scss'
 
@@ -10,11 +8,8 @@ async function renderApp() {
 
   app.innerHTML = ""; 
 
-  //const headerTop = HeaderTop();
-  const header = await Header();
-  const main = await Main();
-
-  app.append(header, main);
+  const homePage = await HomePage()
+  app.append(homePage);
 }
 
 function initApp() {
@@ -22,8 +17,6 @@ function initApp() {
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
-
-
 
 
   

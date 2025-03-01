@@ -13,8 +13,7 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         }
 
         const [product] = await response.json(); 
-        console.log(product)
-      
+        
         const container = document.createElement('div');
         container.className = 'selectedProduct__container';
 
@@ -72,11 +71,14 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         container.appendChild(description)
         container.appendChild(button)
      
+
+       
         return container;
 
     } catch (error) {
         console.error("Error fetching the product:", error);
-        throw error; 
+        alert("There was a problem fetching the product details.");
+        throw error; // Rethrow the error to be handled by the caller
     }
 };
 

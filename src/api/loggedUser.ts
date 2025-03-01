@@ -1,19 +1,20 @@
 import { BACK_END_URL } from "../constants/api";
-import { User } from '../types/User';
+import { User } from "../types/User";
 
-  export async function loggedUser(user: User): Promise<User[]> {
-    const updatedUser = { ...user, lastLogin: new Date().toISOString() }
-    const response =  await fetch(`${BACK_END_URL}/loggedUser`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedUser),
-    });
+export async function loggedUser(user: User): Promise<User> {
+    console.log(user);
+    const updatedUser = { ...user, lastLogin: new Date().toISOString() };
     
-    const data = await response.json();
-    const loggedUser: User[] = data; 
+    const response = await fetch(`${BACK_END_URL}/loggedUser`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedUser),
+    });
 
-    return loggedUser;
-  }
-  
-  export default loggedUser;
+    if (!response.ok) throw new Error(`Error: ${response.status}`);
+    
+    return updatedUser; 
+}
+
+export default loggedUser;
   

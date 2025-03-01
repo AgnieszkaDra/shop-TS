@@ -1,20 +1,21 @@
-import LoginForm from "../pages/LoginForm";
+import UserAccount from "./UserAccount.ts";
+import LoginForm from "./LoginForm";
 import formFields from "../fields/formFields";
-import RegisterForm from "../pages/RegisterForm";
-import loggedUser from "../api/loggedUser";
-import UserAccount from "./userAccount";
+import RegisterForm from "./RegisterForm";
+//import loggedUser from "../api/loggedUser";
+
 
 export const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
   const userLog = localStorage.getItem("currentUser");
   let userData = userLog ? JSON.parse(userLog) : null;
 
-  if (userData) {
-    try {
-      userData = await loggedUser(userData); 
-    } catch (error) {
-      console.error("Error fetching logged user:", error);
-    }
-  }
+  // if (userData) {
+  //   try {
+  //     userData = await loggedUser(userData); 
+  //   } catch (error) {
+  //     console.error("Error fetching logged user:", error);
+  //   }
+  // }
 
   const container = document.createElement('div');
   container.className = 'container';
@@ -67,3 +68,49 @@ export const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
 };
 
 export default LoginWrapper;
+
+
+
+
+
+
+
+  
+
+    
+
+ 
+
+//     wrapper.appendChild(panelList)
+    
+
+//     containerForms.appendChild(title)
+//     containerForms.appendChild(wrapper)
+
+//     } catch (error) {
+//       console.error("Error fetching logged user:", error);
+//     }
+//   } else {
+
+
+//   const backHomeLink = document.createElement('a');
+//   backHomeLink.className = 'container__link-home'
+//   backHomeLink.setAttribute('id', 'home');
+//   backHomeLink.href = `/index.html`;
+
+//   const backHome = document.createElement('h3');
+//   backHome.innerText = 'Strona główna'
+//   backHomeLink.appendChild(backHome);
+
+//   containerForms.appendChild(backHomeLink)
+//   containerForms.appendChild(LoginForm(formFields));
+//   }
+
+ 
+
+//   container.appendChild(containerForms)
+
+//   return container;
+// };
+
+// export default LoginWrapper;

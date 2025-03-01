@@ -1,4 +1,4 @@
-@use './colors.scss' as *;
+@use './abstracts/index' as *;
 
 *,*::before,*::after{
   margin:0;
@@ -19,7 +19,6 @@ li {
 }
 
 a {
-  color: $color-lightGrey;
   cursor: pointer;
   text-decoration: none;
 }
@@ -40,9 +39,6 @@ h2 {
 
 
 #root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100dvh;
+  min-height: 100vh;
   overflow-x: hidden;
 }
