@@ -70,7 +70,7 @@ export const LoginIcon = async (): Promise<HTMLElement> => {
 
   if (userData) {
     try {
-      userData = await loggedUser(userData); // Ensure user data is fetched
+      userData = await loggedUser(userData); 
     } catch (error) {
       console.error("Error fetching logged user:", error);
     }

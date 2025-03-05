@@ -83,16 +83,16 @@
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
     "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d",
-    "lastLogin": "2025-03-01T12:49:25.787Z"
+    "lastLogin": "2025-03-05T16:27:11.862Z"
   },
   "selectedProduct": [
     {
-      "id": "c9a1",
-      "productId": 12,
-      "name": "Spodnie Rabbit",
-      "path": "spodnieviolet",
+      "id": "38ed",
+      "productId": 2,
+      "name": "Bluza Rabbit",
+      "path": "bluzarabbit",
       "price": 90,
-      "imageBackground": "trousersWithRabbit.1a"
+      "imageBackground": "rabbit.1a"
     }
   ],
   "cart": [

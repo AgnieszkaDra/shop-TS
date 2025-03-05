@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Main from "../components/Main";
 
-const HomePage = async (): Promise<HTMLElement> => {
+export const HomePage = async (): Promise<HTMLElement> => {
   const container = document.createElement("div");
   container.className = "homepage";
 

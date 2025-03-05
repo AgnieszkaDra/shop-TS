@@ -1,6 +1,8 @@
 import { AdminPage, NotFoundPage } from "../pages/pages";
+
 import { Cart, SelectedProduct, Products, UserAccount } from "../components";
 import LoginWrapper from "../components/LoginWrapper";
+
 
 type Route = {
   path: string;
@@ -12,12 +14,12 @@ type Route = {
 
 const routes: Route[] = [
   //{ path: "/", component: HomePage }, // to nie działa
-  //{ path: "/index.html", component: HomePage},
+  { path: "/index.html", component: async () => (await import("../pages/HomePage")).HomePage() },
   { path: "/admin", page: AdminPage },
   { path: "/cart", component: Cart }, 
   //{ path: "/category/Dziecko", component: async () => UserAccount() }, 
   { path: "/moje konto", component: async () => LoginWrapper('login') },
-  { path: "/moje konto/:path", component: async () => UserAccount() }, 
+  { path: "/moje konto/:path", component: () => UserAccount() }, 
   { path: "/category/:category", component: Products },
   { path: "/product/:product", component: SelectedProduct },
 ];

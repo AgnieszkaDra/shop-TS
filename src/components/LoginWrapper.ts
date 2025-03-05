@@ -1,29 +1,19 @@
-import UserAccount from "./UserAccount.ts";
+
 import LoginForm from "./LoginForm";
 import formFields from "../fields/formFields";
 import RegisterForm from "./RegisterForm";
-//import loggedUser from "../api/loggedUser";
+import UserAccount from "./User";
 
-
-export const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
-  const userLog = localStorage.getItem("currentUser");
-  let userData = userLog ? JSON.parse(userLog) : null;
-
-  // if (userData) {
-  //   try {
-  //     userData = await loggedUser(userData); 
-  //   } catch (error) {
-  //     console.error("Error fetching logged user:", error);
-  //   }
-  // }
-
+const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
   const container = document.createElement('div');
   container.className = 'container';
+
+  const userLog = localStorage.getItem("currentUser");
+  let userData = userLog ? JSON.parse(userLog) : null;
 
   if (type === 'register') {
     const backHomeLink = document.createElement('a');
     backHomeLink.className = 'container__link-home';
-    backHomeLink.setAttribute('id', 'home');
     backHomeLink.href = `/index.html`;
 
     const backHome = document.createElement('h3');
@@ -33,22 +23,14 @@ export const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
     const containerForms = document.createElement('div');
     containerForms.className = 'container__forms';
 
-    containerForms.appendChild(backHomeLink);
-    containerForms.appendChild(RegisterForm(formFields));
+    containerForms.append(backHomeLink, RegisterForm(formFields));
     container.appendChild(containerForms);
-  }
-
-
-  if (userData) {
-    const user = await UserAccount()
-    container.appendChild(user)
-
-    
+  } else if (userData) {
+    const user = await UserAccount();
+    container.appendChild(user);
   } else {
-  
     const backHomeLink = document.createElement('a');
     backHomeLink.className = 'container__link-home';
-    backHomeLink.setAttribute('id', 'home');
     backHomeLink.href = `/index.html`;
 
     const backHome = document.createElement('h3');
@@ -58,18 +40,14 @@ export const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
     const containerForms = document.createElement('div');
     containerForms.className = 'container__forms';
 
-    containerForms.appendChild(backHomeLink);
-    containerForms.appendChild(LoginForm(formFields));
+    containerForms.append(backHomeLink, LoginForm(formFields));
     container.appendChild(containerForms);
   }
 
-  
   return container;
 };
 
 export default LoginWrapper;
-
-
 
 
 
