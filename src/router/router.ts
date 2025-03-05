@@ -25,11 +25,8 @@ const routes: Route[] = [
 ];
 
 function matchRoute(path: string): { route: Route, param?: string } | undefined {
-  //let foundMatch = false;
-
   for (const route of routes) {
     if (!route.path.includes(":")) {
-      //foundMatch = true; 
       if (route.path === path) return { route };
     } else {
       const pattern = route.path.replace(/:(\w+)/g, "([^/]+)");
