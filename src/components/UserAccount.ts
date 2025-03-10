@@ -1,7 +1,5 @@
 import loggedUser from '../api/loggedUser';
 import userList from '../fields/userList';
-import { navigate } from '../router/router';
-
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/main.scss';
 
@@ -46,9 +44,9 @@ export const UserAccount = async (): Promise<HTMLElement> => {
   panel.appendChild(user);
 
   const titles: Record<string, string> = {
-    '/moje konto/orders': 'Zamówienia',
-    '/moje konto/details': 'Szczegóły konta',
-    '/index.html': 'Strona główna',
+    '/moje-konto/orders': 'Zamówienia',
+    '/moje-konto/details': 'Szczegóły konta',
+    '/': 'Strona główna',
   };
   
   const currentPath = decodeURIComponent(window.location.pathname);
@@ -70,17 +68,25 @@ export const UserAccount = async (): Promise<HTMLElement> => {
     link.href = item.href;
     link.textContent = item.name;
 
-    link.addEventListener("click", (event: Event) => {
-      event.preventDefault();
+    link.addEventListener("click", (event: MouseEvent) => {
+      const newPath = decodeURIComponent(item.href);
+    
       if (item.name === "Wyloguj") {
         localStorage.removeItem("currentUser");
       }
-      console.log(item.href)
-      navigate(item.href);
+    
+      if (titles[newPath]) {
+        event.preventDefault();
+        title.textContent = titles[newPath];
+        window.history.pushState({}, "", newPath);
+      } else {
+        console.warn("Title not found for path:", newPath);
+      }
     });
 
     listItem.appendChild(link);
     panelList.appendChild(listItem);
+
   });
 
   panel.appendChild(panelList);

@@ -18,7 +18,7 @@ export const createWrapperForForm = (className: string): HTMLFormElement => {
 export const LoginForm = (inputs: InputField[]): HTMLElement => {
 
   const container = document.createElement('div')
-  container.className = 'container__login'
+  container.className = 'container__form'
   container.classList.toggle('block')
 
   const wrapperForm = document.createElement('div')
@@ -35,11 +35,14 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
     form.appendChild(input);
   });
 
+  const wrapperSubmitButton = document.createElement('div')
+  wrapperSubmitButton.classList.add('form__button__container')
   const submitButton = document.createElement('button');
   submitButton.className = 'button';
   submitButton.classList.add('form__button')
   submitButton.type = 'submit';
   submitButton.textContent = 'Zaloguj się';
+  wrapperSubmitButton.appendChild(submitButton)
 
   const wrapperFoot = document.createElement('p')
   wrapperFoot.classList.add('form__foot')
@@ -74,7 +77,7 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
 
   wrapperForm.appendChild(form)
   wrapperForm.appendChild(wrapperFoot)
-  form.appendChild(submitButton);
+  form.appendChild(wrapperSubmitButton);
 
   container.appendChild(formTitle)
   container.appendChild(wrapperForm)

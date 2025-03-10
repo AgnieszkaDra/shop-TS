@@ -42,3 +42,15 @@ h2 {
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+.container {
+  @include respond(mobile){
+    max-width: 540px;
+  }
+  @include respond(tablet){
+    max-width: 720px;
+  }
+  @include respond(tablet){
+    max-width: 960px;
+  }
+}

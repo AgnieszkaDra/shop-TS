@@ -2,22 +2,15 @@ import { CarouselImage } from '../types/Carouselmage';
 import { CarouselButtons } from '../ui/CarouselButtons';
 import '../styles/carousel.scss';
 
-export const Carousel = async (images: CarouselImage[]): Promise<HTMLElement> => {
+export const CarouselProducts = async (images: CarouselImage[]): Promise<HTMLElement> => {
    
     const carousel = document.createElement("div");
     carousel.classList.add('carousel')
     carousel.setAttribute('id', 'carousel');
     carousel.setAttribute('araia-label', 'carousel');
 
-    const linkWrapper = document.createElement("div");
-    linkWrapper.classList.add('link__wrapper');
-    const linkCarousel = document.createElement("a");
-    linkCarousel.classList.add('link__carousel');
-    linkWrapper.appendChild(linkCarousel);
-
     const carouselButtons = CarouselButtons()
-    
-    carousel.appendChild(linkWrapper);
+        
     carousel.appendChild(carouselButtons.prevBtnWrapper);
     carousel.appendChild(carouselButtons.nextBtnWrapper);
 
@@ -25,10 +18,8 @@ export const Carousel = async (images: CarouselImage[]): Promise<HTMLElement> =>
     let interval = 5000;
 
     const updateSlide = () => {
-        carousel.style.backgroundImage = `url('/assets/logo/${images[currentSlide].imageBackground}.jpg')`;
-        carousel.style.backgroundSize = 'cover';
-        linkCarousel.href = images[currentSlide].path; 
-        linkCarousel.textContent = images[currentSlide].name;
+      carousel.style.backgroundImage = `url('/assets/${images[currentSlide]}.jpg`;
+      carousel.style.backgroundSize = 'cover';
     };
 
     const goToPrevSlide = () => {
@@ -63,5 +54,4 @@ export const Carousel = async (images: CarouselImage[]): Promise<HTMLElement> =>
     return carousel;
 };
 
-export default Carousel;
-
+export default CarouselProducts;
