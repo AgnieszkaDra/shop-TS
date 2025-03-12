@@ -1,7 +1,10 @@
 import { BACK_END_URL } from "../constants/api";
+import { CarouselImage } from "../types/Carouselmage";
+import Carousel from "../ui/carousel/Carousel";
 import '../styles/main.scss';
 
 export const SelectedProduct = async (productPath: string): Promise<HTMLElement> => {
+
     try {
         const response = await fetch(`${BACK_END_URL}/selectedProduct?path=${productPath}`, {
             method: 'GET',
@@ -16,11 +19,16 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         
         const container = document.createElement('div');
         container.className = 'selectedProduct__container';
+        container.classList.add('container')
 
-        const image = document.createElement('div');
-        image.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
-        image.className = 'selectedProduct__image'
+        const carouselImages = document.createElement('div')
+        carouselImages.className = 'selectedProduct__carousel'
 
+        const images: CarouselImage[] = product.imagesCarousel
+        const carousel = await Carousel({ images, variant: 'products' });
+
+        carouselImages.appendChild(carousel)
+      
         const description = document.createElement('div');
         description.className = 'selectedProduct__description'
 
@@ -32,12 +40,21 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         price.className = 'selectedProduct__price'
         price.textContent = `${product.price}`
 
-        description.appendChild(title)
-        description.appendChild(price)
+        const link = document.createElement("a");
+        link.href = `/index.html`;
+        const h5 = document.createElement('h5')
+        h5.className = "products__link"
+        h5.textContent = `Strona główna / ${product.name}`
+        link.appendChild(h5)
 
         const button = document.createElement('button')
         button.className = 'selectedProduct__addButton'
         button.textContent = 'Dodaj do koszyka'
+
+        description.appendChild(link)
+        description.appendChild(title)
+        description.appendChild(price)
+        description.appendChild(button)
 
         button.addEventListener("click", async () => {
             try {
@@ -67,18 +84,15 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
             }
         });
 
-        container.appendChild(image)
+        container.appendChild(carouselImages)
         container.appendChild(description)
-        container.appendChild(button)
-     
-
-       
+        
         return container;
 
     } catch (error) {
         console.error("Error fetching the product:", error);
         alert("There was a problem fetching the product details.");
-        throw error; // Rethrow the error to be handled by the caller
+        throw error; 
     }
 };
 

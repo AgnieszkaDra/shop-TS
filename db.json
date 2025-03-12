@@ -87,15 +87,17 @@
   },
   "selectedProduct": [
     {
-      "id": "81e9",
-      "productId": 19,
-      "name": "Komplet Bear",
-      "path": "kompletbear",
+      "id": "4726",
+      "productId": 7,
+      "name": "Komplet Whale",
+      "path": "kompletwhale",
       "price": 100,
-      "imageBackground": "cap.1a",
+      "imageBackground": "whale.1a",
       "imagesCarousel": [
-        "cap.1a",
-        "cap.1b"
+        "whale.1a",
+        "whale.1b",
+        "whale.1c",
+        "whale.1d"
       ]
     }
   ],

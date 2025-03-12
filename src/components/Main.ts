@@ -1,8 +1,8 @@
 import Categories from './Categories';
-import '../styles/main.scss';
-import Carousel from './Carousel';
+import Carousel from '../ui/carousel/Carousel';
 import CarouselImages from '../api/carouselImages';
 import { CarouselImage } from '../types/Carouselmage';
+import '../styles/main.scss';
 
 export const Main = async (): Promise<HTMLElement> => {
   const main = document.createElement("main");
@@ -10,7 +10,7 @@ export const Main = async (): Promise<HTMLElement> => {
 
   const images: CarouselImage[] = await CarouselImages();
   
-  const carousel = Carousel(images)
+  const carousel = Carousel({ images, variant: 'main' })
   const categories = Categories()
   
   main.appendChild(await carousel);
@@ -20,3 +20,4 @@ export const Main = async (): Promise<HTMLElement> => {
 };
 
 export default Main;
+
