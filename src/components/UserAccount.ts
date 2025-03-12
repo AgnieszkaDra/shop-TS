@@ -69,24 +69,21 @@ export const UserAccount = async (): Promise<HTMLElement> => {
     link.textContent = item.name;
 
     link.addEventListener("click", (event: MouseEvent) => {
-      const newPath = decodeURIComponent(item.href);
-    
-      if (item.name === "Wyloguj") {
-        localStorage.removeItem("currentUser");
-      }
-    
-      if (titles[newPath]) {
-        event.preventDefault();
-        title.textContent = titles[newPath];
-        window.history.pushState({}, "", newPath);
-      } else {
-        console.warn("Title not found for path:", newPath);
-      }
+        if (item.name !== "Strona główna") {
+            // event.preventDefault();
+            if (item.name === 'Wyloguj') {
+                localStorage.removeItem("currentUser");
+            }
+
+            if (event.target instanceof HTMLAnchorElement) {
+                console.log(event.target.href);
+                // navigate(event.target.href);
+            }
+        }
     });
 
     listItem.appendChild(link);
     panelList.appendChild(listItem);
-
   });
 
   panel.appendChild(panelList);

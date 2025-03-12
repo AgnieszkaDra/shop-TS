@@ -1,9 +1,16 @@
+import HeaderProducts from "./HeaderProducts";
 import { ProductsOfCollection } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
 import { navigate } from "../router/router";
 
-const Products = async (category: string): Promise<HTMLElement> => {
+
+export const Products = async (category: string): Promise<HTMLElement> => {
+    const root = document.querySelector('#root')
+    
+    const header = await HeaderProducts()
+    root?.appendChild(header)
+ 
     const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
 
     const container = document.createElement("section");
@@ -22,6 +29,7 @@ const Products = async (category: string): Promise<HTMLElement> => {
     const productsContainer = document.createElement('ul')
     productsContainer.classList.add('products__list')
 
+    //container.appendChild(await header)
     container.appendChild(h1)
     container.appendChild(link)
     container.appendChild(productsContainer)
@@ -87,6 +95,7 @@ const Products = async (category: string): Promise<HTMLElement> => {
                         path: product.path,
                         price: product.price,
                         imageBackground: product.imageBackground,
+                        imagesCarousel: product.imagesCarousel
                     };
 
                     const response = await fetch(`${BACK_END_URL}/selectedProduct`, {

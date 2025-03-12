@@ -83,16 +83,20 @@
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
     "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d",
-    "lastLogin": "2025-03-10T09:51:56.067Z"
+    "lastLogin": "2025-03-06T11:17:32.430Z"
   },
   "selectedProduct": [
     {
-      "id": "82e5",
-      "productId": 2,
-      "name": "Bluza Rabbit",
-      "path": "bluzarabbit",
-      "price": 90,
-      "imageBackground": "rabbit.1a"
+      "id": "81e9",
+      "productId": 19,
+      "name": "Komplet Bear",
+      "path": "kompletbear",
+      "price": 100,
+      "imageBackground": "cap.1a",
+      "imagesCarousel": [
+        "cap.1a",
+        "cap.1b"
+      ]
     }
   ],
   "cart": [
@@ -107,14 +111,6 @@
     {
       "id": "c9ed",
       "productId": "dd50",
-      "name": "Bluza Rabbit",
-      "price": 90,
-      "imageBackground": "rabbit.1a",
-      "quantity": 1
-    },
-    {
-      "id": "bf60",
-      "productId": "7ceb",
       "name": "Bluza Rabbit",
       "price": 90,
       "imageBackground": "rabbit.1a",
@@ -447,13 +443,13 @@
     {
       "imageBackground": "logo-dziecko",
       "name": "Dziecko",
-      "path": "Dziecko",
+      "path": "/category/Dziecko",
       "id": "5c47"
     },
     {
       "imageBackground": "logo-mama",
       "name": "Kobieta",
-      "path": "Kobieta",
+      "path": "/category/Kobieta",
       "id": "0b51"
     }
   ]
