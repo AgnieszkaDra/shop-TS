@@ -1,5 +1,5 @@
 export function CarouselButtons(): { prevBtnWrapper: HTMLDivElement; nextBtnWrapper: HTMLDivElement } {
- 
+    // Create previous button wrapper and button
     const prevBtnWrapper = document.createElement("div");
     prevBtnWrapper.classList.add("carousel__button-wrapper", "prevBtn");
 
@@ -10,7 +10,7 @@ export function CarouselButtons(): { prevBtnWrapper: HTMLDivElement; nextBtnWrap
 
     prevBtnWrapper.appendChild(prevBtn);
 
-   
+    // Create next button wrapper and button
     const nextBtnWrapper = document.createElement("div");
     nextBtnWrapper.classList.add("carousel__button-wrapper", "nextBtn");
 

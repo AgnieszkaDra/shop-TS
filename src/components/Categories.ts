@@ -1,5 +1,5 @@
-import { Product, Collection } from '../types/ProductsData';
-import { UniqueProductCollection } from '../api/categoriesList';
+import { Product, CategoriesCollection } from '../types/ProductsData';
+import { fetchCategories} from '../api/categoriesList';
 import { navigate } from '../router/router';
 import '../styles/main.scss';
 
@@ -11,7 +11,7 @@ export const Categories = async (): Promise<HTMLElement> => {
   const categoriesList = document.createElement("ul");
   categoriesList.classList.add("categories__list");
 
-  const categoriesUnique: { [key in Collection]: Product } = await UniqueProductCollection();
+  const categoriesUnique: { [key in CategoriesCollection]?: Product } = await fetchCategories();
 
   Object.entries(categoriesUnique).forEach(([collectionType, product]: [string, Product]) => {
  

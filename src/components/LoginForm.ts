@@ -18,7 +18,7 @@ export const createWrapperForForm = (className: string): HTMLFormElement => {
 export const LoginForm = (inputs: InputField[]): HTMLElement => {
 
   const container = document.createElement('div')
-  container.className = 'container__form'
+  container.className = 'container__login'
   container.classList.toggle('block')
 
   const wrapperForm = document.createElement('div')

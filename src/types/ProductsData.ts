@@ -27,6 +27,8 @@ export type Product = {
     }[];                    
   };
 
-  export type Collection = 'Bluzy' | 'Spódnice i sukienki' |  'Spodnie'  |  'Akcesoria' | 'Komplety'
+  export type CategoriesCollection = 'Bluzy' | 'Spódnice i sukienki' |  'Spodnie'  |  'Akcesoria' | 'Komplety'
 
   export type MainCollection = 'Dziecko' | 'Kobieta' 
+
+  export type Collection = MainCollection | CategoriesCollection

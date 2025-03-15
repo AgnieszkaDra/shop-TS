@@ -10,7 +10,7 @@ export const Main = async (): Promise<HTMLElement> => {
 
   const images: CarouselImage[] = await fetchLogoImages();
   const carousel = Carousel({ images, variant: 'main' })
-  
+
   const categories = Categories()
   
   main.appendChild(await carousel);
@@ -20,4 +20,3 @@ export const Main = async (): Promise<HTMLElement> => {
 };
 
 export default Main;
-

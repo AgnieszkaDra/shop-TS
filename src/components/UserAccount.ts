@@ -44,9 +44,10 @@ export const UserAccount = async (): Promise<HTMLElement> => {
   panel.appendChild(user);
 
   const titles: Record<string, string> = {
-    '/moje-konto/orders': 'Zamówienia',
-    '/moje-konto/details': 'Szczegóły konta',
+    '/moje konto/orders': 'Zamówienia',
+    '/moje konto/details': 'Szczegóły konta',
     '/': 'Strona główna',
+    //'/': '',
   };
   
   const currentPath = decodeURIComponent(window.location.pathname);
@@ -69,17 +70,21 @@ export const UserAccount = async (): Promise<HTMLElement> => {
     link.textContent = item.name;
 
     link.addEventListener("click", (event: MouseEvent) => {
-        if (item.name !== "Strona główna") {
-            // event.preventDefault();
-            if (item.name === 'Wyloguj') {
-                localStorage.removeItem("currentUser");
-            }
-
-            if (event.target instanceof HTMLAnchorElement) {
-                console.log(event.target.href);
-                // navigate(event.target.href);
-            }
+      
+      if (item.name !== "Strona główna") {
+        //event.preventDefault();
+        if (item.name === 'Wyloguj'){
+           localStorage.removeItem("currentUser");
         }
+       
+         if (event.target && event.target instanceof HTMLAnchorElement) {
+       console.log(event.target.href);
+       //navigate(event.target.href);
+     } 
+     
+      }
+    
+      
     });
 
     listItem.appendChild(link);

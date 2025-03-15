@@ -3,7 +3,7 @@ import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
 import BasketIcon from './BasketIcon';
 import Header from './Header';
-import LoginUser from './LoginUser';
+import { LoginUser } from './LoginUser';
 
 
 
