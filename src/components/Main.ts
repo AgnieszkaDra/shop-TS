@@ -1,16 +1,16 @@
 import Categories from './Categories';
 import Carousel from '../ui/carousel/Carousel';
-import CarouselImages from '../api/carouselImages';
-import { CarouselImage } from '../types/Carouselmage';
+import fetchLogoImages from '../api/fetchLogoImages';
+import { CarouselImage } from '../types/Carousellmage';
 import '../styles/main.scss';
 
 export const Main = async (): Promise<HTMLElement> => {
   const main = document.createElement("main");
   main.classList.add("main");
 
-  const images: CarouselImage[] = await CarouselImages();
-  
+  const images: CarouselImage[] = await fetchLogoImages();
   const carousel = Carousel({ images, variant: 'main' })
+  
   const categories = Categories()
   
   main.appendChild(await carousel);

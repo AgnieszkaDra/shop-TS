@@ -1,4 +1,4 @@
-import { CarouselImage } from "../../../types/Carouselmage";
+import { CarouselImage } from "../../../types/Carousellmage";
 
 export const getImagePath = (image: CarouselImage, variant: 'main' | 'products'): string => {
   return variant === 'main'

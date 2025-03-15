@@ -1,4 +1,4 @@
-import { CarouselImage } from '../../types/Carouselmage';
+import { CarouselImage } from '../../types/Carousellmage';
 import { CarouselButtons } from '../CarouselButtons';
 import { createCarouselElement } from './helpers/createCarouselElement';
 import { createLinkWrapper } from './helpers/createLinkWrapper';

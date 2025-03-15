@@ -1,5 +1,5 @@
 import { BACK_END_URL } from "../constants/api";
-import { CarouselImage } from "../types/Carouselmage";
+import { CarouselImage } from "../types/Carousellmage";
 import Carousel from "../ui/carousel/Carousel";
 import '../styles/main.scss';
 

@@ -1,4 +1,4 @@
-import { CarouselImage } from '../types/Carouselmage';
+import { CarouselImage } from '../types/Carousellmage';
 import { CarouselButtons } from '../ui/CarouselButtons';
 import '../styles/carousel.scss';
 
