@@ -1,5 +1,5 @@
 import '../styles/header.scss';
-import MenuItems from '../constants/categories';
+import MenuItems from '../constants/menuItems';
 import { navigate } from '../router/router';
 import LoginUser from './LoginUser';
 
@@ -16,25 +16,19 @@ export const Menu = async (): Promise<HTMLElement> => {
 
         const link = document.createElement("a");
         link.href = item.path;
-        link.textContent = item.categoryName;
+        link.textContent = item.name;
         link.classList.add("menu__link");
 
-        // link.addEventListener("click", (event: Event) => {
-        //     event.preventDefault();
-        //     const path = link.getAttribute("href");
-        //     if (path !== null) {
-        //         navigate(path);
-        //     }
-        // });
-
-        link.addEventListener("click", (event: Event) => {
-            event.preventDefault();
-            let path = link.getAttribute("href");
-                if (path) {
-                navigate(`/category${path}`);
-              }
-            });
-
+        if(item.name !== 'Strona główna') {
+            link.addEventListener("click", (event: Event) => {
+                event.preventDefault();
+                
+                let path = link.getAttribute("href");
+                    if (path) {
+                    navigate(`/category${path}`);
+                }
+                });
+            }
         listItem.appendChild(link);
         list.appendChild(listItem);
     });
