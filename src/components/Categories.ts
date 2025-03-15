@@ -52,13 +52,10 @@ export const Categories = async (): Promise<HTMLElement> => {
     link.addEventListener("click", (event: Event) => {
       event.preventDefault();
       let path = link.getAttribute("href");
-     
-      if (path) {
         if (path) {
           navigate(`/category${path}`);
         }
-      }
-    });
+      });
 
     listItem.appendChild(listItemDescription);
     categoriesContainer.appendChild(listItem);

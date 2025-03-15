@@ -1,26 +1,35 @@
 import productsList from "./productsList";
-import { Product, CategoriesCollection, Collection } from "../types/ProductsData";
+import { Product, CategoriesCollection, Collection, MainCollection } from "../types/ProductsData";
 
-export async function fetchCollections(): Promise<{ categories: CategoriesCollection[] }> {
+export async function fetchCollections(): Promise<{ categories: Collection[], main: MainCollection[] }> {
   const products = await productsList();
 
-  const categories = new Set(
-    products
-      .map(product => product.collectionType)
-      .filter((type): type is CategoriesCollection => type !== undefined)
-  );
+  const categories = new Set<Collection>();
+  const mainCollections = new Set<MainCollection>();
 
-  return { categories: Array.from(categories) };
+  products.forEach(product => {
+    if (product.collectionType) {
+      categories.add(product.collectionType as Collection);
+    }
+    if (product.collectionMain) {
+      mainCollections.add(product.collectionMain as MainCollection);
+    }
+  });
+
+  return {
+    categories: Array.from(categories),
+    main: Array.from(mainCollections)
+  };
 }
 
-export async function fetchCategories(): Promise<{ [key in CategoriesCollection]?: Product }> {
+export async function fetchCategories(): Promise<{ [key in Collection]?: Product }> {
   const products = await productsList();
   const { categories } = await fetchCollections();
 
-  const selectedProducts: Partial<{ [key in CategoriesCollection]: Product }> = {};
+  const selectedProducts: Partial<{ [key in Collection]: Product }> = {};
 
   categories.forEach((categoryType) => {
-    const product = products.find((product: Product) => product.collectionType === categoryType);
+    const product = products.find((product: Product) => product.collectionType === categoryType );
     if (product) {
       selectedProducts[categoryType] = product;
     }
@@ -29,14 +38,16 @@ export async function fetchCategories(): Promise<{ [key in CategoriesCollection]
   return selectedProducts;
 }
 
-export async function fetchProductsOfCategory(): Promise<{ [key in CategoriesCollection]: Product[] }> {
+export async function fetchProductsOfCategory(): Promise<{ [key in Collection | MainCollection]: Product[] }> {
   const products = await productsList();
-  const { categories } = await fetchCollections(); 
+  const { categories, main } = await fetchCollections(); 
 
-  const selectedProducts: { [key in CategoriesCollection]: Product[] } = {} as { [key in CategoriesCollection]: Product[] };
+  const selectedProducts: { [key in Collection | MainCollection]: Product[] } = {} as { [key in Collection | MainCollection]: Product[] };
 
-  categories.forEach((category) => {
-    selectedProducts[category] = products.filter((product) => product.collectionType === category);
+  [...categories, ...main].forEach((category) => {
+    selectedProducts[category] = products.filter((product) => 
+      product.collectionType === category || product.collectionMain === category
+    );
   });
 
   return selectedProducts;

@@ -19,13 +19,21 @@ export const Menu = async (): Promise<HTMLElement> => {
         link.textContent = item.categoryName;
         link.classList.add("menu__link");
 
+        // link.addEventListener("click", (event: Event) => {
+        //     event.preventDefault();
+        //     const path = link.getAttribute("href");
+        //     if (path !== null) {
+        //         navigate(path);
+        //     }
+        // });
+
         link.addEventListener("click", (event: Event) => {
             event.preventDefault();
-            const path = link.getAttribute("href");
-            if (path !== null) {
-                navigate(path);
-            }
-        });
+            let path = link.getAttribute("href");
+                if (path) {
+                navigate(`/category${path}`);
+              }
+            });
 
         listItem.appendChild(link);
         list.appendChild(listItem);

@@ -1,8 +1,10 @@
 import HeaderProducts from "./HeaderProducts";
 import { fetchProductsOfCategory } from "../api/categoriesList";
-import { CategoriesCollection, Product } from "../types/ProductsData";
+import { Collection, Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
 import { navigate } from "../router/router";
+
+
 
 export const Products = async (category: string): Promise<HTMLElement> => {
   const root = document.querySelector("#root");
@@ -11,7 +13,15 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   root?.appendChild(header);
 
   // Fetch products by category using ProductsOfCollection
-  const products: { [key in CategoriesCollection]: Product[] } = await fetchProductsOfCategory();
+
+
+  // const pathSegments = path.split("/categories"); // Split by `/`
+  // const pathCategory = pathSegments[pathSegments.length - 1]; // Get last segment
+
+  // console.log("Extracted category from path:", pathCategory);
+
+
+  const products: { [key in Collection]: Product[] } = await fetchProductsOfCategory();
   //const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
 
   const container = document.createElement("section");
@@ -38,6 +48,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
 
   // Filter products by category and populate the list
   Object.entries(products).forEach(([collectionType, productsArray]) => {
+    console.log(collectionType, productsArray)
     if (collectionType.toLowerCase() === category.toLowerCase()) {
       productsArray.forEach((product) => {
         const linkItem = document.createElement("a");
@@ -133,8 +144,6 @@ export const Products = async (category: string): Promise<HTMLElement> => {
 };
 
 export default Products;
-
-
 
 
 

@@ -48,12 +48,16 @@ export async function navigate(path: string) {
 
   if (matched) {
     const { route, param } = matched;
-    console.log(`właściwy ${route}`)
+    
+    console.log("właściwy route:", param); // Logs the entire route object
+    console.log("właściwy route path:", route.path); // Logs the path of the route
+    console.log("właściwy route component:", route.component); 
    
     try {
       content.innerHTML = "";
 
       if (typeof route.component === 'function') {
+    
         const component = await route.component(param || '');
         
         if (typeof component === 'string') {

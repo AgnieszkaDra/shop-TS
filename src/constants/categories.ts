@@ -7,11 +7,11 @@ export const MenuItems = [
     },
     {
       categoryName: "Strefa dziecka",
-      path: "/category/Dziecko",
+      path: "/dziecko",
     },
     {
       categoryName: "Strefa kobiet",
-      path: "/category/Kobieta",
+      path: "/kobieta",
     },
   ];
 
