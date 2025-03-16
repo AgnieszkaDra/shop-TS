@@ -1,10 +1,8 @@
 import HeaderProducts from "./HeaderProducts";
 import { fetchProductsOfCategory } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
-import { BACK_END_URL } from "../constants/api";
 import { navigate } from "../router/router";
-
-
+import { addSelectedProduct } from "../api/selectedProduct";
 
 export const Products = async (category: string): Promise<HTMLElement> => {
   const root = document.querySelector("#root");
@@ -12,17 +10,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const header = await HeaderProducts();
   root?.appendChild(header);
 
-  // Fetch products by category using ProductsOfCollection
-
-
-  // const pathSegments = path.split("/categories"); // Split by `/`
-  // const pathCategory = pathSegments[pathSegments.length - 1]; // Get last segment
-
-  // console.log("Extracted category from path:", pathCategory);
-
-
   const products: { [key in Collection]: Product[] } = await fetchProductsOfCategory();
-  //const products: { [key in Collection]: Product[] } = await ProductsOfCollection();
 
   const container = document.createElement("section");
   container.classList.add("section", "products");
@@ -41,16 +29,13 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const productsContainer = document.createElement("ul");
   productsContainer.classList.add("products__list");
 
-  // Append elements to the container
   container.appendChild(h1);
   container.appendChild(link);
   container.appendChild(productsContainer);
 
-  // Filter products by category and populate the list
   Object.entries(products).forEach(([collectionType, productsArray]) => {
-    console.log(collectionType, productsArray)
     if (collectionType.toLowerCase() === category.toLowerCase()) {
-      productsArray.forEach((product) => {
+        productsArray.forEach((product) => {
         const linkItem = document.createElement("a");
         linkItem.href = `/${product?.path}`;
         const listItem = document.createElement("li");
@@ -85,23 +70,15 @@ export const Products = async (category: string): Promise<HTMLElement> => {
         caption.appendChild(title);
         caption.appendChild(price);
 
-        listItem.appendChild(caption);
+        linkItem.appendChild(listItem);
+        productsContainer.appendChild(linkItem);
 
-        // Add event listener for adding products to the cart
         linkItem.addEventListener("click", async (event) => {
+          
           event.preventDefault();
 
           try {
-            const responseSelectedProducts = await fetch(`${BACK_END_URL}/selectedProduct`);
-            const selectedProducts = await responseSelectedProducts.json();
-
-            if (selectedProducts.length > 0) {
-              for (const product of selectedProducts) {
-                await fetch(`${BACK_END_URL}/selectedProduct/${product.id}`, {
-                  method: "DELETE",
-                });
-              }
-            }
+            //await clearSelectedProducts(); 
 
             const selectedProductItem = {
               productId: product.id,
@@ -110,15 +87,20 @@ export const Products = async (category: string): Promise<HTMLElement> => {
               price: product.price,
               imageBackground: product.imageBackground,
               imagesCarousel: product.imagesCarousel,
+              collectionType: product.collectionType,
+              collectionMain: product.collectionMain,
+              features: product.features,
             };
 
-            const response = await fetch(`${BACK_END_URL}/selectedProduct`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(selectedProductItem),
-            });
+            // const response = await fetch(`${BACK_END_URL}/selectedProduct`, {
+            //   method: "POST",
+            //   headers: { "Content-Type": "application/json" },
+            //   body: JSON.stringify(selectedProductItem),
+            // });
 
-            if (response.ok) {
+            const addedProduct = await addSelectedProduct(selectedProductItem);
+
+            if (addedProduct) {
               let path = linkItem.getAttribute("href") || linkItem.href;
               if (path) {
                 navigate(`/product${path}`);
@@ -133,9 +115,6 @@ export const Products = async (category: string): Promise<HTMLElement> => {
             alert("Wystąpił problem podczas dodawania do koszyka.");
           }
         });
-
-        linkItem.appendChild(listItem);
-        productsContainer.appendChild(linkItem);
       });
     }
   });
@@ -144,8 +123,6 @@ export const Products = async (category: string): Promise<HTMLElement> => {
 };
 
 export default Products;
-
-
 
 
 

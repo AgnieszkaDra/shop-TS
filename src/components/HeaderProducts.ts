@@ -1,9 +1,9 @@
-import '../styles/header.scss';
 import BurgerMenu from '../ui/BurgerMenu';
 import Navigation from '../ui/Navigation';
 import BasketIcon from './BasketIcon';
 import Header from './Header';
 import { LoginUser } from './LoginUser';
+import '../styles/header.scss';
 
 export const HeaderProducts = async (): Promise<HTMLElement> => { 
     const mobileWrapper = document.createElement("div");
@@ -23,12 +23,10 @@ export const HeaderProducts = async (): Promise<HTMLElement> => {
     });
 
     const logo = document.createElement("img");
-    logo.src = "../../public/assets/logo/logo-dziecko.jpg"; // Replace with your actual logo path
+    logo.src = "../../public/assets/logo/logo-dziecko.jpg"; 
     logo.alt = "logo";
     logo.classList.add("header__mobile--products__logo")
    
-
-    // Handle async LoginUser()
     const login = await LoginUser();
     wrapperAccount.appendChild(login);
 

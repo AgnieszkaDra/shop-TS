@@ -11,6 +11,7 @@ interface CarouselProps {
 }
 
 export const Carousel = async ({ images, variant }: CarouselProps): Promise<HTMLElement> => {
+  console.log(images)
   const carousel = createCarouselElement();
   const { prevBtnWrapper, nextBtnWrapper } = CarouselButtons();
 

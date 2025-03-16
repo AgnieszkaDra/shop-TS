@@ -1,5 +1,5 @@
 export type CarouselImage = {
-    imageBackground: 'string'
+    imageBackground: string
     name: string;
     path: string;
 };

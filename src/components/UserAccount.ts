@@ -47,7 +47,6 @@ export const UserAccount = async (): Promise<HTMLElement> => {
     '/moje konto/orders': 'Zamówienia',
     '/moje konto/details': 'Szczegóły konta',
     '/': 'Strona główna',
-    //'/': '',
   };
   
   const currentPath = decodeURIComponent(window.location.pathname);

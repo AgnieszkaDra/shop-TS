@@ -1,5 +1,5 @@
 export type Product = {
-    id: number;
+    id: number; // czy to jest tutaj potrzebne skoro id tworzy json-server
     name: string;
     path: string,
     imageBackground: string;
@@ -9,6 +9,16 @@ export type Product = {
     collectionType: string;
     features: string[];
   };
+
+export type CartItem = {
+    id: number,
+    name: string,
+    price: number,
+    imageBackground: string,
+    quantity: number,
+  };
+
+
   
 
  export type ProductsData = {
