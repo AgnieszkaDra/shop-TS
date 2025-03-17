@@ -3,6 +3,8 @@ import Carousel from "../ui/carousel/Carousel";
 import { fetchSelectedProducts } from "../api/selectedProduct"; 
 import addToCart from "../api/addToCart";
 import '../styles/main.scss';
+import createTitle from "../typography/createTitle";
+import createProductPrice from "../ui/product/createProductPrice.ts";
 
 export const SelectedProduct = async (productPath: string): Promise<HTMLElement> => {
     try {
@@ -40,13 +42,12 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         const description = document.createElement('div');
         description.className = 'selectedProduct__description';
 
-        const title = document.createElement('h1');
-        title.className = 'selectedProduct__title';
-        title.textContent = `${product.name}`;
+        const titleContent = `${product.name}`;
+        const title = createTitle("h1", titleContent, "selectedProduct__title") 
+     
+        const price = createProductPrice(product.price)
 
-        const price = document.createElement('p');
-        price.className = 'selectedProduct__price';
-        price.textContent = `${product.price}`;
+    
 
         const link = document.createElement("a");
         link.href = `/index.html`;

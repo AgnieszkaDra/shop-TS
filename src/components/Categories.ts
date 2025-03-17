@@ -2,6 +2,7 @@ import { Product, CategoriesCollection } from '../types/ProductsData';
 import { fetchCategories} from '../api/categoriesList';
 import { navigate } from '../router/router';
 import '../styles/main.scss';
+import createTitle from '../typography/createTitle';
 
 export const Categories = async (): Promise<HTMLElement> => {
 
@@ -23,9 +24,9 @@ export const Categories = async (): Promise<HTMLElement> => {
     listItemDescription.classList.add("categories__description")
 
     const titleWrapper = document.createElement('div')
-    const title = document.createElement("h2");
-    title.classList.add("categories__title");
-    title.textContent = collectionType.charAt(0).toUpperCase() + collectionType.slice(1);
+    const titleContent = collectionType.charAt(0).toUpperCase() + collectionType.slice(1);
+    const title = createTitle("h2", titleContent, "categories__title") 
+    
     titleWrapper.appendChild(title)
 
     const link = document.createElement("a");

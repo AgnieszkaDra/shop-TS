@@ -54,3 +54,11 @@ h2 {
     max-width: 960px;
   }
 }
+
+.price {
+  font-size: 18px;
+  &__container {
+    margin: 0 10px 10px 0;
+    color: $color-lightGrey;
+  }
+}

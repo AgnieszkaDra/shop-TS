@@ -170,7 +170,6 @@
     position: relative;
     opacity: 1;
     margin: 50px;
-    color: $color-lightGrey;
     @include flexAbsoluteCenter();
     flex-direction: column;
     @include respond(tablet) {
@@ -185,12 +184,14 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+  &__title {
+    color: $color-lightGrey;
+  }
   &__description {
     position: relative;
     padding: 30px 45px 45px;
     width: 50%;
     font-size: 18px;
-    color: $color-lightGrey;
   }
   &__price {
     font-style: italic;

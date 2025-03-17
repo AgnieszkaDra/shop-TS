@@ -3,6 +3,11 @@ import { fetchProductsOfCategory } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
 import { navigate } from "../router/router";
 import { addSelectedProduct } from "../api/selectedProduct";
+import createProductLink from "../ui/product/createProductLink";
+import createProductImage from "../ui/product/createProductImage";
+import ResizeIcon from "../ui/elements/resizeIcon/ResizeIcon";
+import createTitle from "../typography/createTitle";
+import createProductPrice from "../ui/product/createProductPrice.ts";
 
 export const Products = async (category: string): Promise<HTMLElement> => {
   const root = document.querySelector("#root");
@@ -15,9 +20,9 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const container = document.createElement("section");
   container.classList.add("section", "products");
 
-  const h1 = document.createElement("h1");
-  h1.className = "products__title";
-  h1.textContent = category;
+  const title = createTitle("h1", category, "products__title") 
+
+  
 
   const link = document.createElement("a");
   link.href = `/index.html`;
@@ -29,51 +34,43 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const productsContainer = document.createElement("ul");
   productsContainer.classList.add("products__list");
 
-  container.appendChild(h1);
+  container.appendChild(title);
   container.appendChild(link);
   container.appendChild(productsContainer);
 
   Object.entries(products).forEach(([collectionType, productsArray]) => {
     if (collectionType.toLowerCase() === category.toLowerCase()) {
         productsArray.forEach((product) => {
-        const linkItem = document.createElement("a");
-        linkItem.href = `/${product?.path}`;
+
+        const productLink = createProductLink(product)
+
         const listItem = document.createElement("li");
         listItem.className = "product products__item";
 
-        const itemPhoto = document.createElement("img");
-        itemPhoto.className = "product__photo";
-        itemPhoto.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
-        const itemPhotoWrapper = document.createElement("figure");
-        itemPhotoWrapper.className = "product__figure";
+        const itemPhoto = createProductImage(product)
 
-        itemPhotoWrapper.appendChild(itemPhoto);
-        const itemDetails = document.createElement("div");
-        itemDetails.className = "product__details";
-        const resizeIcon = document.createElement("i");
-        resizeIcon.classList.add("product__icon", "fa-solid", "fa-up-right-and-down-left-from-center");
-        resizeIcon.style.fontSize = "1.5em";
-        itemDetails.appendChild(resizeIcon);
-
-        listItem.appendChild(itemPhotoWrapper);
-        listItem.appendChild(itemDetails);
+        const resizeIcon = ResizeIcon()
+     
+        listItem.appendChild(itemPhoto);
+        listItem.appendChild(resizeIcon);
 
         const caption = document.createElement("div");
         caption.style.paddingTop = "1rem";
-        const title = document.createElement("h3");
-        title.className = "product__title products__title";
-        title.textContent = product.name;
 
-        const price = document.createElement("span");
-        price.textContent = `${product.price}zł`;
-        price.className = "product__price";
+        const titleContent = product.name;
+        const title = createTitle("h3", titleContent, "products__title") 
+      
+        const price = createProductPrice(product.price)
+        
         caption.appendChild(title);
         caption.appendChild(price);
 
-        linkItem.appendChild(listItem);
-        productsContainer.appendChild(linkItem);
+        listItem.appendChild(caption)
 
-        linkItem.addEventListener("click", async (event) => {
+        productLink.appendChild(listItem);
+        productsContainer.appendChild(productLink);
+
+        productLink.addEventListener("click", async (event) => {
           
           event.preventDefault();
 
@@ -101,7 +98,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
             const addedProduct = await addSelectedProduct(selectedProductItem);
 
             if (addedProduct) {
-              let path = linkItem.getAttribute("href") || linkItem.href;
+              let path = productLink.getAttribute("href") || productLink.href;
               if (path) {
                 navigate(`/product${path}`);
               } else {
