@@ -15,7 +15,13 @@ export async function addToCart(cartItem: CartItem): Promise<CartItem | null> {
       throw new Error("Failed to add product to cart");
     }
 
-    return await response.json();
+    const result = await response.json();
+
+    if (!result) {
+      return null;
+    }
+    return result; 
+    
   } catch (error) {
     console.error("Error adding product to cart:", error);
     return null;

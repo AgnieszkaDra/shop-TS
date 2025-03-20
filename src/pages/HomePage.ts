@@ -1,4 +1,4 @@
-import HeaderMain from "../components/HeaderMain";
+import HeaderMain from "../components/header/HeaderMain";
 import Main from "../components/Main";
 
 

@@ -56,8 +56,8 @@ export const Carousel = async ({ images, variant }: CarouselProps): Promise<HTML
   };
 
   updateSlide();
- return carousel;
- };
+  return carousel;
+};
 
 export default Carousel;
 

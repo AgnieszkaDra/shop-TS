@@ -1,5 +1,5 @@
-import { InputField, TextField, NumberField, SelectField, EmailField, PasswordField } from '../types/InputField';
-import { createTextField, createNumberField, createSelectField, createEmailField, createPasswordField } from '../ui/inputs';
+import { InputField, TextField, NumberField, SelectField, EmailField, PasswordField } from '../../types/InputField';
+import { createTextField, createNumberField, createSelectField, createEmailField, createPasswordField } from '../../ui/inputs';
 
 
 const createFields = (field: InputField): HTMLDivElement => {

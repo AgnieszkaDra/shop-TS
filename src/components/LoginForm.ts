@@ -1,6 +1,6 @@
 import { InputField } from '../types/InputField';
-import createFields from '../utils/createFields';
-import { submitForm } from '../utils/submitForm';
+import createFields from '../utils/form/createFields';
+import { submitForm } from '../utils/form/submitForm';
 import RegisterForm from './RegisterForm';
 import formFields from '../fields/formFields';
 import '../styles/main.scss';

@@ -1,11 +1,11 @@
-import BurgerClose from './BurgerClose';
+import BurgerClose from './elements/burgers/BurgerClose';
 import Menu from '../components/Menu';
 import '../styles/header.scss';
 
 export const Navigation = (): HTMLElement => {
     const nav = document.createElement("nav");
     nav.id = "menu-mobile"; 
-    nav.classList.add("menu-mobile");
+    nav.classList.add("menu-mobile", "none");
 
     const buttonCloseWrapper = document.createElement("div");
     buttonCloseWrapper.className = 'burger-close__wrapper';

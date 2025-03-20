@@ -66,7 +66,7 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         description.appendChild(button);
 
         button.addEventListener("click", async () => {
-           
+           // czy można to jescze jakoś zrefaktoryzować
             try {
                 const cartItem = {
                     id: product.id,

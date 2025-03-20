@@ -1,7 +1,6 @@
-export { default as BasketIcon } from "./BasketIcon"
+export { default as BasketIcon } from "../ui/elements/BasketIcon"
 export { default as Cart } from "./Cart";
 export { default as Categories } from "./Categories";
-export { default as Header } from "./Header";
 export { default as LoginForm } from "./LoginForm";
 export { default as LoginUser } from "./LoginUser";
 export { default as LoginWrapper } from "./LoginWrapper";

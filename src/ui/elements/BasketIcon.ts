@@ -1,6 +1,6 @@
-import { navigate } from "../router/router";
+import { navigate } from "../../router/router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import '../styles/header.scss';
+import '../../styles/header.scss';
 
 export const BasketIcon = (): HTMLElement => {
     const wrapper = document.createElement("div");

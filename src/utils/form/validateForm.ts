@@ -1,4 +1,4 @@
-import { InputField } from '../types/InputField';
+import { InputField } from '../../types/InputField';
 import showErrorMessage from './showErrorMessage';
 import showSuccessMessage from './showSuccessMessage';
 

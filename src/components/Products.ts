@@ -1,11 +1,11 @@
-import HeaderProducts from "./HeaderProducts";
+import HeaderProducts from "./header/HeaderProducts.ts";
 import { fetchProductsOfCategory } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
 import { navigate } from "../router/router";
 import { addSelectedProduct } from "../api/selectedProduct";
 import createProductLink from "../ui/product/createProductLink";
 import createProductImage from "../ui/product/createProductImage";
-import ResizeIcon from "../ui/elements/resizeIcon/ResizeIcon";
+import ResizeIcon from "../ui/elements/ResizeIcon.ts";
 import createTitle from "../typography/createTitle";
 import createProductPrice from "../ui/product/createProductPrice.ts";
 
@@ -21,8 +21,6 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   container.classList.add("section", "products");
 
   const title = createTitle("h1", category, "products__title") 
-
-  
 
   const link = document.createElement("a");
   link.href = `/index.html`;
@@ -95,7 +93,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
             //   body: JSON.stringify(selectedProductItem),
             // });
 
-            const addedProduct = await addSelectedProduct(selectedProductItem);
+            const addedProduct = await addSelectedProduct(selectedProductItem, productLink);
 
             if (addedProduct) {
               let path = productLink.getAttribute("href") || productLink.href;

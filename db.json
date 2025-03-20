@@ -99,6 +99,27 @@
         "whale.1c",
         "whale.1d"
       ]
+    },
+    {
+      "id": "a82f",
+      "productId": 2,
+      "name": "Bluza Rabbit",
+      "path": "bluzarabbit",
+      "price": 90,
+      "imageBackground": "rabbit.1a",
+      "imagesCarousel": [
+        "rabbit.1a",
+        "rabbit.1b",
+        "rabbit.1c",
+        "rabbit.1d",
+        "rabbit.1e",
+        "rabbit.1f",
+        "rabbit.2a",
+        "rabbit.2b",
+        "rabbit.2c"
+      ],
+      "collectionType": "Bluzy",
+      "collectionMain": "Dziecko"
     }
   ],
   "cart": [

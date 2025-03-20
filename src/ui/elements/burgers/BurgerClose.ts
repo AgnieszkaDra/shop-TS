@@ -1,4 +1,4 @@
-import '../styles/header.scss'
+//import '../styles/header.scss'
 
 export const BurgerClose = (): HTMLElement => {
     const button = document.createElement("button");

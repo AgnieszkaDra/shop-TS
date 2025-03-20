@@ -1,4 +1,4 @@
-import '../styles/header.scss';
+import '../../../styles/header.scss'
 
 interface HeaderProps {
     backgroundColor?: string;
@@ -19,13 +19,3 @@ export const Header = ({ backgroundColor = "transparent", children = [], classNa
 };
 
 export default Header;
-
-
-
-
-
-
-
-
-
-

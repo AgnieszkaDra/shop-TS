@@ -1,5 +1,6 @@
 import { Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
+import { navigate } from "../router/router";
 
 const SELECTED_PRODUCT_URL = `${BACK_END_URL}/selectedProduct/`;
 
@@ -17,14 +18,8 @@ export async function fetchSelectedProducts(): Promise<Product[]> {
 export async function clearSelectedProducts(): Promise<void> {
   try {
     const selectedProducts = await fetchSelectedProducts();
-    console.log(selectedProducts)
+    console.log(selectedProducts);
     if (selectedProducts.length === 0) return;
-
-    // await Promise.all(
-    //   selectedProducts.map((product) =>
-    //     fetch(`${SELECTED_PRODUCT_URL}${product.id}`, { method: "DELETE" })
-    //   )
-    // );
 
     const response = await fetch(SELECTED_PRODUCT_URL, { method: "DELETE" });
 
@@ -36,7 +31,10 @@ export async function clearSelectedProducts(): Promise<void> {
   }
 }
 
-export async function addSelectedProduct(selectedProduct: Omit<Product, "id">): Promise<Product | null> {
+export async function addSelectedProduct(
+  selectedProduct: Omit<Product, "id">,
+  productLink: HTMLAnchorElement
+): Promise<Product | null> {
   try {
     const response = await fetch(SELECTED_PRODUCT_URL, {
       method: "POST",
@@ -48,9 +46,22 @@ export async function addSelectedProduct(selectedProduct: Omit<Product, "id">): 
       throw new Error("Failed to add selected product");
     }
 
-    return await response.json(); 
+    const result = await response.json();
+
+    if (!result) {
+      return null;
+    }
+
+    let path = productLink.getAttribute("href") || productLink.href;
+    if (path) {
+      navigate(`/product${path}`);
+    } else {
+      console.warn("No href found on productLink");
+    }
+    return result;
   } catch (error) {
-    console.error("Error adding selected product:", error);
+    console.error("Error adding product to cart:", error);
+    alert("Wystąpił problem podczas dodawania do koszyka.");
     return null;
   }
 }

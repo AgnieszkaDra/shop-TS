@@ -1,8 +1,8 @@
-import { InputField } from "../types/InputField";
-import { BACK_END_URL } from "../constants/api";
+import { InputField } from "../../types/InputField";
+import { BACK_END_URL } from "../../constants/api";
 import validateForm from "./validateForm";
-import { User } from "../types/User";
-import loggedUser from "../api/loggedUser";
+import { User } from "../../types/User";
+import loggedUser from "../../api/loggedUser";
 
 async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();
