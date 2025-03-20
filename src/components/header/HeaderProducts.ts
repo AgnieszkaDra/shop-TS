@@ -2,12 +2,12 @@ import Header from './helpers/Header';
 import { MobileSection } from '../sections/MobileSection';
 import { AccountSection } from '../sections/AccountSection';
 import { Logo } from '../../ui/elements/Logo';
-import { getCSSVariable } from '../../utils/form/getCSSVariable';
+import { getCSSVariable } from '../../utils/getCSSVariable';
 import '../../styles/header.scss';
 
 export const HeaderProducts = async (): Promise<HTMLElement> => {
     const { navMenu, mobileWrapper } = MobileSection();
-    const account = await AccountSection("both");
+    const account = await AccountSection("both", "text");
     const logo = Logo();
 
     const header = Header({

@@ -33,7 +33,7 @@ export const Menu = async (): Promise<HTMLElement> => {
         list.appendChild(listItem);
     });
 
-    const login = await LoginUser();
+    const login = await LoginUser("text");
     login.classList.add('menu__login')
 
     wrapper.appendChild(list);
