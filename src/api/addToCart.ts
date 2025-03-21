@@ -3,7 +3,7 @@ import { CartItem } from "../types/ProductsData";
 
 const CART_URL = `${BACK_END_URL}/cart`;
 
-export async function addToCart(cartItem: CartItem): Promise<CartItem | null> {
+export async function addToCart(cartItem: CartItem): Promise<boolean> {
   try {
     const response = await fetch(CART_URL, {
       method: "POST",
@@ -15,16 +15,10 @@ export async function addToCart(cartItem: CartItem): Promise<CartItem | null> {
       throw new Error("Failed to add product to cart");
     }
 
-    const result = await response.json();
-
-    if (!result) {
-      return null;
-    }
-    return result; 
-    
+    return true; 
   } catch (error) {
     console.error("Error adding product to cart:", error);
-    return null;
+    return false;
   }
 }
 

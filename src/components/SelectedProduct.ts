@@ -66,27 +66,25 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         description.appendChild(button);
 
         button.addEventListener("click", async () => {
-           // czy można to jescze jakoś zrefaktoryzować
-            try {
-                const cartItem = {
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    imageBackground: product.imageBackground,
-                    quantity: 1,
-                  };
-              
-                  const addedProduct = await addToCart(cartItem);
-              
-
-                if (addedProduct) {
-                    alert(`${product.name} został dodany do koszyka!`);
-                } else {
-                    throw new Error('Wystąpił błąd podczas dodawania do koszyka');
-                }
-            } catch (error) {
-                console.error("Error adding product to cart:", error);
+    
+           try {
+            const cartItem = {
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              imageBackground: product.imageBackground,
+              quantity: 1,
+            };
+        
+            const success = await addToCart(cartItem);
+            if (success) {
+              alert(`${product.name} został dodany do koszyka!`);
+            } else {
+              throw new Error("Wystąpił błąd podczas dodawania do koszyka");
             }
+          } catch (error) {
+            console.error("Error adding product to cart:", error);
+          }
         });
 
         container.appendChild(carouselImages);
