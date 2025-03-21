@@ -1,10 +1,10 @@
-import { CarouselImage } from "../types/Carousellmage";
-import Carousel from "../ui/carousel/Carousel";
-import { fetchSelectedProducts } from "../api/selectedProduct"; 
-import addToCart from "../api/addToCart";
-import '../styles/main.scss';
-import createTitle from "../typography/createTitle";
-import createProductPrice from "../ui/product/createProductPrice.ts";
+import Carousel from "../../ui/carousel/Carousel.ts";
+import { fetchSelectedProducts } from "../../api/selectedProduct.ts"; 
+import createTitle from "../../typography/createTitle.ts";
+import createProductPrice from "../../ui/product/createProductPrice.ts.ts";
+import { handleAddToCart } from "./helpers/handleAddToCart.ts";
+import { createCarouselImages } from "../../ui/carousel/helpers/createCarouselImages.ts";
+import '../../styles/main.scss'
 
 export const SelectedProduct = async (productPath: string): Promise<HTMLElement> => {
     try {
@@ -22,18 +22,9 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         const carouselImages = document.createElement('div');
         carouselImages.className = 'selectedProduct__carousel';
 
-        let images: CarouselImage[] = [];
-
-        if (product.imagesCarousel && product.imagesCarousel.length > 0) {
-        
-            const imagesFromProduct: CarouselImage[] = product.imagesCarousel.map((imageBackground: string) => ({
-                imageBackground,
-                name: imageBackground,  
-                path: `/assets/${imageBackground}.jpg` 
-            }));
-
-            images = imagesFromProduct;
-        }
+        const images = product.imagesCarousel?.length
+      ? createCarouselImages(product.imagesCarousel)
+      : [];
 
         const carousel = await Carousel({ images, variant: 'products' });
 
@@ -46,8 +37,6 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         const title = createTitle("h1", titleContent, "selectedProduct__title") 
      
         const price = createProductPrice(product.price)
-
-    
 
         const link = document.createElement("a");
         link.href = `/index.html`;
@@ -65,26 +54,8 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         description.appendChild(price);
         description.appendChild(button);
 
-        button.addEventListener("click", async () => {
-    
-           try {
-            const cartItem = {
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              imageBackground: product.imageBackground,
-              quantity: 1,
-            };
-        
-            const success = await addToCart(cartItem);
-            if (success) {
-              alert(`${product.name} został dodany do koszyka!`);
-            } else {
-              throw new Error("Wystąpił błąd podczas dodawania do koszyka");
-            }
-          } catch (error) {
-            console.error("Error adding product to cart:", error);
-          }
+        button.addEventListener("click",  () => {
+            handleAddToCart(product)
         });
 
         container.appendChild(carouselImages);

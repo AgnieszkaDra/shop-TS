@@ -8,5 +8,5 @@ export { default as Main } from "./Main"
 export { default as Menu } from "./Menu";
 export { default as Products } from "./Products";
 export { default as RegisterForm } from "./RegisterForm";
-export { default as SelectedProduct } from "./SelectedProduct";
+export { default as SelectedProduct } from "./selectedProduct/SelectedProduct";
 export { default as UserAccount } from "./UserAccount";

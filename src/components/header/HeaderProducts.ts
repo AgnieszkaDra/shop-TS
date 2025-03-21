@@ -13,7 +13,7 @@ export const HeaderProducts = async (): Promise<HTMLElement> => {
     const header = Header({
         backgroundColor: getCSSVariable("--color-white"),
         children: [navMenu, mobileWrapper, logo, account],
-        className: 'header-products'
+        className: 'header__products'
     });
 
     return header;
