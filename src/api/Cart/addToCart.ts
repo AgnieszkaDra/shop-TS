@@ -1,5 +1,5 @@
-import { BACK_END_URL } from "../constants/api";
-import { CartItem } from "../types/ProductsData";
+import { BACK_END_URL } from "../../constants/api";
+import { CartItem } from "../../types/ProductsData";
 
 const CART_URL = `${BACK_END_URL}/cart`;
 

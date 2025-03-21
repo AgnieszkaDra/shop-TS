@@ -356,23 +356,33 @@
         "luźny krój",
         "ciepła"
       ]
+    },
+    {
+      "id": "17d8",
+      "productId": 1,
+      "name": "Bluza Ball",
+      "path": "bluzaball",
+      "price": 100,
+      "imageBackground": "ball.1a",
+      "imagesCarousel": [
+        "ball.1a",
+        "ball.1b"
+      ],
+      "collectionType": "Bluzy",
+      "collectionMain": "Dziecko",
+      "features": [
+        "bluza wykonana z bawełny",
+        "luźny krój",
+        "ciepła"
+      ]
     }
   ],
   "cart": [
     {
-      "id": "1acd",
-      "productId": "4e51",
-      "name": "Bluza Rabbit",
-      "price": 90,
-      "imageBackground": "rabbit.1a",
-      "quantity": 1
-    },
-    {
-      "id": "c9ed",
-      "productId": "dd50",
-      "name": "Bluza Rabbit",
-      "price": 90,
-      "imageBackground": "rabbit.1a",
+      "id": "6c5f",
+      "name": "Bluza Ball",
+      "price": 100,
+      "imageBackground": "ball.1a",
       "quantity": 1
     }
   ],

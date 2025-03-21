@@ -1,4 +1,4 @@
-import addToCart from "../../../api/addToCart";
+import addToCart from "../../../api/Cart/addToCart";
 import { Product } from "../../../types/ProductsData";
 
 export async function handleAddToCart(product: Product): Promise<void> {

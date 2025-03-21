@@ -1,5 +1,5 @@
-import { BACK_END_URL } from "../constants/api";
 import productsOfBasket from "../api/productsOfBasket";
+import removeFromCart from "../api/Cart/removeFromCart";
 
 export const Cart = async (): Promise<HTMLElement> => {
     
@@ -36,24 +36,13 @@ export const Cart = async (): Promise<HTMLElement> => {
         button.textContent = 'Dodaj do koszyka';
 
         button.addEventListener("click", async () => {
-            try {
-               
-                const response = await fetch(`${BACK_END_URL}/cart/${product.id}`, {
-                    method: 'DELETE', 
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (response.ok) {
-                    alert(`${product.name} został usunięty z koszyka!`);
-                    listItem.remove(); 
-                } else {
-                    throw new Error('Wystąpił błąd podczas usuwania z koszyka');
-                }
-            } catch (error) {
-                console.error("Error removing product from cart:", error);
-                alert("Wystąpił problem podczas usuwania z koszyka.");
+            
+            const success = await removeFromCart(`${product.id}`);
+            if (success) {
+                alert(`${product.name} został usunięty z koszyka!`);
+                listItem.remove();
+            } else {
+                alert("Wystąpił błąd podczas usuwania z koszyka.");
             }
         });
 
