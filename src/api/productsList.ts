@@ -7,6 +7,7 @@ export async function productsList(): Promise<Product[]> {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data)
     const products: Product[] = data.All
 
     return products;

@@ -83,7 +83,7 @@
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
     "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d",
-    "lastLogin": "2025-03-06T11:17:32.430Z"
+    "lastLogin": "2025-03-23T16:47:30.804Z"
   },
   "selectedProduct": [
     {
@@ -375,6 +375,23 @@
         "luźny krój",
         "ciepła"
       ]
+    },
+    {
+      "id": "4cf1",
+      "productId": 3,
+      "name": "Bluza Skateboard",
+      "path": "bluzaskateboard",
+      "price": 150,
+      "imageBackground": "skateboards.1a",
+      "imagesCarousel": [
+        "skateboards.1a",
+        "skateboards.1b",
+        "skateboards.1c",
+        "skateboards.1d",
+        "skateboards.1e"
+      ],
+      "collectionType": "Bluzy",
+      "collectionMain": "Dziecko"
     }
   ],
   "cart": [
