@@ -7,7 +7,7 @@ import '../../styles/header.scss';
 
 export const HeaderProducts = async (): Promise<HTMLElement> => {
     const { navMenu, mobileWrapper } = MobileSection();
-    const account = await AccountSection("both", "text");
+    const account = await AccountSection("both");
     const logo = Logo();
 
     const header = Header({

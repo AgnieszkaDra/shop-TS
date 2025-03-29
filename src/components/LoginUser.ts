@@ -123,13 +123,15 @@ import loggedUser from "../api/loggedUser";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/header.scss";
 
-export const LoginUser = async (icon?: "text" | "user"): Promise<HTMLElement> => {
+export const LoginUser = async (): Promise<HTMLElement> => {
+
   const userLog = localStorage.getItem("currentUser");
   let userData = userLog ? JSON.parse(userLog) : null;
 
   if (userData) {
     try {
       userData = await loggedUser(userData);
+     
     } catch (error) {
       console.error("Error fetching logged user:", error);
     }
@@ -143,9 +145,9 @@ export const LoginUser = async (icon?: "text" | "user"): Promise<HTMLElement> =>
   loginLink.setAttribute("id", "loginIcon");
   loginLink.href = "/moje-konto";
 
-  if (icon === "text") {
-    loginLink.textContent = userData ? "Moje konto" : "Logowanie";
-  } else if (icon === "user") {
+  if (userData) {
+    loginLink.textContent = "Moje konto"
+  } else{
     const loginIcon = document.createElement("i");
     loginIcon.classList.add("fas", "fa-user");
     loginIcon.style.fontSize = "1em";

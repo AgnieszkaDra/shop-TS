@@ -6,7 +6,7 @@ import '../../styles/header.scss';
 
 export const HeaderMain = async (): Promise<HTMLElement> => {
     const { navMenu, mobileWrapper } = MobileSection();
-    const account = await AccountSection("both", "user");
+    const account = await AccountSection("both");
 
     const header = Header({
         backgroundColor: getCSSVariable("--color-choco"),
