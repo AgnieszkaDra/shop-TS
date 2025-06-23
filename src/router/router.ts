@@ -21,7 +21,7 @@ const routes: Route[] = [
   { path: "/moje-konto/:path", component: () => UserAccount() }, 
   { path: "/category/:category", component: Products },
   { path: "/product/:product", component: SelectedProduct },
-];
+ ];
 
 function matchRoute(path: string): { route: Route, param?: string } | undefined {
   for (const route of routes) {

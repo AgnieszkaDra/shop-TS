@@ -18,14 +18,16 @@ export async function fetchSelectedProducts(): Promise<Product[]> {
 export async function clearSelectedProducts(): Promise<void> {
   try {
     const selectedProducts = await fetchSelectedProducts();
-    console.log(selectedProducts);
+
     if (selectedProducts.length === 0) return;
 
-    const response = await fetch(SELECTED_PRODUCT_URL, { method: "DELETE" });
-
-    if (!response.ok) {
-      throw new Error("Failed to clear selected products");
-    }
+    await Promise.all(
+      selectedProducts.map((product) =>
+        fetch(`${SELECTED_PRODUCT_URL}${product.id}`, {
+          method: "DELETE",
+        })
+      )
+    );
   } catch (error) {
     console.error("Error clearing selected products:", error);
   }
@@ -36,6 +38,7 @@ export async function addSelectedProduct(
   productLink: HTMLAnchorElement
 ): Promise<Product | null> {
   try {
+    await clearSelectedProducts();
     const response = await fetch(SELECTED_PRODUCT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
