@@ -101,7 +101,7 @@
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
     "password": "765a74cc910a76efd27aa1257b5cc02d8cb2fb9a25d7131f4231a676f858617c",
-    "lastLogin": "2026-02-27T15:54:13.626Z"
+    "lastLogin": "2026-02-06T19:11:13.580Z"
   },
   "selectedProduct": [
     {
@@ -159,7 +159,7 @@
   ],
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Bluzy",
       "caption": "Otul swoje dziecko miękkością każdego dnia",
       "description": "BLUZY – komfort w ruchu i zabawie",
@@ -167,7 +167,7 @@
       "imageBackground": "rabbit.1a.jpg"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Komplety",
       "caption": "Gotowe stylizacje bez kompromisów",
       "description": "KOMPLETY – wygoda i harmonia",
@@ -175,7 +175,7 @@
       "imageBackground": "complet.1a.jpg"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Spódnice i sukienki",
       "caption": "Lekkość, która podąża za każdym krokiem",
       "description": "SPÓDNICE I SUKIENKI – swoboda i dziewczęcy urok",
@@ -183,7 +183,7 @@
       "imageBackground": "fairy.1a.jpg"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Spodnie",
       "caption": "Swoboda ruchu od rana do wieczora",
       "description": "SPODNIE – miękkość i funkcjonalność",
@@ -191,7 +191,7 @@
       "imageBackground": "cherry.1a.jpg"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Akcesoria",
       "caption": "Małe detale, które robią różnicę",
       "description": "AKCESORIA – praktyczność i styl",
@@ -536,3 +536,4 @@
     }
   ]
 }
+
