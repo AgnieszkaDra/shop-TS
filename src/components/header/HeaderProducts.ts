@@ -11,7 +11,7 @@ export const HeaderProducts = async (): Promise<HTMLElement> => {
     const logo = Logo();
 
     const header = Header({
-        backgroundColor: getCSSVariable("--color-white"),
+        backgroundColor: getCSSVariable("--color-choco"),
         children: [navMenu, mobileWrapper, logo, account],
         className: 'header__products'
     });

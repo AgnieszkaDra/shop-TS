@@ -1,7 +1,6 @@
 export type Product = {
     id: number; // czy to jest tutaj potrzebne skoro id tworzy json-server
     name: string;
-    path: string,
     imageBackground: string;
     imagesCarousel: string[];
     price: number;
@@ -28,9 +27,13 @@ export type CartItem = {
   export type ProductName = 'bluza-ball'
 
   export type Category = {
+    id?: number;
     collectionType?: string;  
-    name: string;           
-    path: string;         
+    name: string;
+    caption?: string;
+    description?: string;
+    cta: string;
+    imageBackground: string;          
     subCategories?: {      
       categoryName: string;  
       path: string;          

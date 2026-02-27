@@ -19,7 +19,7 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const container = document.createElement("section");
   container.classList.add("section", "products");
 
-  const title = createTitle("h1", category, "products__title");
+  const title = createTitle("h1", category, "products__category h1-subpage");
 
   const link = document.createElement("a");
   link.href = `/index.html`;
@@ -49,17 +49,13 @@ export const Products = async (category: string): Promise<HTMLElement> => {
         listItem.appendChild(itemPhoto);
         listItem.appendChild(resizeIcon);
 
-        const caption = document.createElement("div");
-        caption.style.paddingTop = "1rem";
-
         const titleContent = product.name;
-        const title = createTitle("h3", titleContent, "products__title");
+        const title = createTitle("h5", titleContent, "products__title");
 
         const price = createProductPrice(product.price);
 
-        caption.appendChild(title);
-        caption.appendChild(price);
-        listItem.appendChild(caption);
+        listItem.appendChild(title);
+        listItem.appendChild(price);
 
         productLink.appendChild(listItem);
         productsContainer.appendChild(productLink);

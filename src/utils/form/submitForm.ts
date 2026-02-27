@@ -3,7 +3,6 @@ import { BACK_END_URL } from "../../constants/api";
 import validateForm from "./validateForm";
 import { User } from "../../types/User";
 import loggedUser from "../../api/loggedUser";
-import LoginUser from "../../components/LoginUser";
 
 async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();

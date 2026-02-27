@@ -7,7 +7,7 @@ export const Cart = async (): Promise<HTMLElement> => {
     const container = document.createElement("div");
     container.classList.add("products-container");
     
-    const h1 = document.createElement("h1");
+    const h1 = document.createElement("h1 h1-subpage");
     h1.textContent = "Koszyk";  
     h1.style.textAlign = "center";
     

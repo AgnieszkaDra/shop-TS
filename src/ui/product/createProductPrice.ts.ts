@@ -1,6 +1,6 @@
 const createProductPrice = (price: number): HTMLParagraphElement => {
   const p = document.createElement("p");
-  p.className = "price__container";
+  p.className = "price__container paragraph";
 
   const span = document.createElement("span");
   span.className = "price";

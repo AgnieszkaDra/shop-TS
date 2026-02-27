@@ -1,7 +1,7 @@
 import Carousel from "../../ui/carousel/Carousel.ts";
 import { fetchProductsOfCategory } from "../../api/categoriesList";
 import createTitle from "../../typography/createTitle.ts";
-import createProductPrice from "../../ui/product/createProductPrice.ts.ts";
+import createProductPrice from "../../ui/product/createProductPrice.ts";
 import { handleAddToCart } from "./helpers/handleAddToCart.ts";
 import { createCarouselImages } from "../../ui/carousel/helpers/createCarouselImages.ts";
 import { Collection, Product } from "../../types/ProductsData";
@@ -10,8 +10,7 @@ import '../../styles/main.scss';
 export const SelectedProduct = async (productPath: string): Promise<HTMLElement> => {
     try {
         const productsByCategory: { [key in Collection]: Product[] } = await fetchProductsOfCategory();
-
-        // Flatten all products into one array
+        
         const allProducts = Object.values(productsByCategory).flat();
 
         const product = allProducts.find(p => p.path === productPath);
@@ -21,7 +20,7 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         }
 
         const container = document.createElement('div');
-        container.className = 'selectedProduct__container container';
+        container.className = 'selectedProduct container';
 
         const carouselImages = document.createElement('div');
         carouselImages.className = 'selectedProduct__carousel';
@@ -36,7 +35,7 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         const description = document.createElement('div');
         description.className = 'selectedProduct__description';
 
-        const title = createTitle("h1", product.name, "selectedProduct__title");
+        const title = createTitle("h1", product.name, "selectedProduct__title h1-subpage");
         const price = createProductPrice(product.price);
 
         const link = document.createElement("a");
