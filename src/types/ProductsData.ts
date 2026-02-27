@@ -1,6 +1,7 @@
 export type Product = {
     id: number; // czy to jest tutaj potrzebne skoro id tworzy json-server
     name: string;
+    path?: string;
     imageBackground: string;
     imagesCarousel: string[];
     price: number;

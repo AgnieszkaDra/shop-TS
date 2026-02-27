@@ -14,6 +14,7 @@ export const SelectedProduct = async (productPath: string): Promise<HTMLElement>
         const allProducts = Object.values(productsByCategory).flat();
 
         const product = allProducts.find(p => p.path === productPath);
+        console.log(product)
 
         if (!product) {
             throw new Error("Product not found");

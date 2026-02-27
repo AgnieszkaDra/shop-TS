@@ -101,7 +101,7 @@
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
     "password": "765a74cc910a76efd27aa1257b5cc02d8cb2fb9a25d7131f4231a676f858617c",
-    "lastLogin": "2026-02-06T19:11:13.580Z"
+    "lastLogin": "2026-02-27T16:22:01.875Z"
   },
   "selectedProduct": [
     {
@@ -154,6 +154,13 @@
       "name": "Komplet Bear",
       "price": 100,
       "imageBackground": "cap.1a",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Bluza Rabbit",
+      "price": 90,
+      "imageBackground": "rabbit.1a",
       "quantity": 1
     }
   ],
@@ -536,4 +543,3 @@
     }
   ]
 }
-
