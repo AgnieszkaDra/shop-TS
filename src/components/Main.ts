@@ -9,7 +9,6 @@ export const Main = async (): Promise<HTMLElement> => {
   main.classList.add("main");
 
   const images: CarouselImage[] = await fetchLogoImages();
-  console.log(images)
   const carousel = Carousel({ images, variant: 'main' })
 
   const categories = Categories()

@@ -82,14 +82,26 @@
       "name": "Agnieszka Dragańczyk",
       "email": "agnieszka.127@interia.pl",
       "password": "8e3923723d8b83e7f8c2d00c57c3f00e43c67d7be0bcd9bded3b13c3129ba6f2"
+    },
+    {
+      "id": "9f45",
+      "name": "Agnieszka ",
+      "email": "agnieszka.127@interia.pl",
+      "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d"
+    },
+    {
+      "id": "d7ef",
+      "name": "Agnieszka Draganczyk",
+      "email": "agnieszka.127@interia.pl",
+      "password": "765a74cc910a76efd27aa1257b5cc02d8cb2fb9a25d7131f4231a676f858617c"
     }
   ],
   "loggedUser": {
-    "id": "4291",
+    "id": "d7ef",
     "name": "Agnieszka Draganczyk",
     "email": "agnieszka.127@interia.pl",
-    "password": "ae6a7df7a326a1f5e334e74792f4004b25d1ad603aeaa173334ac544cca0399d",
-    "lastLogin": "2025-03-29T14:07:21.981Z"
+    "password": "765a74cc910a76efd27aa1257b5cc02d8cb2fb9a25d7131f4231a676f858617c",
+    "lastLogin": "2026-02-06T19:11:13.580Z"
   },
   "selectedProduct": [
     {
@@ -112,6 +124,21 @@
       ],
       "collectionType": "Bluzy",
       "collectionMain": "Dziecko"
+    },
+    {
+      "id": "2571",
+      "productId": 10,
+      "name": "Spódnica Hearts",
+      "path": "spodnicahearts",
+      "price": 90,
+      "imageBackground": "hearts.1a",
+      "imagesCarousel": [
+        "hearts.1a",
+        "hearts.1b",
+        "hearts.1c"
+      ],
+      "collectionType": "Spódnice i sukienki",
+      "collectionMain": "Dziecko"
     }
   ],
   "cart": [
@@ -121,6 +148,55 @@
       "price": 100,
       "imageBackground": "ball.1a",
       "quantity": 1
+    },
+    {
+      "id": "19",
+      "name": "Komplet Bear",
+      "price": 100,
+      "imageBackground": "cap.1a",
+      "quantity": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bluzy",
+      "caption": "Otul swoje dziecko miękkością każdego dnia",
+      "description": "BLUZY – komfort w ruchu i zabawie",
+      "cta": "Kliknij i zobacz wszystkie BLUZY",
+      "imageBackground": "rabbit.1a.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Komplety",
+      "caption": "Gotowe stylizacje bez kompromisów",
+      "description": "KOMPLETY – wygoda i harmonia",
+      "cta": "Kliknij i zobacz wszystkie KOMPLETY",
+      "imageBackground": "complet.1a.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Spódnice i sukienki",
+      "caption": "Lekkość, która podąża za każdym krokiem",
+      "description": "SPÓDNICE I SUKIENKI – swoboda i dziewczęcy urok",
+      "cta": "Kliknij i zobacz wszystkie modele",
+      "imageBackground": "fairy.1a.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Spodnie",
+      "caption": "Swoboda ruchu od rana do wieczora",
+      "description": "SPODNIE – miękkość i funkcjonalność",
+      "cta": "Kliknij i zobacz wszystkie SPODNIE",
+      "imageBackground": "cherry.1a.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Akcesoria",
+      "caption": "Małe detale, które robią różnicę",
+      "description": "AKCESORIA – praktyczność i styl",
+      "cta": "Kliknij i zobacz wszystkie AKCESORIA",
+      "imageBackground": "cap.1b.jpg"
     }
   ],
   "products": {
@@ -460,3 +536,4 @@
     }
   ]
 }
+

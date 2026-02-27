@@ -13,7 +13,7 @@ async function renderApp() {
 }
 
 function initApp() {
- renderApp();
+  renderApp();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);

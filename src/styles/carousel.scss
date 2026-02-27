@@ -3,7 +3,7 @@
 .carousel {
     display: none;
     
-    @include respond(tablet) {
+    @include respond(lg) {
         position: relative;
         max-width: 100%;
         height: 100vh;
@@ -45,6 +45,19 @@
 
         }
     }
+    &--products {
+        position: relative;
+        max-width: 100%;
+        height: 50vh;
+        @include respond(md) {
+            height: 70vh;
+        }
+        @include flexAbsoluteCenter; 
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+
 }
 
 .link {

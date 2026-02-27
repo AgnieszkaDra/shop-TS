@@ -25,7 +25,7 @@ export const LoginForm = (inputs: InputField[]): HTMLElement => {
   wrapperForm.className = 'form__wrapper'
  
   const form = createWrapperForForm('login')
-  const formTitle = document.createElement('h2')
+  const formTitle = document.createElement('h2 h2-subpage')
   formTitle.className = 'form__title'
   formTitle.textContent = 'Logowanie'
   

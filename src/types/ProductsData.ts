@@ -28,8 +28,13 @@ export type CartItem = {
   export type ProductName = 'bluza-ball'
 
   export type Category = {
+    id?: number;
     collectionType?: string;  
-    name: string;           
+    name: string;
+    caption?: string;
+    description?: string;
+    cta: string;
+    imageBackground: string;          
     path: string;         
     subCategories?: {      
       categoryName: string;  

@@ -1,15 +1,11 @@
 import { Product } from "../../types/ProductsData";
 
 const createProductImage = (product: Product) => {
-    const itemPhoto = document.createElement("img");
-    itemPhoto.className = "product__photo";
-    itemPhoto.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
+    const figure = document.createElement("figure");
+    figure.className = "product__figure";
+    figure.style.backgroundImage = `url('/assets/${product.imageBackground}.jpg')`;
 
-    const itemPhotoWrapper = document.createElement("figure");
-    itemPhotoWrapper.className = "product__figure";
-    itemPhotoWrapper.appendChild(itemPhoto);
+    return figure;
+};
 
-    return itemPhotoWrapper;
-  };
-
-export default createProductImage
+export default createProductImage;

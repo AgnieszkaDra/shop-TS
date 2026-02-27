@@ -1,63 +1,40 @@
 @use './abstracts/index' as *;
 
 .categories {
-  display: grid;
-  grid-gap: max(30px);
-  margin: 50px;
-  color: $color-darkgrey;
-  grid-template-columns: 1fr;
   
-  @include respond(tablet) {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 20px;
-  }
-  
-  @include respond(desktop) {
-    grid-template-columns: repeat(3, 1fr);
-    margin: 20px;
+  @include respond(lg) {
+   padding-top: 36px;
+   padding-bottom: 36px;
   }
 
   &__description {
     width: 100%;
     height: 100%;
-    color: $color-smokeWhite;
+    color: $color-navy;
     display: grid;
     grid-template-rows: auto;
+    overflow: hidden;
+    box-sizing: border-box
   }
 
   &__title {
-    text-align: center;
-    background-color: $color-chocoLighten;
-    color: $color-navy;
     text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  &__link {
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
-    padding: 10%;
-    cursor: pointer;
-    color: $color-smokeWhite;
-
-    &:hover {
-      transform: scale(1.02);
-    }
   }
 
   &__item {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-   
-    &:hover {
-      transform: scale(1.02);
-    }
+    height: 100%;
+    position: relative;
   }
 
   &__arrow {
     margin-left: 20px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -65,33 +42,43 @@
   margin: 50px;
   color: $color-lightGrey;
 
-  @include respond(tablet) {
-    margin: 20px;
-  }
-  
-  &__title {
+  &__category {
     text-align: center;
     color: $color-navy;
     text-transform: uppercase;
     font-weight: bold;
   }
 
+  @include respond(md) {
+    margin: 20px;
+  }
+  
+  &__title {
+    text-align: start;
+    color: $color-navy;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 1rem;
+  }
+
   &__link {
     color: $color-navy;
     margin: 10px 0;
+    
   }
 
   &__list {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
     grid-gap: 30px;
     
-    @include respond(tablet) {
+    @include respond(md) {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @include respond(desktop) {
+    @include respond(lg) {
       grid-template-columns: repeat(4, 1fr);
     }
   
@@ -108,9 +95,14 @@
 }
 
 .product {
-  height: 400px;
-  display: grid;
-  grid-template-rows: 320px 40px 40px;
+
+  &__figure {
+    min-height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: block;
+  }
  
   &:hover {
     transform: scale(1.02);
@@ -121,11 +113,6 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
-  }
-
-  &__photo {
-    background-size: cover;
-    background-position: center;
   }
 
   &__details {
@@ -164,18 +151,11 @@
 }
 
 .selectedProduct {
-  &__container {
-    height: 400px;
-    width: 80%;
-    position: relative;
-    opacity: 1;
-    margin: 50px;
-    @include flexAbsoluteCenter();
-    flex-direction: column;
-    @include respond(tablet) {
-      margin: 20px;
-      flex-direction: row;
-    }
+  @include flexAbsoluteCenter();
+  flex-direction: column;
+  @include respond(md){
+    flex-direction: row;
+    height: 100vh;
   }
   &__image {
     width: 100%;
@@ -190,7 +170,10 @@
   &__description {
     position: relative;
     padding: 30px 45px 45px;
-    width: 50%;
+    width: 100%;
+    @include respond(md){
+      width: 50%;
+    }
     font-size: 18px;
   }
   &__price {
@@ -209,15 +192,6 @@
 }
 
 .container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
- 
   &__login, &__register {
     display: none;
     &.block {
@@ -237,10 +211,8 @@
   &__forms {
     border: 2px solid $color-veryLightGrey;;
     height: 70vh;
-    //width: 50%;
-
+   
     @media(min-width: 576px) {
-     //width: 420px;
       margin: 0 auto;
       padding: 40px;
       border-radius: 3px;
@@ -248,7 +220,6 @@
   
       
     @media(min-width: 576px) {
-     // max-width: 540px;
       padding-right: 15px;
       padding-left: 15px;
     }
@@ -413,14 +384,11 @@
 }
 
 .selectedProduct {
-  &__container {
-    display: flex;
-    justify-content: center;
-    @include respond(tablet) {
-      flex-direction: row;
-    }
-  }
+  
   &__carousel {
-    width: 80%;
+    width: 100%;
+    @include respond(md) {
+      width: 50%;
+  }
   }
 }

@@ -11,7 +11,7 @@ interface CarouselProps {
 }
 
 export const Carousel = async ({ images, variant }: CarouselProps): Promise<HTMLElement> => {
-  console.log(images)
+  
   const carousel = createCarouselElement();
   const { prevBtnWrapper, nextBtnWrapper } = CarouselButtons();
 
@@ -22,6 +22,7 @@ export const Carousel = async ({ images, variant }: CarouselProps): Promise<HTML
   const linkCarousel = linkWrapper.querySelector('.link__carousel') as HTMLAnchorElement;
 
   if (variant === 'main') carousel.appendChild(linkWrapper);
+  if (variant === 'products') carousel.classList.add('carousel--products');
 
   carousel.append(prevBtnWrapper, nextBtnWrapper);
 

@@ -15,7 +15,7 @@ const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
     backHomeLink.className = 'container__link-home';
     backHomeLink.href = `/index.html`;
 
-    const backHome = document.createElement('h3');
+    const backHome = document.createElement('h3 h3-title');
     backHome.innerText = 'Strona główna';
     backHomeLink.appendChild(backHome);
 
@@ -32,7 +32,7 @@ const LoginWrapper = async (type = ''): Promise<HTMLElement> => {
     backHomeLink.className = 'container__link-home';
     backHomeLink.href = `/index.html`;
 
-    const backHome = document.createElement('h3');
+    const backHome = document.createElement('h3 h3-title');
     backHome.innerText = 'Strona główna';
     backHomeLink.appendChild(backHome);
 
