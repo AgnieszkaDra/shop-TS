@@ -34,6 +34,10 @@
   --buttons-border-width: 1px;
 }
 
+html {
+  font-size: calc(var(--font-body-scale) * 62.5%);
+}
+
 body{
   font-family: 'Assistant', sans-serif;
   overflow-x: hidden;
@@ -119,17 +123,19 @@ h5, .h5 {
   }
 }
 
-.caption-with-letter-spacing--medium {
-  font-size: 1.2rem;
-  letter-spacing: .16rem;
-}
-
 .caption-with-letter-spacing {
   font-size: 1rem;
   letter-spacing: .13rem;
   line-height: calc(1 + .2 / var(--font-body-scale));
   text-transform: uppercase;
 }
+
+.caption-with-letter-spacing--medium {
+  font-size: 1.2rem;
+  letter-spacing: .16rem;
+}
+
+
 
 .image-with-text__content {
   padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
