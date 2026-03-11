@@ -38,22 +38,26 @@ $viewport-xl: 90rem;
 
 @mixin respond($breakpoints...) {
   @each $breakpoint in $breakpoints {
+
+    // MIN WIDTH
     @if $breakpoint == sm {
-      @media (min-width: $viewport-sm) {
-        @content;
-      }
+      @media (min-width: $viewport-sm) { @content; }
     } @else if $breakpoint == md {
-      @media (min-width: $viewport-md) {
-        @content;
-      }
+      @media (min-width: $viewport-md) { @content; }
     } @else if $breakpoint == lg {
-      @media (min-width: $viewport-lg) {
-        @content;
-      }
+      @media (min-width: $viewport-lg) { @content; }
     } @else if $breakpoint == xl {
-      @media (min-width: $viewport-xl) {
-        @content;
-      }
+      @media (min-width: $viewport-xl) { @content; }
+
+    // MAX WIDTH
+    } @else if $breakpoint == sm-down {
+      @media (max-width: $viewport-sm) { @content; }
+    } @else if $breakpoint == md-down {
+      @media (max-width: $viewport-md) { @content; }
+    } @else if $breakpoint == lg-down {
+      @media (max-width: $viewport-lg) { @content; }
+    } @else if $breakpoint == xl-down {
+      @media (max-width: $viewport-xl) { @content; }
     }
   }
 }

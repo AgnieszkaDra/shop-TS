@@ -120,10 +120,10 @@ export const Categories = async (): Promise<HTMLElement> => {
 
     categories.forEach((category) => {
       const listItem = document.createElement('li');
-      listItem.classList.add('categories__item', 'grid', 'grid--2-col-tablet', 'image-with-text__media--medium');
+      listItem.classList.add('categories__item', 'image-with-text__grid', 'grid', 'grid--gapless','grid--1--col', 'grid--2-col-tablet', 'multirow-inner', 'image-with-text__media--medium');
       
       const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('categories__image-wrapper', 'categories__item', 'grid__item');
+      imageWrapper.classList.add('categories__image-wrapper', 'categories__item', 'grid__item',  'image-with-text__media');
       const image = document.createElement('img');
       image.src = `/assets/${category.imageBackground}`;
       image.alt = category.name;
