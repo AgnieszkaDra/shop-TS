@@ -113,17 +113,23 @@ export const Categories = async (): Promise<HTMLElement> => {
       'categories__list',
       'multirow-inner',
       'page-width',
-      'grid--2-col-tablet'
     );
 
     const fragment = document.createDocumentFragment();
 
     categories.forEach((category) => {
       const listItem = document.createElement('li');
-      listItem.classList.add('categories__item', 'image-with-text__grid', 'grid', 'grid--gapless','grid--1--col', 'grid--2-col-tablet', 'multirow-inner', 'image-with-text__media--medium');
+      listItem.classList.add(
+        'categories__item', 
+        'image-with-text__grid', 
+        'grid', 
+        'grid--gapless',
+        'grid--1--col', 
+        'grid--2-col-tablet', 
+      );
       
       const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('categories__image-wrapper', 'categories__item', 'grid__item',  'image-with-text__media');
+      imageWrapper.classList.add('categories__image-wrapper', 'categories__item', 'grid__item', 'image-with-text__media', 'image-with-text__media--medium' );
       const image = document.createElement('img');
       image.src = `/assets/${category.imageBackground}`;
       image.alt = category.name;

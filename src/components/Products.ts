@@ -2,7 +2,6 @@ import HeaderProducts from "./header/HeaderProducts.ts";
 import { fetchProductsOfCategory } from "../api/categoriesList";
 import { Collection, Product } from "../types/ProductsData";
 import { navigate } from "../router/router";
-import createProductLink from "../ui/product/createProductLink";
 import createProductImage from "../ui/product/createProductImage";
 import ResizeIcon from "../ui/elements/ResizeIcon.ts";
 import createTitle from "../typography/createTitle";
@@ -17,19 +16,24 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   const products: { [key in Collection]: Product[] } = await fetchProductsOfCategory();
 
   const container = document.createElement("section");
-  container.classList.add("section", "products");
+  container.classList.add("product", "section-padding");
 
-  const title = createTitle("h1", category, "products__category h1-subpage");
+  const title = createTitle("h1", category, "product-list__category-title h1");
 
   const link = document.createElement("a");
   link.href = `/index.html`;
-  const h5 = document.createElement("h5");
-  h5.className = "products__link";
-  h5.textContent = `Strona główna / ${category}`;
-  link.appendChild(h5);
+  const h2 = document.createElement("h2");
+  h2.className = "breadcrumb-link facets-heading";
+  h2.textContent = `Strona główna / ${category}`;
+  link.appendChild(h2);
 
   const productsContainer = document.createElement("ul");
-  productsContainer.classList.add("products__list");
+  productsContainer.classList.add(
+    "product-list",
+    "grid",
+    "grid--2-col-tablet-down",
+    "grid--4-col-desktop"
+  );
 
   container.appendChild(title);
   container.appendChild(link);
@@ -38,38 +42,42 @@ export const Products = async (category: string): Promise<HTMLElement> => {
   Object.entries(products).forEach(([collectionType, productsArray]) => {
     if (collectionType.toLowerCase() === category.toLowerCase()) {
       productsArray.forEach((product) => {
-        const productLink = createProductLink(product);
-
-        const listItem = document.createElement("li");
-        listItem.className = "product products__item";
+        const productCard = document.createElement("div");
+        productCard.classList.add("grid__item", "product-card");
 
         const itemPhoto = createProductImage(product);
         const resizeIcon = ResizeIcon();
+        productCard.appendChild(itemPhoto);
+        productCard.appendChild(resizeIcon);
 
-        listItem.appendChild(itemPhoto);
-        listItem.appendChild(resizeIcon);
+        const cardInformation = document.createElement("div");
+        cardInformation.classList.add("product-card__info");
 
-        const titleContent = product.name;
-        const title = createTitle("h5", titleContent, "products__title");
+        const titleElement = createTitle("h3", product.name, "product-card__title");
+        cardInformation.appendChild(titleElement);
 
         const price = createProductPrice(product.price);
+        cardInformation.appendChild(price);
 
-        listItem.appendChild(title);
-        listItem.appendChild(price);
+        productCard.appendChild(cardInformation);
 
-        productLink.appendChild(listItem);
-        productsContainer.appendChild(productLink);
+        const openMore = document.createElement("button");
+        openMore.className = "product-card__button";
+        openMore.textContent = "Zobacz więcej";
+        openMore.dataset.path = `/product/${product.path}`;
 
-        productLink.addEventListener("click", (event) => {
+        openMore.addEventListener("click", (event) => {
           event.preventDefault();
-
-          const path = productLink.getAttribute("href") || productLink.href;
+          const path = openMore.dataset.path;
           if (path) {
-            navigate(`/product${path}`);
+            navigate(path);
           } else {
-            console.warn("No href found on productLink");
+            console.warn("No path found for this button");
           }
         });
+
+        productCard.appendChild(openMore);
+        productsContainer.appendChild(productCard);
       });
     }
   });
@@ -78,6 +86,5 @@ export const Products = async (category: string): Promise<HTMLElement> => {
 };
 
 export default Products;
-
 
 

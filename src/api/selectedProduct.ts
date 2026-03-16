@@ -1,3 +1,76 @@
+// import { Product } from "../types/ProductsData";
+// import { BACK_END_URL } from "../constants/api";
+// import { navigate } from "../router/router";
+
+// const SELECTED_PRODUCT_URL = `${BACK_END_URL}/selectedProduct/`;
+
+// export async function fetchSelectedProducts(): Promise<Product[]> {
+//   try {
+//     const response = await fetch(SELECTED_PRODUCT_URL);
+//     if (!response.ok) throw new Error("Failed to fetch selected products");
+//     return await response.json();
+//   } catch (error) {
+//     console.error("Error fetching selected products:", error);
+//     return [];
+//   }
+// }
+
+// export async function clearSelectedProducts(): Promise<void> {
+//   try {
+//     const selectedProducts = await fetchSelectedProducts();
+
+//     if (selectedProducts.length === 0) return;
+
+//     await Promise.all(
+//       selectedProducts.map((product) =>
+//         fetch(`${SELECTED_PRODUCT_URL}${product.id}`, {
+//           method: "DELETE",
+//         })
+//       )
+//     );
+//   } catch (error) {
+//     console.error("Error clearing selected products:", error);
+//   }
+// }
+
+// export async function addSelectedProduct(
+//   selectedProduct: Omit<Product, "id">,
+//   productLink: HTMLAnchorElement
+// ): Promise<Product | null> {
+//   try {
+//     await clearSelectedProducts();
+//     const response = await fetch(SELECTED_PRODUCT_URL, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(selectedProduct),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error("Failed to add selected product");
+//     }
+
+//     const result = await response.json();
+
+//     if (!result) {
+//       return null;
+//     }
+
+//     let path = productLink.getAttribute("href") || productLink.href;
+//     if (path) {
+//       navigate(`/product${path}`);
+//     } else {
+//       console.warn("No href found on productLink");
+//     }
+//     return result;
+//   } catch (error) {
+//     console.error("Error adding product to cart:", error);
+//     alert("Wystąpił problem podczas dodawania do koszyka.");
+//     return null;
+//   }
+// }
+
+// export default fetchSelectedProducts;
+
 import { Product } from "../types/ProductsData";
 import { BACK_END_URL } from "../constants/api";
 import { navigate } from "../router/router";
@@ -23,9 +96,7 @@ export async function clearSelectedProducts(): Promise<void> {
 
     await Promise.all(
       selectedProducts.map((product) =>
-        fetch(`${SELECTED_PRODUCT_URL}${product.id}`, {
-          method: "DELETE",
-        })
+        fetch(`${SELECTED_PRODUCT_URL}${product.id}`, { method: "DELETE" })
       )
     );
   } catch (error) {
@@ -33,34 +104,37 @@ export async function clearSelectedProducts(): Promise<void> {
   }
 }
 
-export async function addSelectedProduct(
+/**
+ * Adds a selected product and navigates to its page.
+ * Works with a <button> instead of <a>.
+ */
+export async function addSelectedProductButton(
   selectedProduct: Omit<Product, "id">,
-  productLink: HTMLAnchorElement
+  productButton: HTMLButtonElement,
+  productPath: string // pass the path for navigation
 ): Promise<Product | null> {
   try {
     await clearSelectedProducts();
+
     const response = await fetch(SELECTED_PRODUCT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedProduct),
     });
 
-    if (!response.ok) {
-      throw new Error("Failed to add selected product");
-    }
+    if (!response.ok) throw new Error("Failed to add selected product");
 
     const result = await response.json();
+    if (!result) return null;
 
-    if (!result) {
-      return null;
-    }
-
-    let path = productLink.getAttribute("href") || productLink.href;
+    // Use data-path or parameter for navigation
+    const path = productButton.dataset.path || productPath;
     if (path) {
-      navigate(`/product${path}`);
+      navigate(path.startsWith("/") ? path : `/${path}`);
     } else {
-      console.warn("No href found on productLink");
+      console.warn("No path found for selected product");
     }
+
     return result;
   } catch (error) {
     console.error("Error adding product to cart:", error);
@@ -68,5 +142,3 @@ export async function addSelectedProduct(
     return null;
   }
 }
-
-export default fetchSelectedProducts;
