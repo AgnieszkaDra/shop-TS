@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "json-server": "^1.0.0-beta.15",
     "lucide": "^0.475.0",
     "lucide-react": "^0.475.0",
     "sass": "^1.85.0"
